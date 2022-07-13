@@ -1,0 +1,22 @@
+{
+  "name": "projeto-integrador",
+  "version": "1.0.0",
+  "description": "Projeto Integrador Digital House",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StellaCorreiaF/Pet-Life.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StellaCorreiaF/Pet-Life/issues"
+  },
+  "homepage": "https://github.com/StellaCorreiaF/Pet-Life#readme",
+  "dependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
