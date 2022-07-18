@@ -13,6 +13,7 @@ class App {
     this.routes();
   }
 
+//trabalhando em formato json
   middlewares() {
     this.server.use(express.json())
   }
