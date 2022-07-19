@@ -8,7 +8,7 @@ routes.get('/pets', controller.index)
 //ROTAS TUTORES
 
 //ROTAS VETERINARIOS
-
+routes.post('veterinarioS', vetController.create)
 
 module.exports = routes;  
 
