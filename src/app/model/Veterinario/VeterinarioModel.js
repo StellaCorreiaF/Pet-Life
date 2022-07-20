@@ -1,4 +1,4 @@
-function veterinarioModel(id, nome, crmv, telefone, email, senha) {
+function VeterinarioModel(id, nome, crmv, telefone, email, senha) {
   this.id = id;
   this.nome = nome;
   this.crmv = crmv;
@@ -7,4 +7,4 @@ function veterinarioModel(id, nome, crmv, telefone, email, senha) {
   this.senha = senha;
 }
 
-module.exports = veterinarioModel;
+module.exports = VeterinarioModel;

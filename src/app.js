@@ -1,6 +1,5 @@
-
-const express = require('express');
-const routes = require('./routes');
+const express = require("express");
+const routes = require("./routes");
 //const multer = require('multer')
 //const multerConfig = require('./config/multer')
 
@@ -13,13 +12,13 @@ class App {
     this.routes();
   }
 
-//trabalhando em formato json
+  //trabalhando em formato json
   middlewares() {
-    this.server.use(express.json())
+    this.server.use(express.json());
   }
 
   routes() {
-    this.server.use(routes)
+    this.server.use(routes);
   }
 }
 
