@@ -1,4 +1,4 @@
-const PetModel = require('../model/Pet');
+const PetModel = require('../../model/Pet');
 const { v4 } = require('uuid')
 
 const CreatePetService = {
@@ -20,9 +20,14 @@ const CreatePetService = {
             endereco
         )
 
-        return newPet; 
+        
+        return {
+            sucess: true,
+            message:newPet
+           } 
+      },
     }
 
-}
+
 
 module.exports = CreatePetService;
