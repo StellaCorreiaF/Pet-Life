@@ -1,4 +1,4 @@
-//const ListTreinadorService = require("./ListTreinadorService")
+const ListPetService = require("./ListPetService")
 
 
 const UpdatePetService = {
@@ -11,7 +11,7 @@ const UpdatePetService = {
         idade,
         endereco
     ) => {
-        const pets = ListPetService.listPetService()
+        const pets = ListPetService.listPetServ()
         
         const petIndice = pets.findIndex(item => item.id === Number(id))
         
