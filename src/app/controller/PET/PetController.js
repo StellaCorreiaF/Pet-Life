@@ -1,7 +1,27 @@
-const CreatePetService = require('../../service/PET/CreatePetService')
-const UpdatePetService = require ('../../service/PET/UpdatePetService')
+const CreatePetService = require('../../service/PET/CreatePetService');
+const DeletePetService = require('../../service/PET/DeletePetService');
+const ListPetService = require('../../service/PET/ListPetService');
+const UpdatePetService = require ('../../service/PET/UpdatePetService') 
 
-const controllerPET = {
+
+const controllerPET = {  
+    index: (request, response) => { 
+      const listPet = ListPetService.listPetServ(); 
+      response.json(listPet) 
+
+    }, 
+    
+    listData: (request, response) =>{ 
+      const {name} = request.body;  
+
+      if (!name) { 
+        return response.status(400).json({"erro":'Nome do Pet não informado'})
+    } 
+
+    const pet =ListPetService.listPetServ(name); 
+    return response.json(pet)
+
+    },
 
     create: (request, response) => {
       const { 
@@ -57,7 +77,13 @@ const controllerPET = {
       }
   
       return response.status(200).json(updatedPet.message)     
-    },
+    }, 
+
+    delete: (request, response) => {
+      const {id} = request.params 
+      const result = DeletePetService.delete(id) 
+      response.send(result)
+    }
   
   
   };
