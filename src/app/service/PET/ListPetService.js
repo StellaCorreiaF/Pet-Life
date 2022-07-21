@@ -1,4 +1,4 @@
-const petModel = require('../model/Pet') 
+const petModel = require('../../model/Pet') 
 
 const ListPetService = { 
     listPetServ:() => { 
