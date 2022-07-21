@@ -1,14 +1,13 @@
-const Router = require("express"); 
-const controller = require('./app/controller/PetController');
-const vetController = require('./app/controller/VetController'); 
+const Router = require("express");
+const controller = require("./app/controller/PetController");
+const vetController = require("./app/controller/VetController");
 
-const routes = new Router(); 
+const routes = new Router();
 
-routes.get('/pets', controller.index) 
-
+routes.get("/pets", controller.index);
 
 // ROTAS VET
-routes.post('/vets', vetController.create)
-module.exports = routes;  
+routes.get("/vets", vetController.listAll);
+routes.post("/vets", vetController.create);
 
-
+module.exports = routes;
