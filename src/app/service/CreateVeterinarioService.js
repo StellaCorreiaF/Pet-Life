@@ -1,4 +1,4 @@
-const veterinarioModel = require('../../app/model/VeterinarioModel'); 
+const veterinario = require('../../app/model/VeterinarioModel'); 
 const { v4 } = require('uuid')
 const { create } = require('yup/lib/Reference');
 
@@ -10,7 +10,7 @@ const createVeterinarioService = {
         email, 
         senha
     ) => {
-        const newVeterinario = new veterinarioModel(
+        const newVeterinario = new veterinario(
             v4(),
             nome, 
             crmv, 
