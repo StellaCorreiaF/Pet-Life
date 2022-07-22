@@ -6,19 +6,21 @@ const UpdatePetService = require ('../../service/PET/UpdatePetService')
 
 const controllerPET = {  
     index: (request, response) => { 
-      const listPet = ListPetService.listPetServ(); 
+      const listPet = ListPetService.listPetServ()
       response.json(listPet) 
 
     }, 
     
     listData: (request, response) =>{ 
-      const {name} = request.body;  
+      const { nome } = request.query;  
 
-      if (!name) { 
+      if (!nome) { 
         return response.status(400).json({"erro":'Nome do Pet não informado'})
-    } 
+    }  
 
-    const pet =ListPetService.listPetServ(name); 
+    
+
+    const pet = ListPetService.listPetData(nome); 
     return response.json(pet)
 
     },

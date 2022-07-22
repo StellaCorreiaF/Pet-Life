@@ -26,9 +26,11 @@ const ListPetService = {
     },  
 
     listPetData: (petName) => { 
-        petList = ListPetService.listPetServ(); 
-        const pet = petList.find(item => item.name === petName); 
-        return pet
+        const petList = ListPetService.listPetServ(); 
+        const pet1 = petList.find(item => item.nome === petName);  
+        //const pet1 = petList.find(item => console.log(item));
+        //console.log(pet1); 
+        return pet1
 
 
     }
