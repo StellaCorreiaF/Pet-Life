@@ -2,6 +2,7 @@ const { response, request } = require("express");
 const ListVeterinariosService = require("../service/ListVeterinarioService");
 const createVeterinarioService = require("../service/CreateVeterinarioService");
 const UpdateVeterinarioService = require("../service/UpdateVeterinarioService");
+const deleteVeterinarioService = require('../service/DeleteVeterinarioService'); 
 
 const vetController = {
   listAll: (request, response) => {
@@ -42,5 +43,13 @@ const vetController = {
 
     return response.status(200).json(updateVeterinario.message);
   },
-};
+
+  delete: (request, response) => {
+    const { id } = request.params
+
+    const result = deleteVeterinarioService.delete(id)
+
+    response.send(result)
+  }
+}
 module.exports = vetController;

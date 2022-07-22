@@ -10,5 +10,6 @@ routes.get("/pets", controller.index);
 routes.get("/vets", vetController.listAll);
 routes.post("/vets", vetController.create);
 routes.put("/vets/:id", vetController.update);
+routes.delete("/vets/:id", vetController.delete); 
 
 module.exports = routes;
