@@ -1,4 +1,4 @@
-const VeterinarioModel = require("../model/VeterinarioModel");
+const VeterinarioModel = require('../../model/VeterinarioModel');
 
 const ListVeterinariosService = {
   listAll: () => {

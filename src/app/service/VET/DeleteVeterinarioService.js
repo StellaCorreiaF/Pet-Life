@@ -1,4 +1,4 @@
-const listVet = require('../service/ListVeterinarioService')
+const listVet = require('../../service/VET/ListVeterinarioService'); 
 
 const deleteVeterinarioService = {
     delete: (id) => {

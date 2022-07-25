@@ -1,4 +1,4 @@
-const ListVeterinarioService = require("./ListVeterinarioService");
+const ListVeterinarioService = require('../../service/VET/ListVeterinarioService'); 
 
 const UpdateVeterinarioService = {
   update: (id, nome, crmv, telefone, email, senha) => {

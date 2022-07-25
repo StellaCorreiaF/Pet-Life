@@ -1,7 +1,7 @@
 
 const Router = require("express"); 
 const controllerPET = require('./app/controller/PET/PetController'); 
-const vetController = require("./app/controller/VetController");
+const vetController = require("./app/controller/VET/VetController");
 const routes = new Router();
 
 
