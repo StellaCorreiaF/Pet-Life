@@ -1,5 +1,5 @@
 // const { response } = require('../../app');
-const petModel = require ('../model/petModel')
+const petModel = require ('../model/Pet')
 
 //Mocando enquanto o banco de dados não está pronto
 const controller = { 
