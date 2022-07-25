@@ -1,9 +1,12 @@
+
 const Router = require("express"); 
 //const controller = require('./app/controller/PetController') 
 
 const controllerPET = require('./app/controller/PET/PetController')
 
-const routes = new Router(); 
+
+const routes = new Router();
+
 
 
 // ROTAS PETS
@@ -22,3 +25,10 @@ routes.delete('/pets/:id', controllerPET.delete)
 module.exports = routes;  
 
 
+// ROTAS VET
+routes.get("/vets", vetController.listAll);
+routes.post("/vets", vetController.create);
+routes.put("/vets/:id", vetController.update);
+routes.delete("/vets/:id", vetController.delete); 
+
+module.exports = routes;
