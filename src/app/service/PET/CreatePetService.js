@@ -1,4 +1,4 @@
-const PetModel = require('../../model/Pet');
+const petModel = require('../../model/Pet');
 const { v4 } = require('uuid')
 
 const CreatePetService = {
@@ -10,7 +10,7 @@ const CreatePetService = {
         idade,
         endereco
     ) => {
-        const newPet = new PetModel(
+        const newPet = new petModel(
             v4(),
             name,
             peso,
