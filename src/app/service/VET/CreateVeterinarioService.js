@@ -1,24 +1,28 @@
-const veterinario = require('../../model/VeterinarioModel'); 
-const { v4 } = require('uuid')
-const { create } = require('yup/lib/Reference');
+const veterinario = require("../../model/VeterinarioModel");
+const { v4 } = require("uuid");
+const { create } = require("yup/lib/Reference");
 
 const createVeterinarioService = {
-    createVeterinario: (
-        nome, 
-        crmv, 
-        telefone, 
-        email, 
-        senha
-    ) => {
-        const newVeterinario = new veterinario(
-            v4(),
-            nome, 
-            crmv, 
-            telefone,
-            email,
-            senha
-        );
-        return newVeterinario;
-    }
-}
+  createVeterinario: (
+    nome,
+    telefone,
+    email,
+    login,
+    senha,
+    crmv,
+    especialidade
+  ) => {
+    const newVeterinario = new veterinario(
+      v4(),
+      nome,
+      telefone,
+      email,
+      login,
+      senha,
+      crmv,
+      especialidade
+    );
+    return newVeterinario;
+  },
+};
 module.exports = createVeterinarioService;

@@ -1,8 +1,8 @@
 const { response, request } = require("express");
-const ListVeterinariosService = require('../../service/VET/ListVeterinarioService');
-const createVeterinarioService = require('../../service/VET/CreateVeterinarioService');
-const UpdateVeterinarioService = require('../../service/VET/UpdateVeterinarioService');
-const deleteVeterinarioService = require('../../service/VET/DeleteVeterinarioService'); 
+const ListVeterinariosService = require("../../service/VET/ListVeterinarioService");
+const createVeterinarioService = require("../../service/VET/CreateVeterinarioService");
+const UpdateVeterinarioService = require("../../service/VET/UpdateVeterinarioService");
+const deleteVeterinarioService = require("../../service/VET/DeleteVeterinarioService");
 
 const vetController = {
   listAll: (request, response) => {
@@ -12,29 +12,35 @@ const vetController = {
   },
 
   create: (request, response) => {
-    const { nome, crmv, telefone, email, senha } = request.body;
+    const { nome, telefone, email, login, senha, crmv, especialidade } =
+      request.body;
 
     const veterinario = createVeterinarioService.createVeterinario(
       nome,
-      crmv,
       telefone,
       email,
-      senha
+      login,
+      senha,
+      crmv,
+      especialidade
     );
     return response.json(veterinario);
   },
 
   update: (request, response) => {
     const { id } = request.params;
-    const { nome, crmv, telefone, email, senha } = request.body;
+    const { nome, telefone, email, login, senha, crmv, especialidade } =
+      request.body;
 
     const updateVeterinario = UpdateVeterinarioService.update(
       id,
       nome,
-      crmv,
       telefone,
       email,
-      senha
+      login,
+      senha,
+      crmv,
+      especialidade
     );
 
     if (!updateVeterinario.sucess) {
@@ -45,11 +51,11 @@ const vetController = {
   },
 
   delete: (request, response) => {
-    const { id } = request.params
+    const { id } = request.params;
 
-    const result = deleteVeterinarioService.delete(id)
+    const result = deleteVeterinarioService.delete(id);
 
-    response.send(result)
-  }
-}
+    response.send(result);
+  },
+};
 module.exports = vetController;
