@@ -1,8 +1,8 @@
 const { response, request } = require("express");
-const ListVeterinariosService = require("../../service/VET/ListVeterinarioService");
-const createVeterinarioService = require("../../service/VET/CreateVeterinarioService");
-const UpdateVeterinarioService = require("../../service/VET/UpdateVeterinarioService");
-const deleteVeterinarioService = require("../../service/VET/DeleteVeterinarioService");
+import ListVeterinariosService from "../../service/VET/ListVeterinarioService";
+import createVeterinarioService from "../../service/VET/CreateVeterinarioService";
+import UpdateVeterinarioService from "../../service/VET/UpdateVeterinarioService";
+import deleteVeterinarioService from "../../service/VET/DeleteVeterinarioService";
 
 const vetController = {
   listAll: (request, response) => {

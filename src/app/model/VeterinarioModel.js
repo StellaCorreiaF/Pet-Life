@@ -18,4 +18,4 @@ function VeterinarioModel(
   this.especialidade = especialidade;
 }
 
-module.exports = VeterinarioModel;
+export default VeterinarioModel;

@@ -1,4 +1,4 @@
-const ListVeterinarioService = require("../../service/VET/ListVeterinarioService");
+import ListVeterinarioService from "../../service/VET/ListVeterinarioService";
 
 const UpdateVeterinarioService = {
   update: (id, nome, telefone, email, login, senha, crmv, especialidade) => {
@@ -35,4 +35,4 @@ const UpdateVeterinarioService = {
   },
 };
 
-module.exports = UpdateVeterinarioService;
+export default UpdateVeterinarioService;

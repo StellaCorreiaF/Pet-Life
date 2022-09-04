@@ -1,4 +1,4 @@
-const listVet = require("../../service/VET/ListVeterinarioService");
+import listVet from "../../service/VET/ListVeterinarioService";
 
 const deleteVeterinarioService = {
   delete: (id) => {
@@ -11,4 +11,4 @@ const deleteVeterinarioService = {
     return { mensagem: "Cadastro removido com sucesso" };
   },
 };
-module.exports = deleteVeterinarioService;
+export default deleteVeterinarioService;

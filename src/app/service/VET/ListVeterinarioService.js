@@ -1,4 +1,4 @@
-const VeterinarioModel = require("../../model/VeterinarioModel");
+import VeterinarioModel from "../../model/VeterinarioModel";
 
 const ListVeterinariosService = {
   listAll: () => {
@@ -18,4 +18,4 @@ const ListVeterinariosService = {
   },
 };
 
-module.exports = ListVeterinariosService;
+export default ListVeterinariosService;

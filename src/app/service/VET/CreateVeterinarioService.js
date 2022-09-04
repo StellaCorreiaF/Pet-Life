@@ -1,6 +1,6 @@
-const veterinario = require("../../model/VeterinarioModel");
-const { v4 } = require("uuid");
-const { create } = require("yup/lib/Reference");
+import veterinario from "../../model/VeterinarioModel";
+import { v4 } from "uuid";
+import { create } from "yup/lib/Reference";
 
 const createVeterinarioService = {
   createVeterinario: (
@@ -25,4 +25,4 @@ const createVeterinarioService = {
     return newVeterinario;
   },
 };
-module.exports = createVeterinarioService;
+export default createVeterinarioService;
