@@ -1,31 +1,30 @@
-
 import Router from "express"; 
 
-
-const controllerPET = require('./app/controller/PET/PetController'); 
-const vetController = require("./app/controller/VET/VetController");
-const TutorController = require("./app/controller/TUTOR/TutorController");
+//PET CONTROLLERS
+import CreatePETController from "./app/controller/PET/CreatePETController";
+import UpdatePETController from "./app/controller/PET/UpdatePETController";
 
 
 const routes = new Router();
 
+//PETS
+const createPETController = new CreatePETController;
+const updatePETController = new UpdatePETController;
+
+
 // ROTAS PETS
-// routes.get('/pets', controllerPET.index)
-routes.get("/pets", controllerPET.listData);
-routes.post("/pets", controllerPET.create);
-routes.put("/pets/:id", controllerPET.update); 
-routes.delete('/pets/:id', controllerPET.delete)
+//routes.get('/pets', controllerPET.index)
+//routes.get("/pets", controllerPET.listData);
 
-//ROTAS TUTORES
-routes.get("/tutor", TutorController.listTutServ);
-routes.post("/tutor", TutorController.create);
-routes.put("/tutor/:id", TutorController.update); 
-routes.delete('/tutor/:id', TutorController.delete)
+routes.post("/pets", (req,res) =>
+    createPETController.create(req,res)
+);
 
-// ROTAS VET
-routes.get("/vets", vetController.listAll);
-routes.post("/vets", vetController.create);
-routes.put("/vets/:id", vetController.update);
-routes.delete("/vets/:id", vetController.delete); 
+routes.put("/pets/:id", (req,res) => 
+    updatePETController.update(req,res)
+);
+
+//routes.delete('/pets/:id', controllerPET.delete)
+
 
 export default  routes; 
