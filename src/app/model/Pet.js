@@ -1,12 +1,30 @@
-function petModel(id, nome, peso, tipoSanguineo, raca, idade, endereco){  
-    this.id = id; 
-    this.nome = nome; 
-    this.peso = peso; 
-    this.tipoSanguineo = tipoSanguineo; 
-    this.raca = raca; 
-    this.idade = idade; 
-    this.endereco = endereco;
+import Sequelize, { Model } from "sequelize";
+import databaseConfig from "../../../config/database";
 
-} 
+const sequelize = new Sequelize(databaseConfig);
 
-module.exports = petModel;
+
+class petModel extends Model {}
+
+petModel.init(
+    {
+        id: {
+            type: Sequelize.UUIDV4(),
+            primaryKey: true,
+          },
+        nome: Sequelize.STRING,
+        peso: Sequelize.INTEGER,
+        tipoSanguineo: Sequelize.STRING,
+        raca: Sequelize.STRING,
+        idade: Sequelize.INTEGER,
+    },
+    {
+        sequelize,
+        modelName: "pets",
+        timestamps: false,
+      }
+)
+    
+      
+
+export default petModel;
