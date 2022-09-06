@@ -1,11 +1,13 @@
 
-const Router = require("express"); 
+import Router from "express"; 
+
+
 const controllerPET = require('./app/controller/PET/PetController'); 
 const vetController = require("./app/controller/VET/VetController");
 const TutorController = require("./app/controller/TUTOR/TutorController");
+
+
 const routes = new Router();
-
-
 
 // ROTAS PETS
 // routes.get('/pets', controllerPET.index)
@@ -26,4 +28,4 @@ routes.post("/vets", vetController.create);
 routes.put("/vets/:id", vetController.update);
 routes.delete("/vets/:id", vetController.delete); 
 
-module.exports = routes;
+export default  routes; 
