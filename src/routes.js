@@ -4,6 +4,9 @@ import Router from "express";
 import CreatePETController from "./app/controller/PET/CreatePETController";
 import UpdatePETController from "./app/controller/PET/UpdatePETController";
 
+//MIDDLEWARES
+
+import petValidator from "./middlewares/PetValidator";
 
 const routes = new Router();
 
@@ -16,11 +19,11 @@ const updatePETController = new UpdatePETController;
 //routes.get('/pets', controllerPET.index)
 //routes.get("/pets", controllerPET.listData);
 
-routes.post("/pets", (req,res) =>
+routes.post("/pets", petValidator,  (req,res) =>
     createPETController.create(req,res)
 );
 
-routes.put("/pets/:id", (req,res) => 
+routes.put("/pets/:id", petValidator, (req,res) => 
     updatePETController.update(req,res)
 );
 
