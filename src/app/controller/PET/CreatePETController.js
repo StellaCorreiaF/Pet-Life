@@ -19,8 +19,7 @@ export default class CreatePETController {
           peso,
           tipoSanguineo,
           raca,
-          idade,
-          endereco
+          idade
       );
   
       return response.status(200).json(pet)
