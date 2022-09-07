@@ -1,21 +1,27 @@
-function VeterinarioModel(
-  id,
-  nome,
-  telefone,
-  email,
-  login,
-  senha,
-  crmv,
-  especialidade
-) {
-  this.id = id;
-  this.nome = nome;
-  this.telefone = telefone;
-  this.email = email;
-  this.login = login;
-  this.senha = senha;
-  this.crmv = crmv;
-  this.especialidade = especialidade;
-}
+import Sequelize, { Model } from "sequelize";
+import databaseConfig from "../../config/database";
 
-export default VeterinarioModel;
+const sequelize = new Sequelize(databaseConfig); 
+
+class VeterinarioModel extends Model{}
+VeterinarioModel.init(
+  {
+  id: {
+    type: Sequelize.UUIDV4(),
+    primaryKey: true
+  },
+  name: Sequelize.STRING,
+  crmv: Sequelize.STRING,
+  telefone: Sequelize.STRING,
+  login: Sequelize.STRING,
+  email:Sequelize.STRING,
+  password: Sequelize.STRING,
+  especialidade: Sequelize.STRING
+
+},
+{
+  sequelize,
+  modelName: "veterinarios",
+  timestamps: false,
+})
+export default VeterinarioModel; 

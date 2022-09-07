@@ -1,19 +1,16 @@
 import express from "express";
 import db from "./database";
+import db from "./database";
 import routes from "./routes";
-//const multer = require('multer')
-//const multerConfig = require('./config/multer')
-
 class App {
   constructor() {
     this.server = express();
-    //this.uploadFile = multer({storage: multerConfig})
 
+    this.initializeDatabase();
     this.middlewares();
     this.routes();
   }
 
-  //trabalhando em formato json
   middlewares() {
     this.server.use(express.json());
   }
@@ -36,4 +33,4 @@ class App {
 
 }
 
-module.exports = new App().server;
+export default new App().server;
