@@ -1,5 +1,6 @@
 import Sequelize, { Model } from "sequelize";
 import databaseConfig from "../../config/database";
+import vetModel from './VeterinarioModel';
 
 const sequelize = new Sequelize(databaseConfig);
 
@@ -25,6 +26,6 @@ petModel.init(
       }
 )
     
-      
+ petModel.belongsTo(vetModel);     
 
 export default petModel;
