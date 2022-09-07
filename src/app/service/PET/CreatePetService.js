@@ -1,33 +1,30 @@
-const petModel = require('../../model/Pet');
+import petModel from '../../model/Pet';
 const { v4 } = require('uuid')
 
-const CreatePetService = {
-    createPet: (
-        name,
+export default class CreatePetService  {
+    constructor() {}
+
+    async create(
+        nome,
         peso,
         tipoSanguineo,
         raca,
         idade,
-        endereco
-    ) => {
-        const newPet = new petModel(
-            v4(),
-            name,
+    ) {
+        try {
+        const newPet = await petModel.create({
+            id: v4(),
+            nome,
             peso,
             tipoSanguineo,
             raca,
-            idade,
-            endereco
-        )
-
-        
-        return {
-            sucess: true,
-            message:newPet
-           } 
-      },
+            idade
+        })
+        return newPet;
+        } catch (error) {
+        console.log(error);
+        return { erro: error.mensagem};
+        }
     }
+}
 
-
-
-module.exports = CreatePetService;

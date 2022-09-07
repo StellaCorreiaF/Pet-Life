@@ -1,17 +1,25 @@
-const ListTutorService = require('../../service/Tutor/ListTutorService');
-
-const DeleteTutorService = { 
-    delete: (id) => { 
-        const tutor = ListTutorService.listTutServ() 
-        const tutorIndice = tutor.findIndex(item => item.id === Number(id)) 
-
-        if (tutorIndice < 0){ 
-            return {erro: 'Tutor não encontrado'}
-        } 
-        
-        tutor.splice(tutorIndice, 1) 
-        return {mensagem: 'Cadastro removido com sucesso'}
+import TutorModel from '../../model/TutorModel';
+import ListTutorService from "./ListTutorService";
+export default class DeleteTutorService {
+    constructor(){
+        this.service = new ListTutorService();
     }
-}
 
-module.exports = DeleteTutorService
+    async delete(id){
+        try {
+            const tutor = await TutorModel.findByPk(id);
+            if (!tutor) {
+                return {
+                    sucess: false,
+                    message: "Tutor(a) não encontrado"};
+                }
+            const tutorExcluido = await tutor.destroy();
+            return tutorExcluido;
+        } catch(error){
+            console.log(error);
+            return { erro: error.mensage};
+        }
+    }
+
+
+}

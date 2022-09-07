@@ -1,47 +1,74 @@
-import Router from "express";
+import Router from "express"; 
+
+//PET CONTROLLERS
 import CreateVetController from "./app/controller/VET/CreateVetController";
 import ListAllVetsController from "./app/controller/VET/ListAllVetsController";
+import CreatePETController from "./app/controller/PET/CreatePETController";
+import UpdatePETController from "./app/controller/PET/UpdatePETController"; 
+import ListPETController from "./app/controller/PET/ListPETController"; 
+import DeletePETController from "./app/controller/PET/DeletePETController"
+import ListAllTutorController from "./app/controller/TUTOR/ListTutorController";
+import CreateTutorController from "./app/controller/TUTOR/CreateTutorController";
+import UpdateTutorController from "./app/controller/TUTOR/UpdateTutorController";
+import DeleteTutorController from "./app/controller/TUTOR/DeleteTutorController";
 import UpdateVeterinarioController from "./app/controller/VET/UpdateVetController";
 import DeleteVeterinarioController from "./app/controller/VET/DeleteVetController";
-// import createVeterinarioService from "./app/service/VET/CreateVeterinarioService";
-import UpdateVeterinarioService from "./app/service/VET/UpdateVeterinarioService";
+
+
+//MIDDLEWARES
+import tutorValidator from "./middleware/tutorValidator";
 import vetValidator from "./middlewares/VetValidator";
-const controllerPET = require("./app/controller/PET/PetController");
-//const vetController = require("./app/controller/VET/VetController");
-const TutorController = require("./app/controller/TUTOR/TutorController");
+
+import petValidator from "./middlewares/PetValidator";
+
 const routes = new Router();
 
-// ROTAS PETS
-// routes.get('/pets', controllerPET.index)
-routes.get("/pets", controllerPET.listData);
-routes.post("/pets", controllerPET.create);
-routes.put("/pets/:id", controllerPET.update);
-routes.delete("/pets/:id", controllerPET.delete);
+//PETS
+const createPETController = new CreatePETController;
+const updatePETController = new UpdatePETController; 
+const listPETController = new ListPETController;  
+const deletePETController = new DeletePETController; 
 
-//ROTAS TUTORES
-routes.get("/tutor", TutorController.listTutServ);
-routes.post("/tutor", TutorController.create);
-routes.put("/tutor/:id", TutorController.update);
-routes.delete("/tutor/:id", TutorController.delete);
+
+//Tutor
+const createTutorController = new CreateTutorController();
+const listAllTutorController = new ListAllTutorController();
+const updateTutorController = new UpdateTutorController();
+const deleteTutorController = new DeleteTutorController();
+
+
+// ROTAS PETS
+
+routes.get('/pets', (req,res)=> 
+    listPETController.index(req,res)
+);
+
+routes.post("/pets", petValidator,  (req,res) =>
+    createPETController.create(req,res)
+);
+
+routes.put("/pets/:id", petValidator, (req,res) => 
+    updatePETController.update(req,res)
+);
+
+routes.delete('/pets/:id', (req,res)=>  
+    deletePETController.delete(req,res)
+
+);
 
 // ROTAS VET
-//routes.get("/vets", vetController.listAll);
-//routes.post("/vets", VetValidador, CreateVetController.create);
-//routes.put("/vets/:id", vetController.update);
-//routes.delete("/vets/:id", vetController.delete);
+
 
 routes.post("/vets", vetValidator, async (req, res) => {
   const controller = new CreateVetController();
   return await controller.create(req, res);
-});
+}
+);
 
-routes.get("/vets", async (req, res) => {
+routes.get("/vets", async(req, res)=> {
   const controller = new ListAllVetsController();
-  return await controller.listAll(req, res);
-});
-
-const updateVeterinarioService = new UpdateVeterinarioService();
-
+  return await controller.listAll(req, res)
+})
 routes.put("/vets/:id", async (req, res) => {
   const controller = new UpdateVeterinarioController();
   return await controller.update(req, res);
@@ -52,9 +79,11 @@ routes.delete("/vets/:id", async (req, res) => {
   return await controller.delete(req, res);
 });
 
-// routes.put("/vets/:id", vetValidator, async (req, res) => {
-//   const controller = new UpdateVeterinarioService();
-//   return await controller.put(req, res);
-// });
+//Rotas Tutor
+routes.get("/tutor", (req,res) =>  listAllTutorController.listAll(req,res));
+routes.post("/tutor", tutorValidator, (req,res) =>  createTutorController.create(req,res));
+routes.put("/tutor/:id", (req,res) =>  updateTutorController.update(req,res));
+routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res));
 
-export default routes;
+
+export default  routes; 
