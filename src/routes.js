@@ -1,5 +1,6 @@
 import Router from "express";
 import CreateVetController from "./app/controller/VET/CreateVetController";
+import ListAllVetsController from "./app/controller/VET/ListAllVetsController";
 import createVeterinarioService from "./app/service/VET/CreateVeterinarioService";
 import vetValidator from "./middlewares/VetValidator";
 const controllerPET = require("./app/controller/PET/PetController");
@@ -32,5 +33,10 @@ routes.post("/vets", vetValidator, async (req, res) => {
   return await controller.create(req, res);
 }
 );
+
+routes.get("/vets", async(req, res)=> {
+  const controller = new ListAllVetsController();
+  return await controller.listAll(req, res)
+})
 
 export default routes;

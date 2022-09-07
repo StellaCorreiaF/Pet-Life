@@ -14,7 +14,6 @@ VeterinarioModel.init(
   crmv: Sequelize.STRING,
   telefone: Sequelize.STRING,
   login: Sequelize.STRING,
-  senha:Sequelize.STRING,
   email:Sequelize.STRING,
   password: Sequelize.STRING,
   especialidade: Sequelize.STRING
