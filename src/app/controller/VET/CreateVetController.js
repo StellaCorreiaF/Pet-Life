@@ -4,15 +4,9 @@ export default class CreateVetController {
         this.service = new createVeterinarioService();
     }
     async create(request, response) {
-        const { name, email, telefone, crmv, login, password, especialidade } = request.body;
+        const { name, crmv, telefone, login, email, password,especialidade } = request.body;
         const veterinario =  await this.service.create(
-            name,
-            email,
-            telefone,
-            crmv,
-            login,
-            password,
-            especialidade
+            name, crmv, telefone, login, email, password,especialidade
         )
         if (!veterinario.sucess) {
             return response.status(400).json(veterinario.message);
