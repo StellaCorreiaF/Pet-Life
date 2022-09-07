@@ -6,9 +6,15 @@ import ListAllVetsController from "./app/controller/VET/ListAllVetsController";
 import CreatePETController from "./app/controller/PET/CreatePETController";
 import UpdatePETController from "./app/controller/PET/UpdatePETController"; 
 import ListPETController from "./app/controller/PET/ListPETController"; 
-import DeletePETController from "./app/controller/PET/DeletePETController";
+import DeletePETController from "./app/controller/PET/DeletePETController"
+import ListAllTutorController from "./app/controller/TUTOR/ListTutorController";
+import CreateTutorController from "./app/controller/TUTOR/CreateTutorController";
+import UpdateTutorController from "./app/controller/TUTOR/UpdateTutorController";
+import DeleteTutorController from "./app/controller/TUTOR/DeleteTutorController";
+
 
 //MIDDLEWARES
+import tutorValidator from "./middleware/tutorValidator";
 import vetValidator from "./middlewares/VetValidator";
 
 import petValidator from "./middlewares/PetValidator";
@@ -21,6 +27,12 @@ const updatePETController = new UpdatePETController;
 const listPETController = new ListPETController;  
 const deletePETController = new DeletePETController; 
 
+
+//Tutor
+const createTutorController = new CreateTutorController();
+const listAllTutorController = new ListAllTutorController();
+const updateTutorController = new UpdateTutorController();
+const deleteTutorController = new DeleteTutorController();
 
 
 // ROTAS PETS
@@ -55,5 +67,12 @@ routes.get("/vets", async(req, res)=> {
   const controller = new ListAllVetsController();
   return await controller.listAll(req, res)
 })
+
+//Rotas Tutor
+routes.get("/tutor", (req,res) =>  listAllTutorController.listAll(req,res));
+routes.post("/tutor", tutorValidator, (req,res) =>  createTutorController.create(req,res));
+routes.put("/tutor/:id", (req,res) =>  updateTutorController.update(req,res));
+routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res));
+
 
 export default  routes; 
