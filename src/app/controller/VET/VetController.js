@@ -11,21 +11,21 @@ const vetController = {
     return response.send(veterinario);
   },
 
-  // create: (request, response) => {
-  //   const { nome, telefone, email, login, senha, crmv, especialidade } =
-  //     request.body;
+  create: (request, response) => {
+    const { nome, telefone, email, login, senha, crmv, especialidade } =
+      request.body;
 
-  //   const veterinario = createVeterinarioService.createVeterinario(
-  //     nome,
-  //     telefone,
-  //     email,
-  //     login,
-  //     senha,
-  //     crmv,
-  //     especialidade
-  //   );
-  //   return response.json(veterinario);
-  // },
+    const veterinario = createVeterinarioService.createVeterinario(
+      nome,
+      telefone,
+      email,
+      login,
+      senha,
+      crmv,
+      especialidade
+    );
+    return response.json(veterinario);
+  },
 
   update: (request, response) => {
     const { id } = request.params;

@@ -1,9 +1,6 @@
 import Router from "express";
-import CreateVetController from "./app/controller/VET/CreateVetController";
-import createVeterinarioService from "./app/service/VET/CreateVeterinarioService";
-import vetValidator from "./middlewares/VetValidator";
 const controllerPET = require("./app/controller/PET/PetController");
-//const vetController = require("./app/controller/VET/VetController");
+const vetController = require("./app/controller/VET/VetController");
 const TutorController = require("./app/controller/TUTOR/TutorController");
 const routes = new Router();
 
@@ -21,16 +18,9 @@ routes.put("/tutor/:id", TutorController.update);
 routes.delete("/tutor/:id", TutorController.delete);
 
 // ROTAS VET
-//routes.get("/vets", vetController.listAll);
-//routes.post("/vets", VetValidador, CreateVetController.create);
-//routes.put("/vets/:id", vetController.update);
-//routes.delete("/vets/:id", vetController.delete);
+routes.get("/vets", vetController.listAll);
+routes.post("/vets", vetController.create);
+routes.put("/vets/:id", vetController.update);
+routes.delete("/vets/:id", vetController.delete);
 
-
-routes.post("/vets", vetValidator, async (req, res) => {
-  const controller = new CreateVetController();
-  return await controller.create(req, res);
-}
-);
-
-export default routes;
+module.exports = routes;
