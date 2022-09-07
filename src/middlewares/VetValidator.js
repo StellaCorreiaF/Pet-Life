@@ -15,21 +15,17 @@ export default async function vetValidator(request, response, next) {
         telefone: yup
             .string()
             .strict()
-            .required()
+            .required("Telefone obrigatório")
             .min(11)
             .typeError("Deve ser uma string"),
-        email: yup
-            .string()
-            .strict()
-            .required("E-mail obrigatório")
-            .typeError("Deve ser uma string"),
+       
         login: yup.string()
             .strict()
-            .required("E-mail obrigatório")
+            .required("Login obrigatório")
             .typeError("Deve ser uma string"),
-        senha: yup.string()
+        password: yup.string()
             .strict()
-            .required("E-mail obrigatório")
+            .required("Senha obrigatória")
             .min(6)
             .typeError("Deve ser uma string"),
         especialidade: yup.string()
