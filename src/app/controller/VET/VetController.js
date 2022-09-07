@@ -1,8 +1,8 @@
 const { response, request } = require("express");
-const ListVeterinariosService = require('../../service/VET/ListVeterinarioService');
-const createVeterinarioService = require('../../service/VET/CreateVeterinarioService');
-const UpdateVeterinarioService = require('../../service/VET/UpdateVeterinarioService');
-const deleteVeterinarioService = require('../../service/VET/DeleteVeterinarioService'); 
+import ListVeterinariosService from "../../service/VET/ListVeterinarioService";
+import createVeterinarioService from "../../service/VET/CreateVeterinarioService";
+import UpdateVeterinarioService from "../../service/VET/UpdateVeterinarioService";
+import deleteVeterinarioService from "../../service/VET/DeleteVeterinarioService";
 
 const vetController = {
   listAll: (request, response) => {
@@ -11,30 +11,36 @@ const vetController = {
     return response.send(veterinario);
   },
 
-  create: (request, response) => {
-    const { nome, crmv, telefone, email, senha } = request.body;
+  // create: (request, response) => {
+  //   const { nome, telefone, email, login, senha, crmv, especialidade } =
+  //     request.body;
 
-    const veterinario = createVeterinarioService.createVeterinario(
-      nome,
-      crmv,
-      telefone,
-      email,
-      senha
-    );
-    return response.json(veterinario);
-  },
+  //   const veterinario = createVeterinarioService.createVeterinario(
+  //     nome,
+  //     telefone,
+  //     email,
+  //     login,
+  //     senha,
+  //     crmv,
+  //     especialidade
+  //   );
+  //   return response.json(veterinario);
+  // },
 
   update: (request, response) => {
     const { id } = request.params;
-    const { nome, crmv, telefone, email, senha } = request.body;
+    const { nome, telefone, email, login, senha, crmv, especialidade } =
+      request.body;
 
     const updateVeterinario = UpdateVeterinarioService.update(
       id,
       nome,
-      crmv,
       telefone,
       email,
-      senha
+      login,
+      senha,
+      crmv,
+      especialidade
     );
 
     if (!updateVeterinario.sucess) {
@@ -45,11 +51,11 @@ const vetController = {
   },
 
   delete: (request, response) => {
-    const { id } = request.params
+    const { id } = request.params;
 
-    const result = deleteVeterinarioService.delete(id)
+    const result = deleteVeterinarioService.delete(id);
 
-    response.send(result)
-  }
-}
+    response.send(result);
+  },
+};
 module.exports = vetController;

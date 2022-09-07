@@ -1,12 +1,15 @@
 import Router from "express"; 
 
 //PET CONTROLLERS
+import CreateVetController from "./app/controller/VET/CreateVetController";
+import ListAllVetsController from "./app/controller/VET/ListAllVetsController";
 import CreatePETController from "./app/controller/PET/CreatePETController";
 import UpdatePETController from "./app/controller/PET/UpdatePETController"; 
 import ListPETController from "./app/controller/PET/ListPETController"; 
 import DeletePETController from "./app/controller/PET/DeletePETController";
 
 //MIDDLEWARES
+import vetValidator from "./middlewares/VetValidator";
 
 import petValidator from "./middlewares/PetValidator";
 
@@ -21,8 +24,6 @@ const deletePETController = new DeletePETController;
 
 
 // ROTAS PETS
-//routes.get('/pets', controllerPET.index)
-//routes.get("/pets", controllerPET.listData); 
 
 routes.get('/pets', (req,res)=> 
     listPETController.index(req,res)
@@ -41,5 +42,18 @@ routes.delete('/pets/:id', (req,res)=>
 
 );
 
+// ROTAS VET
+
+
+routes.post("/vets", vetValidator, async (req, res) => {
+  const controller = new CreateVetController();
+  return await controller.create(req, res);
+}
+);
+
+routes.get("/vets", async(req, res)=> {
+  const controller = new ListAllVetsController();
+  return await controller.listAll(req, res)
+})
 
 export default  routes; 

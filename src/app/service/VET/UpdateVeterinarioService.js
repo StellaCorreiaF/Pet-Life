@@ -1,7 +1,7 @@
-const ListVeterinarioService = require('../../service/VET/ListVeterinarioService'); 
+import ListVeterinarioService from "../../service/VET/ListVeterinarioService";
 
 const UpdateVeterinarioService = {
-  update: (id, nome, crmv, telefone, email, senha) => {
+  update: (id, nome, telefone, email, login, senha, crmv, especialidade) => {
     const veterinarios = ListVeterinarioService.listAll();
 
     const updateVeterinario = veterinarios.find(
@@ -20,10 +20,12 @@ const UpdateVeterinarioService = {
     veterinarios[updateVeterinarioIndex] = {
       id,
       nome,
-      crmv,
       telefone,
       email,
+      login,
       senha,
+      crmv,
+      especialidade,
     };
 
     return {
@@ -33,4 +35,4 @@ const UpdateVeterinarioService = {
   },
 };
 
-module.exports = UpdateVeterinarioService;
+export default UpdateVeterinarioService;
