@@ -1,38 +1,59 @@
-import ListVeterinarioService from "../../service/VET/ListVeterinarioService";
+import VeterinarioModel from "../../model/VeterinarioModel";
 
-const UpdateVeterinarioService = {
-  update: (id, nome, telefone, email, login, senha, crmv, especialidade) => {
-    const veterinarios = ListVeterinarioService.listAll();
+export default class UpdateVeterinarioService {
+  constructor() {}
 
-    const updateVeterinario = veterinarios.find(
-      (veterinario) => veterinario.id == id
-    );
-    const updateVeterinarioIndex = veterinarios.findIndex(
-      (veterinario) => veterinario.id == id
-    );
+  async update(
+    id,
+    name,
+    telefone,
+    email,
+    login,
+    password,
+    crmv,
+    especialidade
+  ) {
+    try {
+      // const veterinario = await VeterinarioModel.findByPk(id);
 
-    if (!updateVeterinario) {
-      return {
-        sucess: false,
-        message: "Veterinário não encontrado",
-      };
+      // if (!veterinario) {
+      //   return {
+      //     message: "Vet não encontrado",
+      //   };
+      // }
+
+      const [numeroDeRegistrosAtualizados] = await VeterinarioModel.update(
+        {
+          id,
+          name,
+          telefone,
+          email,
+          login,
+          password,
+          crmv,
+          especialidade,
+        },
+        {
+          where: { id },
+        }
+      );
+      if (numeroDeRegistrosAtualizados === 0) {
+        return { mensagem: "Dados iguais" };
+      } else {
+        return {
+          id,
+          name,
+          telefone,
+          email,
+          login,
+          password,
+          crmv,
+          especialidade,
+        };
+      }
+    } catch (error) {
+      console.log(error);
+      return { erro: error.message };
     }
-    veterinarios[updateVeterinarioIndex] = {
-      id,
-      nome,
-      telefone,
-      email,
-      login,
-      senha,
-      crmv,
-      especialidade,
-    };
-
-    return {
-      sucess: true,
-      message: veterinarios[updateVeterinarioIndex],
-    };
-  },
-};
-
-export default UpdateVeterinarioService;
+  }
+}

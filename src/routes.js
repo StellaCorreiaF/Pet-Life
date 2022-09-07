@@ -11,6 +11,8 @@ import ListAllTutorController from "./app/controller/TUTOR/ListTutorController";
 import CreateTutorController from "./app/controller/TUTOR/CreateTutorController";
 import UpdateTutorController from "./app/controller/TUTOR/UpdateTutorController";
 import DeleteTutorController from "./app/controller/TUTOR/DeleteTutorController";
+import UpdateVeterinarioController from "./app/controller/VET/UpdateVetController";
+import DeleteVeterinarioController from "./app/controller/VET/DeleteVetController";
 
 
 //MIDDLEWARES
@@ -67,6 +69,15 @@ routes.get("/vets", async(req, res)=> {
   const controller = new ListAllVetsController();
   return await controller.listAll(req, res)
 })
+routes.put("/vets/:id", async (req, res) => {
+  const controller = new UpdateVeterinarioController();
+  return await controller.update(req, res);
+});
+
+routes.delete("/vets/:id", async (req, res) => {
+  const controller = new DeleteVeterinarioController();
+  return await controller.delete(req, res);
+});
 
 //Rotas Tutor
 routes.get("/tutor", (req,res) =>  listAllTutorController.listAll(req,res));
