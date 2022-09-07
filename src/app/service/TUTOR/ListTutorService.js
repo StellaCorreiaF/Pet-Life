@@ -1,43 +1,34 @@
-const TutorModel = require("../../model/TutorModel");
+import { v4 } from 'uuid';
+import TutorModel from '../../model/TutorModel';
 
-const ListTutorService = {
-  listTutServ: () => {
-    const tutor1 =
-      new TutorModel(
-        1,
-        "Gabriel Marques",
-        "gabrielMarques@gmail.com",
-        "GabrielM",
-        "Senha456",
-        "7199876543",
-        "41120020",
-        "Trav. Ventosa, 146",
-        "Salvador",
-        "BA"
-      )
-    const tutor2 =
-      new TutorModel(
-        2,
-        "Paula Braga",
-        "paulabraga12@gmail.com",
-        "PBraga",
-        "Senha123",
-        "9299812874",
-        "05028000",
-        "Trav. Ciridiao, 14",
-        "São Paulo",
-        "SP"
-      )
-    return [tutor1,tutor2];
-  },
-  listTutorData: (tutorName) => { 
-    const tutorList = ListTutorService.listTutServ(); 
-    const tutor1 = tutorList.find(item => item.nome === tutorName);  
-    //const pet1 = petList.find(item => console.log(item));
-    //console.log(pet1); 
-    return tutor1
+export default class createTutorService {
+  constructor() {}
 
+ async listAll() {
+  try {
+     const tutors = await TutorModel.findAll()
+     return tutors;
+  } catch (error) {
+    console.log(error);
+    return {erro: error.message };
   }
-};
+  }
+  async listOne(email, senha) {
+    try  {
+      const tutors = await TutorModel.findOne({
+         where: {
+           email,
+       }
+      });
 
-module.exports = ListTutorService;
+       if (!tutors) {
+          return { mensagem: "Tutor não encontrado"};
+       }
+       
+       
+      } catch (error) {
+        console.log(error);
+        return { erro: error.message };
+        }
+      }
+    }

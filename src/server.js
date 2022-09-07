@@ -1,3 +1,4 @@
-import app from "./app";
+import "dotenv/config";
+const app = require("./app")
 
-app.listen(3030, () => console.log("Servidor Rodando com sucesso ⚡⚡⚡ "));
+app.listen(process.env.API_PORT, () => console.log("Servidor Rodando com sucesso ⚡⚡⚡ "));

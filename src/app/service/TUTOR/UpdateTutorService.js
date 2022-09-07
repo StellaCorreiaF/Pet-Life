@@ -1,8 +1,12 @@
-const ListTutorService = require("./ListTutorService")
+import TutorModel from '../../model/TutorModel';
+import ListTutorService from "./ListTutorService";
 
+export default class UpdateTutorService {
+    constructor() {
+        this.service = new ListTutorService();
+}
 
-const UpdateTutorService = {
-    updateTutor: (
+async update (
         id,
         nome,
         email,
@@ -12,24 +16,37 @@ const UpdateTutorService = {
         cep,
         bairro,
         cidade,
-        uf
-    ) => {
-        const tutor = ListTutorService.listTutServ()
-        
-        const updateTutor = tutor.find((tutor) => tutor.id == id)
-        
-        const tutorIndice = tutor.findIndex(
-            (tutor) => tutor.id == id
-          );
+        uf) {
+   try {
+    const tutor = await TutorModel.findByPk(id);
 
-        if (!updateTutor) {
+        if (!tutor) {
             return {
                 sucess: false,
-                message: "Tutor(a) não encontrado"
+                message: "Tutor(a) não encontrado"};
             }
-        }
         
-        tutor[tutorIndice] = {
+        const [numeroDeRegistrosAtualizados] = await TutorModel.update(
+            {
+                nome,
+                email,
+                username,
+                senha,
+                telefone,
+                cep,
+                bairro,
+                cidade,
+                uf,
+            },
+            {
+              where: { id },
+            }
+          );
+
+        if (numeroDeRegistrosAtualizados === 0) {
+        return { sucess: false, mensagem: "Dados iguais" };
+      } else {
+        return {
           id,
           nome,
           email,
@@ -39,16 +56,13 @@ const UpdateTutorService = {
           cep,
           bairro,
           cidade,
-          uf
-        }
-        
-        return {
-            sucess: true,
-            message:
-            tutor[tutorIndice]
-        }
-    
+          uf,
+        };
     }
+} catch (error) {
+    console.log(error);
+    return {sucess: false,
+            message: error.message };
+           }
+        }
 }
-
-module.exports = UpdateTutorService;
