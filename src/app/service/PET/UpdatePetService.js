@@ -1,45 +1,54 @@
-const ListPetService = require("./ListPetService")
+import petModel from "../../model/Pet";
 
-
-const UpdatePetService = {
-    updatePet: (
+export default class UpdatePetService {
+    constructor() {}
+  
+    async update(
         id,
-        name,
+        nome,
         peso,
         tipoSanguineo,
         raca,
-        idade,
-        endereco
-    ) => {
-        const pets = ListPetService.listPetServ()
+        idade
+    ) {
+        try {
+        const pet = await petModel.findByPk(id);
         
-        const petIndice = pets.findIndex(item => item.id === Number(id))
-        
-        if (!petIndice) {
+        if (!pet) {
             return {
-                sucess: false,
                 message: "Pet não encontrado"
             }
         }
         
 
-        pets[petIndice] = {
+        const [numeroDeRegistrosAtualizados] = await petModel.update(
+           { 
             id,
-            name,
+            nome,
             peso,
             tipoSanguineo,
             raca,
-            idade,
-            endereco
+            idade
+        }, 
+        {
+            where: { id },
         }
-        
-        return {
-            sucess: true,
-            message:
-            pets[petIndice]
+        );
+        if (numeroDeRegistrosAtualizados === 0) {
+            return { mensagem: "Dados iguais" };
+          } else {
+            return {
+                id,
+                nome,
+                peso,
+                tipoSanguineo,
+                raca,
+                idade
+            };
+          }
+        } catch (error) {
+            console.log(error);
+            return { erro: error.message };
         }
-    
+      }
     }
-}
-
-module.exports = UpdatePetService;

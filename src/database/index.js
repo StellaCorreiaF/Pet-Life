@@ -1,20 +1,14 @@
-
-import { Sequelize } from 'sequelize';
-import VeterinarioModel, { TrainerModel } from '../app/model/VeterinarioModel'
-
-import databaseConfig from '../config/database'
-
-const models = [VeterinarioModel]  // aqui jogaremos todas as models depois de refatoradas
+import { Sequelize } from "sequelize";
+import databaseConfig from "../config/database";
 
 class Database {
-    constructor() {
-        this.init()
-    }
-    init() { // metodo que iniciará a conexão com o banco
-        this.connection = new Sequelize(databaseConfig)
-        models.map(models => models.init(this.connection)) // vai direcionar as requisições no banco para cada model 
-    }
+  constructor() {
+    this.init();
+  }
+
+  init() {
+    this.connection = new Sequelize(databaseConfig);
+  }
 }
 
-//para criar as migrations: npx sequelize migration:create --name=NAMEMIGRATION
-// executar migration:  npx sequelize db:migrate
+export default new Database().connection;
