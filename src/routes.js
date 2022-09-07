@@ -4,10 +4,10 @@ import tutorValidator from "./middleware/tutorValidator";
 import controllerPET from "./app/controller/PET/PetController";
 import vetController from "./app/controller/VET/VetController";
 
-import ListAllTutorController from "./app/controller/TUTOR/listTutorController";
-import CreateTutorController from "./app/controller/TUTOR/createTutorController";
-import UpdateTutorController from "./app/controller/TUTOR/updateTutorController";
-import DeleteTutorController from "./app/controller/TUTOR/deleteTutorController";
+import ListAllTutorController from "./app/controller/TUTOR/ListTutorController";
+import CreateTutorController from "./app/controller/TUTOR/CreateTutorController";
+import UpdateTutorController from "./app/controller/TUTOR/UpdateTutorController";
+import DeleteTutorController from "./app/controller/TUTOR/DeleteTutorController";
 
 const routes = new Router();
 
