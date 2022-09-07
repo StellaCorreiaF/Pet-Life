@@ -1,21 +1,16 @@
 import VeterinarioModel from "../../model/VeterinarioModel";
 
-const ListVeterinariosService = {
-  listAll: () => {
-    const veterinario = [
-      new VeterinarioModel(
-        2,
-        "Eduardo Santos",
-        "71 99999-9999",
-        "eduvet@gmail.com",
-        "eduvet",
-        "edu123",
-        "4569-BA",
-        "Clinico Geral"
-      ),
-    ];
-    return veterinario;
-  },
-};
+export default class ListVeterinariosService  {
+  constructor() {}
 
-export default ListVeterinariosService;
+  async listAll() {
+    try {
+      const veterinarios = await VeterinarioModel.findAll();
+      return veterinarios; 
+    } catch (error) {
+      console.log(error)
+      return { erro : error.message}
+    }
+  }
+
+}
