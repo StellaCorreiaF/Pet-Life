@@ -2,7 +2,7 @@ import * as yup from "yup";
 
 export default async function tutorValidator(request, response, next) {
     const schema = yup.object().shape({
-      name: yup
+      nome: yup
         .string()
         .strict()
         .required("Nome é obrigatório")

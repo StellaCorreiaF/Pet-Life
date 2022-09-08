@@ -16,7 +16,7 @@ import DeleteVeterinarioController from "./app/controller/VET/DeleteVetControlle
 
 
 //MIDDLEWARES
-import tutorValidator from "./middleware/tutorValidator";
+import tutorValidator from "./middlewares/tutorValidator";
 import vetValidator from "./middlewares/VetValidator";
 
 import petValidator from "./middlewares/PetValidator";

@@ -5,8 +5,8 @@ export default class ListAllVetsController {
         this.service = new ListVeterinariosService();
     }
 
-    listAll(request, response) {
-        const veterinarios = this.service.listAll();
-        return response.send(veterinarios); 
-    }
+    async listAll(request, response) {
+        const veterinarios = await this.service.listAll();
+        return response.send(veterinarios);
+      }
 }

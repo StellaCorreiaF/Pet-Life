@@ -24,4 +24,5 @@ VeterinarioModel.init(
   modelName: "veterinarios",
   timestamps: false,
 })
+
 export default VeterinarioModel; 
