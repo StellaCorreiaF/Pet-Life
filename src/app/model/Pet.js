@@ -1,6 +1,6 @@
 import Sequelize, { Model } from "sequelize";
 import databaseConfig from "../../config/database";
-import vetModel from './VeterinarioModel';
+import tutorModel from './TutorModel';
 
 const sequelize = new Sequelize(databaseConfig);
 
@@ -26,6 +26,11 @@ petModel.init(
       }
 )
     
- petModel.belongsTo(vetModel);     
+petModel.belongsTo(tutorModel);     
+tutorModel.hasMany(petModel, {
+  foreignKey: 'petId'
+});
+
+
 
 export default petModel;

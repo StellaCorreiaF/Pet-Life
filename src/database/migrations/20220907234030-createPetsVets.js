@@ -13,18 +13,16 @@ module.exports = {
         type: Sequelize.UUID,
         references: {
           model: {
-            schema: "schema",
             tableName: "pets",
           },
           key: "id",
         },
         allowNull: false,
-      },
+},
       vetId: {
         type: Sequelize.UUID,
         references: {
           model: {
-            schema: "schema",
             tableName: "veterinarios",
           },
           key: "id",

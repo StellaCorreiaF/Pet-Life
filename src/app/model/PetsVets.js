@@ -21,7 +21,7 @@ PetsVets.init(
       },
     },
     vetId: {
-      type: DataTypes.UUIDV4(),
+type: DataTypes.UUIDV4(),
       references: {
         model: vetModel,
         key: "id",
