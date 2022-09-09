@@ -14,7 +14,7 @@ module.exports = {
         allowNull: false,
       },
       peso: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.FLOAT,
         allowNull: false,
       },
       tipoSanguineo: {
@@ -29,6 +29,10 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
+      tutorId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      }
     });
   },
 
