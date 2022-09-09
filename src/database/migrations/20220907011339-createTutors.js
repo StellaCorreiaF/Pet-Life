@@ -48,7 +48,7 @@ module.exports = {
       uf:{
         type: Sequelize.STRING,
         allowNull: false,
-      },
+      }
 
     }); 
   },
