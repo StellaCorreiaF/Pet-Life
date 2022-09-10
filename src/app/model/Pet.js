@@ -26,10 +26,9 @@ petModel.init(
       }
 )
     
-petModel.belongsTo(tutorModel,{ foreignKey: "tutorId" });
-tutorModel.hasMany(petModel, {
-  foreignKey: 'tutorId'
-});
+petModel.belongsTo(tutorModel, {as : 'pet', foreignKey: 'tutorId'});
+tutorModel.hasMany(petModel, {as: 'tutor', foreignKey: 'tutorId'}
+);
 
 
 
