@@ -12,6 +12,7 @@ export default class CreatePETController {
           tipoSanguineo,
           raca,
           idade,
+          tutorId
       } = request.body;
   
       const pet = await this.service.create(
@@ -19,9 +20,10 @@ export default class CreatePETController {
           peso,
           tipoSanguineo,
           raca,
-          idade
+          idade,
+          tutorId
       );
   
-      return response.status(200).json(pet)
+      return response.status(201).json(pet.message)
     }
 }
