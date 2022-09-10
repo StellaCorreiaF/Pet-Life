@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32872bc7-1642-4c49-a022-21af00873eb6" name="Changes" comment="cria migration de associação de tutor com pet">
-      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controller/PET/CreatePETController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/PET/CreatePETController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controller/TUTOR/CreateTutorController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/TUTOR/CreateTutorController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/controller/VET/CreateVetController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/VET/CreateVetController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/model/Pet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Pet.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/service/PET/CreatePetService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/PET/CreatePetService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/20220906191759-createPET.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/20220907011339-createTutors.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/20220907143316-CreateVet.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/20220907234030-createPetsVets.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/20220909165828-pet_tutor_association.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/middlewares/tutorValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlewares/tutorValidator.js" afterDir="false" />
-    </list>
+    <list default="true" id="32872bc7-1642-4c49-a022-21af00873eb6" name="Changes" comment="cria novas migrations com relacionamento corrigido" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -84,7 +70,7 @@
       <workItem from="1662732779134" duration="142000" />
       <workItem from="1662732932545" duration="1236000" />
       <workItem from="1662734239478" duration="8391000" />
-      <workItem from="1662835482088" duration="5186000" />
+      <workItem from="1662835482088" duration="5538000" />
     </task>
     <task id="LOCAL-00001" summary="atualiza .gitignore">
       <created>1662733552732</created>
@@ -149,7 +135,63 @@
       <option name="project" value="LOCAL" />
       <updated>1662743320931</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="recria migrations do banco com correçao de relacionamentos">
+      <created>1662840934134</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1662840934134</updated>
+    </task>
+    <task id="LOCAL-00011" summary="adiciona parâmetro tutorId ao método de criação do Pet">
+      <created>1662840972743</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1662840972743</updated>
+    </task>
+    <task id="LOCAL-00012" summary="adiciona parâmetro tutorId à controller">
+      <created>1662841004390</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1662841004390</updated>
+    </task>
+    <task id="LOCAL-00013" summary="altera status response">
+      <created>1662841021593</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1662841021593</updated>
+    </task>
+    <task id="LOCAL-00014" summary="altera status response">
+      <created>1662841026581</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1662841026581</updated>
+    </task>
+    <task id="LOCAL-00015" summary="adiciona relacionamento">
+      <created>1662841038127</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1662841038127</updated>
+    </task>
+    <task id="LOCAL-00016" summary="altera middleware">
+      <created>1662841048853</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1662841048853</updated>
+    </task>
+    <task id="LOCAL-00017" summary="cria novas migrations com relacionamento corrigido">
+      <created>1662841076834</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1662841076834</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -174,7 +216,14 @@
     <MESSAGE value="altera desc de relacionamento" />
     <MESSAGE value="altera env" />
     <MESSAGE value="cria migration de associação de tutor com pet" />
-    <option name="LAST_COMMIT_MESSAGE" value="cria migration de associação de tutor com pet" />
+    <MESSAGE value="recria migrations do banco com correçao de relacionamentos" />
+    <MESSAGE value="adiciona parâmetro tutorId ao método de criação do Pet" />
+    <MESSAGE value="adiciona parâmetro tutorId à controller" />
+    <MESSAGE value="altera status response" />
+    <MESSAGE value="adiciona relacionamento" />
+    <MESSAGE value="altera middleware" />
+    <MESSAGE value="cria novas migrations com relacionamento corrigido" />
+    <option name="LAST_COMMIT_MESSAGE" value="cria novas migrations com relacionamento corrigido" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
