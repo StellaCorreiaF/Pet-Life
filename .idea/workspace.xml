@@ -4,13 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="32872bc7-1642-4c49-a022-21af00873eb6" name="Changes" comment="atualiza .gitignore">
+    <list default="true" id="32872bc7-1642-4c49-a022-21af00873eb6" name="Changes" comment="cria migration de associação de tutor com pet">
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controller/PET/CreatePETController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/PET/CreatePETController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controller/TUTOR/CreateTutorController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/TUTOR/CreateTutorController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/controller/VET/CreateVetController.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/controller/VET/CreateVetController.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/model/Pet.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/model/Pet.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/service/PET/CreatePetService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/service/PET/CreatePetService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/20220906191759-createPET.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/migrations/20220906191759-createPET.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/20220907011339-createTutors.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/migrations/20220907011339-createTutors.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/migrations/20220906191759-createPET.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/migrations/20220907011339-createTutors.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/migrations/20220907143316-CreateVet.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/migrations/20220907234030-createPetsVets.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/migrations/20220909165828-pet_tutor_association.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/middlewares/tutorValidator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/middlewares/tutorValidator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,7 +83,8 @@
       <updated>1662732776054</updated>
       <workItem from="1662732779134" duration="142000" />
       <workItem from="1662732932545" duration="1236000" />
-      <workItem from="1662734239478" duration="7002000" />
+      <workItem from="1662734239478" duration="8391000" />
+      <workItem from="1662835482088" duration="5186000" />
     </task>
     <task id="LOCAL-00001" summary="atualiza .gitignore">
       <created>1662733552732</created>
@@ -99,7 +107,49 @@
       <option name="project" value="LOCAL" />
       <updated>1662734248293</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="altera migration create Pet">
+      <created>1662743172436</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1662743172436</updated>
+    </task>
+    <task id="LOCAL-00005" summary="altera migration create Tutor">
+      <created>1662743245091</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1662743245091</updated>
+    </task>
+    <task id="LOCAL-00006" summary="adiciona chave estrangeira tutor ao metodo de criação do pet">
+      <created>1662743262977</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1662743262977</updated>
+    </task>
+    <task id="LOCAL-00007" summary="altera desc de relacionamento">
+      <created>1662743291563</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1662743291563</updated>
+    </task>
+    <task id="LOCAL-00008" summary="altera env">
+      <created>1662743303964</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1662743303964</updated>
+    </task>
+    <task id="LOCAL-00009" summary="cria migration de associação de tutor com pet">
+      <created>1662743320931</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1662743320931</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -118,6 +168,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="atualiza .gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="atualiza .gitignore" />
+    <MESSAGE value="altera migration create Pet" />
+    <MESSAGE value="altera migration create Tutor" />
+    <MESSAGE value="adiciona chave estrangeira tutor ao metodo de criação do pet" />
+    <MESSAGE value="altera desc de relacionamento" />
+    <MESSAGE value="altera env" />
+    <MESSAGE value="cria migration de associação de tutor com pet" />
+    <option name="LAST_COMMIT_MESSAGE" value="cria migration de associação de tutor com pet" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/app/model/TutorModel.js</url>
+          <line>8</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
