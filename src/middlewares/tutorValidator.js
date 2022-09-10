@@ -26,14 +26,12 @@ export default async function tutorValidator(request, response, next) {
         .strict()
         .required("Telefone é obrigatório")
         .min(10)
-        .max(11)
         .typeError("Deve ser uma string"),
       cep: yup
         .string()
         .strict()
         .required("CEP é obrigatório")
         .min(8)
-        .max(8)
         .typeError("Deve ser uma string"),
     });
     

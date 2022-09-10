@@ -25,6 +25,6 @@ export default class CreateTutorController {
       return response.status(400).json(createdTutor.message);
     }
 
-    return response.status(200).json(createdTutor);
+    return response.status(201).json(createdTutor.message);
   }
 }

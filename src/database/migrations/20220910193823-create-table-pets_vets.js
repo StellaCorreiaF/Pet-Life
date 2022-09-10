@@ -18,7 +18,7 @@ module.exports = {
           key: "id",
         },
         allowNull: false,
-},
+      },
       vetId: {
         type: Sequelize.UUID,
         references: {
