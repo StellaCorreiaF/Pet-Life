@@ -1,15 +1,20 @@
 'use strict';
 
-const { password } = require("../../config/database");
-
 module.exports = {
-  up: (queryInterface, Sequelize)=> {
-    return queryInterface.createTable('tutors', { 
+  async up (queryInterface, Sequelize) {
+    /**
+     * Add altering commands here.
+     *
+     * Example:
+     * await queryInterface.createTable('users', { id: Sequelize.INTEGER });
+     */
+
+    return queryInterface.createTable('tutors', {
       id: {
         type: Sequelize.UUID,
+        primaryKey: true,
         defaultValue: Sequelize.UUIDV4,
-        allowNull: false,
-        primaryKey: true
+        allowNull: false
       },
       nome:{
         type: Sequelize.STRING,
@@ -45,17 +50,21 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      uf:{
+      uf: {
         type: Sequelize.STRING,
         allowNull: false,
-      },
-
-    }); 
+      }
+    }
+    )
   },
 
-  down: (queryInterface, Sequelize)=> {
-    
-    return queryInterface.dropTable('tutors');
-    
+  async down (queryInterface, Sequelize) {
+    /**
+     * Add reverting commands here.
+     *
+     * Example:
+     * await queryInterface.dropTable('users');
+     */
+    return queryInterface.dropTable('tutors')
   }
 };
