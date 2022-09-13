@@ -3,9 +3,9 @@ import databaseConfig from "../../config/database";
 
 const sequelize = new Sequelize(databaseConfig);
 
-class TutorModel extends Model {}
+class Tutores extends Model {}
 
-TutorModel.init(
+Tutores.init(
     {
         id: {
             type: Sequelize.UUIDV4(),
@@ -29,4 +29,4 @@ TutorModel.init(
     }
 );
 
-export default TutorModel;
+export default Tutores;

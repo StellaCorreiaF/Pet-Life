@@ -5,11 +5,11 @@ export default class UpdateVeterinarioService {
 
   async update(
     id,
-    name,
+    nome,
     telefone,
     email,
     login,
-    password,
+    senha,
     crmv,
     especialidade
   ) {
@@ -25,11 +25,11 @@ export default class UpdateVeterinarioService {
       const [numeroDeRegistrosAtualizados] = await VeterinarioModel.update(
         {
           id,
-          name,
+          nome,
           telefone,
           email,
           login,
-          password,
+          senha,
           crmv,
           especialidade,
         },
@@ -38,15 +38,15 @@ export default class UpdateVeterinarioService {
         }
       );
       if (numeroDeRegistrosAtualizados === 0) {
-        return { mensagem: "Dados iguais" };
+        return { message: "Dados iguais" };
       } else {
         return {
           id,
-          name,
+          nome,
           telefone,
           email,
           login,
-          password,
+          senha,
           crmv,
           especialidade,
         };

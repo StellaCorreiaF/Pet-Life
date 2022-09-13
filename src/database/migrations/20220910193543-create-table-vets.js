@@ -9,7 +9,7 @@ module.exports = {
         allowNull: false,
         primaryKey: true
       },
-      name: {
+      nome: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -32,7 +32,7 @@ module.exports = {
         allowNull: false,
         unique: true
       },
-      password: {
+      senha: {
         type: Sequelize.STRING,
         allowNull: false
       },

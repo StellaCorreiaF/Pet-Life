@@ -1,3 +1,4 @@
 node_modules
 .env
-npx npm-merge-driver install -g
+
+

@@ -35,4 +35,4 @@ module.exports = {
   async down(queryInterface, Sequelize) {
     return await queryInterface.dropTable("pets_vets");
   },
-};
+};  

@@ -1,13 +1,13 @@
 import Sequelize, { Model } from "sequelize";
 import databaseConfig from "../../config/database";
-import tutorModel from './TutorModel';
+import tutorModel from './Tutores';
 
 const sequelize = new Sequelize(databaseConfig);
 
 
-class petModel extends Model {}
+class Pets extends Model {}
 
-petModel.init(
+Pets.init(
     {
         id: {
             type: Sequelize.UUIDV4(),
@@ -26,10 +26,10 @@ petModel.init(
       }
 )
     
-petModel.belongsTo(tutorModel, {as : 'pet', foreignKey: 'tutorId'});
-tutorModel.hasMany(petModel, {as: 'tutor', foreignKey: 'tutorId'}
+Pets.belongsTo(tutorModel, {as : 'pet', foreignKey: 'tutorId'});
+tutorModel.hasMany(Pets, {as: 'tutor', foreignKey: 'tutorId'}
 );
 
 
 
-export default petModel;
+export default Pets;
