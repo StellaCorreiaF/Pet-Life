@@ -12,3 +12,5 @@ class Database {
 }
 
 export default new Database().connection;
+//para criar as migrations: npx sequelize migration:create --name=createTrainers
+// executar migration:  npx sequelize db:migrate

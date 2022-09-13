@@ -3,26 +3,26 @@ import databaseConfig from "../../config/database";
 
 const sequelize = new Sequelize(databaseConfig); 
 
-class VeterinarioModel extends Model{}
-VeterinarioModel.init(
+class Veterinarios extends Model{}
+Veterinarios.init(
   {
   id: {
     type: Sequelize.UUIDV4(),
     primaryKey: true
   },
-  name: Sequelize.STRING,
+  nome: Sequelize.STRING,
   crmv: Sequelize.STRING,
-  telefone: Sequelize.STRING,
+  telefone: Sequelize.STRING(11),
   login: Sequelize.STRING,
   email:Sequelize.STRING,
-  password: Sequelize.STRING,
+  senha: Sequelize.STRING,
   especialidade: Sequelize.STRING
 
 },
 {
   sequelize,
   modelName: "veterinarios",
-  timestamps: false,
+  timestamps: false
 })
 
-export default VeterinarioModel; 
+export default Veterinarios; 

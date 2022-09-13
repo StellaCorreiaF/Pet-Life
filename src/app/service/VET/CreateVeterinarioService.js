@@ -4,8 +4,8 @@ import VeterinarioModel from "../../model/VeterinarioModel";
 
 export default class createVeterinarioService {
   constructor() { }
-  async create(name, crmv, telefone, login, email, password,especialidade) {
-    if (name.length < 5) {
+  async create(nome, crmv, telefone, login, email, senha,especialidade) {
+    if (nome.length < 5) {
       return {
         sucess: false,
         message: "Nome precisa ter pelo menos 5 caracteres"
@@ -14,7 +14,7 @@ export default class createVeterinarioService {
     try {
       const newVeterinario = await VeterinarioModel.create({
         id: v4(),
-        name, crmv, telefone, login, email, password,especialidade
+        nome, crmv, telefone, login, email, senha,especialidade
 
       })
       return {
