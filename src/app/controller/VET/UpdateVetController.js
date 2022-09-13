@@ -7,20 +7,20 @@ export default class UpdateVeterinarioController {
 
   async update(request, response) {
     const { id } = request.params;
-    const { name, telefone, email, login, password, crmv, especialidade } =
+    const { nome, telefone, email, login, senha, crmv, especialidade } =
       request.body;
 
     const updateVeterinario = await this.service.update(
       id,
-      name,
+      nome,
       telefone,
       email,
       login,
-      password,
+      senha,
       crmv,
       especialidade
     );
 
-    return response.status(200).json(updateVeterinario);
+    return response.status(200).json(updateVeterinario.message);
   }
 }
