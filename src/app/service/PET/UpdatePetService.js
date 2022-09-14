@@ -1,4 +1,4 @@
-import petModel from "../../model/Pet";
+import Pets from "../../models/Pets";
 
 export default class UpdatePetService {
     constructor() {}
@@ -12,7 +12,7 @@ export default class UpdatePetService {
         idade
     ) {
         try {
-        const pet = await petModel.findByPk(id);
+        const pet = await Pets.findByPk(id);
         
         if (!pet) {
             return {
@@ -21,7 +21,7 @@ export default class UpdatePetService {
         }
         
 
-        const [numeroDeRegistrosAtualizados] = await petModel.update(
+        const [numeroDeRegistrosAtualizados] = await Pets.update(
            { 
             id,
             nome,
@@ -35,7 +35,7 @@ export default class UpdatePetService {
         }
         );
         if (numeroDeRegistrosAtualizados === 0) {
-            return { mensagem: "Dados iguais" };
+            return { message: "Dados iguais" };
           } else {
             return {
                 id,

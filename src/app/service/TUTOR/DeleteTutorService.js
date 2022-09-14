@@ -1,4 +1,4 @@
-import TutorModel from '../../model/TutorModel';
+import Tutores from "../../models/Tutores";
 import ListTutorService from "./ListTutorService";
 export default class DeleteTutorService {
     constructor(){
@@ -7,7 +7,7 @@ export default class DeleteTutorService {
 
     async delete(id){
         try {
-            const tutor = await TutorModel.findByPk(id);
+            const tutor = await Tutores.findByPk(id);
             if (!tutor) {
                 return {
                     sucess: false,

@@ -1,9 +1,9 @@
 import Sequelize, { DataTypes, Model } from "sequelize";
-import databaseConfig from "../../../config/database";
-import petModel from "./Pet";
-import vetModel from "./VeterinarioModel";
+import database from "../../config/Database";
+import Pets from "./Pets";
+import Veterinarios from "./Veterinarios";
 
-const sequelize = new Sequelize(databaseConfig);
+const sequelize = new Sequelize(database);
 
 class PetsVets extends Model {}
 
@@ -16,14 +16,14 @@ PetsVets.init(
     petId: {
       type: DataTypes.UUIDV4(),
       references: {
-        model: petModel,
+        model: Pets,
         key: "id",
       },
     },
     vetId: {
 type: DataTypes.UUIDV4(),
       references: {
-        model: vetModel,
+        model: Veterinarios,
         key: "id",
       },
     },
@@ -35,15 +35,15 @@ type: DataTypes.UUIDV4(),
   }
 );
 
-petModel.belongsToMany(vetModel, { through: PetsVets });
-vetModel.belongsToMany(petModel, { through: PetsVets });
+Pets.belongsToMany(Veterinarios, { through: PetsVets });
+Veterinarios.belongsToMany(Pets, { through: PetsVets });
 
-PetsVets.belongsTo( petModel, {
+PetsVets.belongsTo( Pets, {
   as: "pet",
   foreignKey: "petId",
 });
 
-PetsVets.belongsTo(vetModel, {
+PetsVets.belongsTo(Veterinarios, {
   as: "vet",
   foreignKey: "vetId",
 });

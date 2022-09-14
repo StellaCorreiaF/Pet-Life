@@ -1,11 +1,12 @@
-import VeterinarioModel from "../../model/VeterinarioModel";
+import Veterinarios from "../../models/Veterinarios";
+
 
 export default class ListVeterinariosService  {
   constructor() {}
 
   async listAll() {
     try {
-      const veterinarios = await VeterinarioModel.findAll();
+      const veterinarios = await Veterinarios.findAll();
       return veterinarios; 
     } catch (error) {
       console.log(error)

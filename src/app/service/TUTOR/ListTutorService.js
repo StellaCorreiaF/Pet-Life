@@ -1,12 +1,13 @@
 import { v4 } from 'uuid';
-import TutorModel from '../../model/TutorModel';
+import Tutores from '../../models/Tutores';
+
 
 export default class createTutorService {
   constructor() {}
 
  async listAll() {
   try {
-     const tutors = await TutorModel.findAll()
+     const tutors = await Tutores.findAll()
      return tutors;
   } catch (error) {
     console.log(error);
@@ -15,14 +16,14 @@ export default class createTutorService {
   }
   async listOne(email, senha) {
     try  {
-      const tutors = await TutorModel.findOne({
+      const tutors = await Tutores.findOne({
          where: {
            email,
        }
       });
 
        if (!tutors) {
-          return { mensagem: "Tutor não encontrado"};
+          return { message: "Tutor não encontrado"};
        }
        
        
