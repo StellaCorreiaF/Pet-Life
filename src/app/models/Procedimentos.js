@@ -1,7 +1,9 @@
 import Sequelize, { Model } from "sequelize";
-import databaseConfig from "../../config/database";
+import databaseConfig from "../../config/Database";
 import Pets from "./Pets";
 import Veterinarios from "./Veterinarios";
+
+const sequelize = new Sequelize(databaseConfig);
 
 class Procedimentos extends Model{}
 Procedimentos.init({

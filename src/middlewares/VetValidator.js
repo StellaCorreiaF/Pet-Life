@@ -23,7 +23,7 @@ export default async function vetValidator(request, response, next) {
             .strict()
             .required("Login obrigatório")
             .typeError("Deve ser uma string"),
-        password: yup.string()
+        senha: yup.string()
             .strict()
             .required("Senha obrigatória")
             .min(6)

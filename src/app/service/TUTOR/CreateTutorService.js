@@ -1,5 +1,6 @@
 import { v4 } from 'uuid';
-import TutorModel from '../../model/TutorModel';
+import Tutores from '../../models/Tutores';
+
 
 export default class createTutorService {
   constructor() {}
@@ -8,7 +9,7 @@ export default class createTutorService {
 
    try {
    
-   const newTutor = await TutorModel.create({
+   const newTutor = await Tutores.create({
      id: v4(),
      nome, 
      email, 
@@ -18,19 +19,19 @@ export default class createTutorService {
      cep, 
      bairro, 
      cidade, 
-     uf,
+     uf
    });
 
- return {
-   sucess: true,
-   message: newTutor,
- };
-} catch (error) {
- console.log(error);
- return {
-   sucess: true,
-   message: error.message,
- };
-}
-}
+    return {
+      sucess: true,
+      message: newTutor,
+    };
+    } catch (error) {
+      console.log(error);
+      return {
+        sucess: false,
+        message: error.message
+      };
+    }
+  }
 }

@@ -1,4 +1,4 @@
-import TutorModel from '../../model/TutorModel';
+import Tutores from "../../models/Tutores";
 import ListTutorService from "./ListTutorService";
 
 export default class UpdateTutorService {
@@ -18,7 +18,7 @@ async update (
         cidade,
         uf) {
    try {
-    const tutor = await TutorModel.findByPk(id);
+    const tutor = await Tutores.findByPk(id);
 
         if (!tutor) {
             return {
@@ -26,7 +26,7 @@ async update (
                 message: "Tutor(a) não encontrado"};
             }
         
-        const [numeroDeRegistrosAtualizados] = await TutorModel.update(
+        const [numeroDeRegistrosAtualizados] = await Tutores.update(
             {
                 nome,
                 email,
@@ -44,7 +44,7 @@ async update (
           );
 
         if (numeroDeRegistrosAtualizados === 0) {
-        return { sucess: false, mensagem: "Dados iguais" };
+        return { sucess: false, message: "Dados iguais" };
       } else {
         return {
           id,

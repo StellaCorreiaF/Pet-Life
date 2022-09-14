@@ -1,6 +1,7 @@
 import { v4 } from "uuid";
 import { create } from "yup/lib/Reference";
-import VeterinarioModel from "../../model/VeterinarioModel";
+import Veterinarios from "../../models/Veterinarios";
+
 
 export default class createVeterinarioService {
   constructor() { }
@@ -12,7 +13,7 @@ export default class createVeterinarioService {
       }
     }
     try {
-      const newVeterinario = await VeterinarioModel.create({
+      const newVeterinario = await Veterinarios.create({
         id: v4(),
         nome, crmv, telefone, login, email, senha,especialidade
 

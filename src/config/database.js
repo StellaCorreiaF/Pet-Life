@@ -9,12 +9,3 @@ module.exports = {
     port:process.env.DB_PORT, 
     
 } 
-
-    
-
-    // username: "root",
-    // password:"root",
-    // database:"petlife",
-    // dialect: "mysql",
-    // host:"127.0.0.1",
-    // port:"3306",

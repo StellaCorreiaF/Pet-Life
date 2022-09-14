@@ -13,13 +13,14 @@ import UpdateTutorController from "./app/controller/TUTOR/UpdateTutorController"
 import DeleteTutorController from "./app/controller/TUTOR/DeleteTutorController";
 import UpdateVeterinarioController from "./app/controller/VET/UpdateVetController";
 import DeleteVeterinarioController from "./app/controller/VET/DeleteVetController";
-
+import CreateRelationshipPetsVetsController from "./app/controller/PETS_VETS/CreateRelationShipPetsVetsController";
 
 //MIDDLEWARES
 import tutorValidator from "./middlewares/tutorValidator";
 import vetValidator from "./middlewares/VetValidator";
 
 import petValidator from "./middlewares/PetValidator";
+
 
 const routes = new Router();
 
@@ -36,7 +37,9 @@ const listAllTutorController = new ListAllTutorController();
 const updateTutorController = new UpdateTutorController();
 const deleteTutorController = new DeleteTutorController();
 
+//pets vets 
 
+const createRelationshipPetsVetsController = new CreateRelationshipPetsVetsController(); 
 // ROTAS PETS
 
 routes.get('/pets', (req,res)=> 
@@ -85,5 +88,9 @@ routes.post("/tutor", tutorValidator, (req,res) =>  createTutorController.create
 routes.put("/tutor/:id", (req,res) =>  updateTutorController.update(req,res));
 routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res));
 
+
+//pets vets
+routes.post("/petsVets", (req, res) => {
+  createRelationshipPetsVetsController.create(req, res)})
 
 export default  routes; 

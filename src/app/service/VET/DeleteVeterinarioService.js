@@ -1,11 +1,11 @@
-import VeterinarioModel from "../../model/VeterinarioModel";
+import Veterinarios from "../../models/Veterinarios";
 
 export default class DeleteVeterinarioService {
   constructor() {}
 
   async delete(id) {
     try {
-      const veterinario = await VeterinarioModel.findByPk(id);
+      const veterinario = await Veterinarios.findByPk(id);
 
       if (!veterinario) {
         return { mensagem: "Veterinário não encontrado" };

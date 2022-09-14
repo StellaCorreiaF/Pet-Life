@@ -1,14 +1,14 @@
-import petModel from "../../model/Pet"; 
+import Pets from "../../models/Pets";
 
 export default class DeletePetService{ 
     constructor(){} 
 
     async delete(id){ 
         try{ 
-            const pet = await petModel.findByPk(id); 
+            const pet = await Pets.findByPk(id); 
 
             if(!pet){ 
-                return { mensagem: "Pet não ecnocntrado"};
+                return { message: "Pet não ecnocntrado"};
             } 
 
             const petRemovido = await pet.destroy(); 
@@ -19,24 +19,3 @@ export default class DeletePetService{
         }
     }
 }
-
-
-
-
-// const ListPetService = require('../../service/PET/ListPetService');
-
-// const DeletePetService = { 
-//     delete: (id) => { 
-//         const pets = ListPetService.listPetServ() 
-//         const petIndice = pets.findIndex(item => item.id === Number(id)) 
-
-//         if (petIndice < 0){ 
-//             return {erro: 'Pet não encontrado'}
-//         } 
-        
-//         pets.splice(petIndice, 1) 
-//         return {mensagem: 'Cadastro removido com sucesso'}
-//     }
-// }
-
-// module.exports = DeletePetService

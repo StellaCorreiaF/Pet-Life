@@ -1,4 +1,4 @@
-import VeterinarioModel from "../../model/VeterinarioModel";
+import Veterinarios from "../../models/Veterinarios";
 
 export default class UpdateVeterinarioService {
   constructor() {}
@@ -14,15 +14,8 @@ export default class UpdateVeterinarioService {
     especialidade
   ) {
     try {
-      // const veterinario = await VeterinarioModel.findByPk(id);
-
-      // if (!veterinario) {
-      //   return {
-      //     message: "Vet não encontrado",
-      //   };
-      // }
-
-      const [numeroDeRegistrosAtualizados] = await VeterinarioModel.update(
+   
+      const [numeroDeRegistrosAtualizados] = await Veterinarios.update(
         {
           id,
           nome,
