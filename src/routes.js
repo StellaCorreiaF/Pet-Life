@@ -14,12 +14,16 @@ import DeleteTutorController from "./app/controller/TUTOR/DeleteTutorController"
 import UpdateVeterinarioController from "./app/controller/VET/UpdateVetController";
 import DeleteVeterinarioController from "./app/controller/VET/DeleteVetController";
 import CreateRelationshipPetsVetsController from "./app/controller/PETS_VETS/CreateRelationShipPetsVetsController";
+import ListAllRelationshipPetsVetsController from "./app/controller/PETS_VETS/ListRelationshipPetsVetsController";
+import UpdateRelationshipPetsVetsController from "./app/controller/PETS_VETS/UpdateRelationshipPetsVetsController";
+import DeleteRelationShipPetsVetsController from "./app/controller/PETS_VETS/DeleteRelationshipPetsVetsController";
+import CreateConsultaController from "./app/controller/CONSULTAS/CreateConsultaController";
 
 //MIDDLEWARES
 import tutorValidator from "./middlewares/tutorValidator";
 import vetValidator from "./middlewares/VetValidator";
-
 import petValidator from "./middlewares/PetValidator";
+import ListAllRelationshipPetsVetsController from "./app/controller/PETS_VETS/ListRelationshipPetsVetsController";
 
 
 const routes = new Router();
@@ -39,7 +43,15 @@ const deleteTutorController = new DeleteTutorController();
 
 //pets vets 
 
-const createRelationshipPetsVetsController = new CreateRelationshipPetsVetsController(); 
+const createRelationshipPetsVetsController = new CreateRelationshipPetsVetsController();
+const listAllRelationshipPetsVetsController = new ListAllRelationshipPetsVetsController();
+const updateRelationshipPetsVetsController = new UpdateRelationshipPetsVetsController();
+const deleteRelationshipPetsVetsController = new DeleteRelationShipPetsVetsController();
+
+// consultas
+
+const createConsultaController = new CreateConsultaController();
+
 // ROTAS PETS
 
 routes.get('/pets', (req,res)=> 
@@ -89,8 +101,26 @@ routes.put("/tutor/:id", (req,res) =>  updateTutorController.update(req,res));
 routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res));
 
 
-//pets vets
+//Rotas pets vets
 routes.post("/petsVets", (req, res) => {
-  createRelationshipPetsVetsController.create(req, res)})
+  createRelationshipPetsVetsController.create(req, res)
+});
+
+routes.get("/petsvets", (req, res) => {
+  listAllRelationshipPetsVetsController.listAll(req,res)
+});
+
+routes.put("/petsvets/:id", (req, res) => {
+  updateRelationshipPetsVetsController.update(req,res)
+});
+routes.delete("/petsvets/:id", (req, res) => {
+  deleteRelationshipPetsVetsController.delete(req,res)
+});
+
+// rotas consultas
+routes.post("/consultas", (req, res) => {
+  createConsultaController.create(req, res)
+});
+
 
 export default  routes; 
