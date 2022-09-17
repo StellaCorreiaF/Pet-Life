@@ -23,8 +23,6 @@ export default class createVeterinarioService {
         message: newVeterinario
       }
     } catch(error) {
-      console.log('aqui')
-      console.log(error)
       return {
         sucess: true,
         message: error.message

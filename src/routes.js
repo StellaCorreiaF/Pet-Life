@@ -20,7 +20,9 @@ import tutorValidator from "./middlewares/tutorValidator";
 import vetValidator from "./middlewares/VetValidator";
 
 import petValidator from "./middlewares/PetValidator";
-
+import LoginController from "./app/controller/AUTH/LoginController";
+import loggedIn from "./middlewares/authValidator";
+import {VetIsAuthorized, TutorIsAuthorized, tutorIsAuthorized} from './middlewares/autorizationValidator';
 
 const routes = new Router();
 
@@ -40,17 +42,20 @@ const deleteTutorController = new DeleteTutorController();
 //pets vets 
 
 const createRelationshipPetsVetsController = new CreateRelationshipPetsVetsController(); 
+
+//auth 
+const loginController = new LoginController()
 // ROTAS PETS
 
-routes.get('/pets', (req,res)=> 
+routes.get('/pets', loggedIn, VetIsAuthorized, (req,res)=> 
     listPETController.index(req,res)
 );
 
-routes.post("/pets", petValidator,  (req,res) =>
+routes.post("/pets", loggedIn, tutorIsAuthorized, petValidator,  (req,res) =>
     createPETController.create(req,res)
 );
 
-routes.put("/pets/:id", petValidator, (req,res) => 
+routes.put("/pets/:id", loggedIn, petValidator, (req,res) => 
     updatePETController.update(req,res)
 );
 
@@ -68,7 +73,7 @@ routes.post("/vets", vetValidator, async (req, res) => {
 }
 );
 
-routes.get("/vets", async(req, res)=> {
+routes.get("/vets", loggedIn, VetIsAuthorized, async(req, res)=> {
   const controller = new ListAllVetsController();
   return await controller.listAll(req, res)
 })
@@ -92,5 +97,11 @@ routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res))
 //pets vets
 routes.post("/petsVets", (req, res) => {
   createRelationshipPetsVetsController.create(req, res)})
+
+
+//login
+routes.post('/login', async (req, res) => {
+  await loginController.Login(req, res);
+})
 
 export default  routes; 
