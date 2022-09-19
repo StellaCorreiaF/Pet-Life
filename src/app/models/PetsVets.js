@@ -5,7 +5,7 @@ import Veterinarios from "./Veterinarios";
 
 const sequelize = new Sequelize(database);
 
-class PetsVets extends Model {}
+class PetsVets extends Model { }
 
 PetsVets.init(
   {
@@ -21,7 +21,7 @@ PetsVets.init(
       },
     },
     vetId: {
-type: DataTypes.UUIDV4(),
+      type: DataTypes.UUIDV4(),
       references: {
         model: Veterinarios,
         key: "id",
@@ -38,7 +38,7 @@ type: DataTypes.UUIDV4(),
 Pets.belongsToMany(Veterinarios, { through: PetsVets });
 Veterinarios.belongsToMany(Pets, { through: PetsVets });
 
-PetsVets.belongsTo( Pets, {
+PetsVets.belongsTo(Pets, {
   as: "pet",
   foreignKey: "petId",
 });
