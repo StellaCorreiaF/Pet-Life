@@ -26,7 +26,8 @@ import DeleteConsultaController from "./app/controller/CONSULTAS/DeleteConsultaC
 import tutorValidator from "./middlewares/tutorValidator";
 import vetValidator from "./middlewares/VetValidator";
 import petValidator from "./middlewares/PetValidator";
-import ListAllRelationshipPetsVetsController from "./app/controller/PETS_VETS/ListRelationshipPetsVetsController";
+import consultaValidator from "./middlewares/ConsultaValidator";
+import petsVetsValidator from "./middlewares/PetsVetsValidator";
 
 
 const routes = new Router();
@@ -107,7 +108,7 @@ routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res))
 
 
 //Rotas pets vets
-routes.post("/petsVets", (req, res) => {
+routes.post("/petsVets", petsVetsValidator, (req, res) => {
   createRelationshipPetsVetsController.create(req, res)
 });
 
@@ -123,7 +124,7 @@ routes.delete("/petsvets/:id", (req, res) => {
 });
 
 // rotas consultas
-routes.post("/consultas", (req, res) => {
+routes.post("/consultas",consultaValidator, (req, res) => {
   createConsultaController.create(req, res)
 });
 
