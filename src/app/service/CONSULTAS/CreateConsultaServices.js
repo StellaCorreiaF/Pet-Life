@@ -11,30 +11,31 @@ export default class CreateConsultaService {
     async create(
         data, descricao, petId, vetId) {
         try {
-            const pets = await Pets.findByPk(petId)
-            if (!pets){
-             return {
-                sucess: false,
-                message: "Pet não encontrado"
-            }}
+            const pet = await Pets.findByPk(petId)
+            const vet = await Vets.findByPk(vetId)
 
-            const vets = await Vets.findByPk(vetId)
-            if (!vets){
+            if (!pet){
              return {
                 sucess: false,
-                message: "Veterinário não encontrado"
-            }}
+                message: "Pet não encontrado"}
+            }
+
+            if (!vet){
+             return {
+                sucess: false,
+                message: "Veterinário não encontrado"}
+            }
 
             const newConsulta = await Consultas.create({
                 id: v4(),
                 data,
                 descricao,
-                petId: pets.id,
-                vetId: vets.id
+                petId: pet.id,
+                vetId: vet.id
             })
             return {
                 sucess: true,
-                message: newConsulta
+                message: newConsulta, pet, vet
             }
         } catch (error) {
             console.log(error);
