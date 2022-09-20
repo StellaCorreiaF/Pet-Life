@@ -28,7 +28,7 @@ Horarios.init(
                 },
             },
         ],
-        veterinários: [
+        veterinarios: [
             {
                 type: DataTypes.UUIDV4(),
                 references: {
@@ -38,7 +38,7 @@ Horarios.init(
             },
         ],
         dias: {
-            type:Sequelize.NUMBER,
+            type:DataTypes.NUMBER,
             required: true
         },
         dataInicial: {

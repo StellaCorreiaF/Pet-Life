@@ -1,5 +1,6 @@
 import Router from "express"; 
 
+
 //PET CONTROLLERS
 import CreateVetController from "./app/controller/VET/CreateVetController";
 import ListAllVetsController from "./app/controller/VET/ListAllVetsController";
@@ -15,11 +16,12 @@ import UpdateVeterinarioController from "./app/controller/VET/UpdateVetControlle
 import DeleteVeterinarioController from "./app/controller/VET/DeleteVetController";
 import CreateRelationshipPetsVetsController from "./app/controller/PETS_VETS/CreateRelationShipPetsVetsController";
 
+
 //MIDDLEWARES
 import tutorValidator from "./middlewares/tutorValidator";
 import vetValidator from "./middlewares/VetValidator";
-
 import petValidator from "./middlewares/PetValidator";
+
 
 
 const routes = new Router();
@@ -88,9 +90,29 @@ routes.post("/tutor", tutorValidator, (req,res) =>  createTutorController.create
 routes.put("/tutor/:id", (req,res) =>  updateTutorController.update(req,res));
 routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res));
 
-
 //pets vets
 routes.post("/petsVets", (req, res) => {
   createRelationshipPetsVetsController.create(req, res)})
+
+
+//rota Horarios
+/*routes.post("/horario", async(req,res)=>{
+  try{
+    const horario = await new Horarios(req.body).save();
+    res.json({horario})
+ } catch(err){
+    res.json({ error: true, message: err.message});
+ }
+})*/
+
+//rota Agenda
+/*routes.post("/agenda", async(req,res)=>{
+  try{
+    const horario = await new Horarios(req.body).save();
+    res.json({horario})
+ } catch(err){
+    res.json({ error: true, message: err.message});
+ }
+})*/
 
 export default  routes; 
