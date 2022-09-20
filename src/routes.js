@@ -55,7 +55,7 @@ routes.post("/pets", loggedIn, tutorIsAuthorized, petValidator,  (req,res) =>
     createPETController.create(req,res)
 );
 
-routes.put("/pets/:id", loggedIn, petValidator, (req,res) => 
+routes.put("/pets/:id", loggedIn,tutorIsAuthorized, petValidator, (req,res) => 
     updatePETController.update(req,res)
 );
 
@@ -73,11 +73,11 @@ routes.post("/vets", vetValidator, async (req, res) => {
 }
 );
 
-routes.get("/vets", loggedIn, VetIsAuthorized, async(req, res)=> {
+routes.get("/vets", loggedIn, async(req, res)=> {
   const controller = new ListAllVetsController();
   return await controller.listAll(req, res)
 })
-routes.put("/vets/:id", async (req, res) => {
+routes.put("/vets/:id", loggedIn, VetIsAuthorized, async (req, res) => {
   const controller = new UpdateVeterinarioController();
   return await controller.update(req, res);
 });
@@ -90,7 +90,7 @@ routes.delete("/vets/:id", async (req, res) => {
 //Rotas Tutor
 routes.get("/tutor", (req,res) =>  listAllTutorController.listAll(req,res));
 routes.post("/tutor", tutorValidator, (req,res) =>  createTutorController.create(req,res));
-routes.put("/tutor/:id", loggedIn, loggedTutorIsTheSameTarget, (req,res) =>  updateTutorController.update(req,res));
+routes.put("/tutor/:id", loggedIn, (req,res) =>  updateTutorController.update(req,res));
 routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res));
 
 
