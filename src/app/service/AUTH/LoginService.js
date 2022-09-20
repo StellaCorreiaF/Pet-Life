@@ -18,7 +18,6 @@ export default class LoginService {
         
         if (tutor){
             if (tutor.senha === password){
-                console.log('aquiiiiiiii')
                 const token = jwt.sign({id: tutor.id, user_type_id: type.TutorType }, PRIVATE_KEY);
                 return new LoginResult(true, token)
             }
