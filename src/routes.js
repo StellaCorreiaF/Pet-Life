@@ -22,7 +22,7 @@ import vetValidator from "./middlewares/VetValidator";
 import petValidator from "./middlewares/PetValidator";
 import LoginController from "./app/controller/AUTH/LoginController";
 import loggedIn from "./middlewares/authValidator";
-import {VetIsAuthorized, TutorIsAuthorized, tutorIsAuthorized} from './middlewares/autorizationValidator';
+import {VetIsAuthorized, TutorIsAuthorized, tutorIsAuthorized, loggedTutorIsTheSameTarget} from './middlewares/autorizationValidator';
 
 const routes = new Router();
 
@@ -90,7 +90,7 @@ routes.delete("/vets/:id", async (req, res) => {
 //Rotas Tutor
 routes.get("/tutor", (req,res) =>  listAllTutorController.listAll(req,res));
 routes.post("/tutor", tutorValidator, (req,res) =>  createTutorController.create(req,res));
-routes.put("/tutor/:id", (req,res) =>  updateTutorController.update(req,res));
+routes.put("/tutor/:id", loggedIn, loggedTutorIsTheSameTarget, (req,res) =>  updateTutorController.update(req,res));
 routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res));
 
 

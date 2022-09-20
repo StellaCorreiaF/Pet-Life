@@ -18,8 +18,9 @@ export default class LoginService {
         
         if (tutor){
             if (tutor.senha === password){
+                console.log('aquiiiiiiii')
                 const token = jwt.sign({id: tutor.id, user_type_id: type.TutorType }, PRIVATE_KEY);
-                return LoginResult(true, token)
+                return new LoginResult(true, token)
             }
         }
         else {
@@ -35,7 +36,8 @@ export default class LoginService {
                     return new LoginResult(true, token);
                 }
             }
-            return new LoginResult()
+            
         }
+        return new LoginResult()
     }
 }
