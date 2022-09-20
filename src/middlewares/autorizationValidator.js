@@ -14,18 +14,9 @@ export function VetIsAuthorized(req, res, next) {
     const user = req.user;
 
     if (user.user_type_id !== type.VeterinarioType)
-        res.status(403).send("Usuário sem permissão");
+        res.status(403).send("Apenas veterinários possuem permissão para acessar esta sessão");
 
     next()
 }
- export function loggedTutorIsTheSameTarget(req, res, next) {
-   
-    const loggedUser = req.user;
-    const targetUser = req.user;  
 
-    if(loggedUser !== targetUser.user_id) 
-    res.status(403).send("Usuário sem permissão");
-
-    next(); 
-}
  
