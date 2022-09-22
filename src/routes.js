@@ -13,10 +13,6 @@ import UpdateTutorController from "./app/controller/TUTOR/UpdateTutorController"
 import DeleteTutorController from "./app/controller/TUTOR/DeleteTutorController";
 import UpdateVeterinarioController from "./app/controller/VET/UpdateVetController";
 import DeleteVeterinarioController from "./app/controller/VET/DeleteVetController";
-import CreateRelationshipPetsVetsController from "./app/controller/PETS_VETS/CreateRelationShipPetsVetsController";
-import ListAllRelationshipPetsVetsController from "./app/controller/PETS_VETS/ListRelationshipPetsVetsController";
-import UpdateRelationshipPetsVetsController from "./app/controller/PETS_VETS/UpdateRelationshipPetsVetsController";
-import DeleteRelationShipPetsVetsController from "./app/controller/PETS_VETS/DeleteRelationshipPetsVetsController";
 import CreateConsultaController from "./app/controller/CONSULTAS/CreateConsultaController";
 import ListAllConsultaController from "./app/controller/CONSULTAS/ListConsultaController";
 import UpdateConsultaController from "./app/controller/CONSULTAS/UpdateConsultaController";
@@ -27,7 +23,7 @@ import tutorValidator from "./middlewares/tutorValidator";
 import vetValidator from "./middlewares/VetValidator";
 import petValidator from "./middlewares/PetValidator";
 import consultaValidator from "./middlewares/ConsultaValidator";
-import petsVetsValidator from "./middlewares/PetsVetsValidator";
+
 
 
 const routes = new Router();
@@ -45,12 +41,6 @@ const listAllTutorController = new ListAllTutorController();
 const updateTutorController = new UpdateTutorController();
 const deleteTutorController = new DeleteTutorController();
 
-//pets vets 
-
-const createRelationshipPetsVetsController = new CreateRelationshipPetsVetsController();
-const listAllRelationshipPetsVetsController = new ListAllRelationshipPetsVetsController();
-const updateRelationshipPetsVetsController = new UpdateRelationshipPetsVetsController();
-const deleteRelationshipPetsVetsController = new DeleteRelationShipPetsVetsController();
 
 // consultas
 
@@ -107,21 +97,6 @@ routes.put("/tutor/:id", (req,res) =>  updateTutorController.update(req,res));
 routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res));
 
 
-//Rotas pets vets
-routes.post("/petsVets", petsVetsValidator, (req, res) => {
-  createRelationshipPetsVetsController.create(req, res)
-});
-
-routes.get("/petsvets", (req, res) => {
-  listAllRelationshipPetsVetsController.listAll(req,res)
-});
-
-routes.put("/petsvets/:id", (req, res) => {
-  updateRelationshipPetsVetsController.update(req,res)
-});
-routes.delete("/petsvets/:id", (req, res) => {
-  deleteRelationshipPetsVetsController.delete(req,res)
-});
 
 // rotas consultas
 routes.post("/consultas",consultaValidator, (req, res) => {
