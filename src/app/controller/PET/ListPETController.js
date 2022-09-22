@@ -6,6 +6,7 @@ export default class ListPetcontroller{
     } 
 
     async index(request, response){ 
+        
         const {name} = request.query; 
 
         const pets = await this.service.listAll(name); 
