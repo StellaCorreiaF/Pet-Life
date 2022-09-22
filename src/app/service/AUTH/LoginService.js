@@ -29,8 +29,8 @@ export default class LoginService {
                 });
             if (veterinario)
             {
-                if (veterinario.senha === password){
-                    console.log('aqui')
+                if (await veterinario.verifyPassword(password)){
+                    console.log("chegou nessa bagaça")
                     const token = jwt.sign({id: veterinario.id, user_type_id: type.VeterinarioType }, PRIVATE_KEY);
                     return new LoginResult(true, token);
                 }
