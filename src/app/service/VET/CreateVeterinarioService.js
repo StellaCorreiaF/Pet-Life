@@ -1,7 +1,6 @@
 import { v4 } from "uuid";
-import { create } from "yup/lib/Reference";
 import Veterinarios from "../../models/Veterinarios";
-
+import * as bcrypt from "bcryptjs"
 
 export default class createVeterinarioService {
   constructor() { }
@@ -13,9 +12,17 @@ export default class createVeterinarioService {
       }
     }
     try {
+      
+      const passwordHash = await bcrypt.hash(senha, 8);
       const newVeterinario = await Veterinarios.create({
         id: v4(),
-        nome, crmv, telefone, login, email, senha,especialidade
+        nome,
+        crmv, 
+        telefone, 
+        login, 
+        email, 
+        senha: passwordHash,
+        especialidade
 
       })
       return {
@@ -23,8 +30,6 @@ export default class createVeterinarioService {
         message: newVeterinario
       }
     } catch(error) {
-      console.log('aqui')
-      console.log(error)
       return {
         sucess: true,
         message: error.message
