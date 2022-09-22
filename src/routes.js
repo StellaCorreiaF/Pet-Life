@@ -22,7 +22,7 @@ import vetValidator from "./middlewares/VetValidator";
 import petValidator from "./middlewares/PetValidator";
 import LoginController from "./app/controller/AUTH/LoginController";
 import loggedIn from "./middlewares/authValidator";
-import {VetIsAuthorized, TutorIsAuthorized, tutorIsAuthorized, loggedTutorIsTheSameTarget} from './middlewares/autorizationValidator';
+import {VetIsAuthorized, tutorIsAuthorized, isTutorOfPet} from './middlewares/autorizationValidator';
 
 const routes = new Router();
 
@@ -55,13 +55,12 @@ routes.post("/pets", loggedIn, tutorIsAuthorized, petValidator,  (req,res) =>
     createPETController.create(req,res)
 );
 
-routes.put("/pets/:id", loggedIn,tutorIsAuthorized, petValidator, (req,res) => 
+routes.put("/pets/:id", loggedIn, isTutorOfPet, petValidator, (req,res) => 
     updatePETController.update(req,res)
 );
 
-routes.delete('/pets/:id', (req,res)=>  
+routes.delete('/pets/:id', loggedIn, isTutorOfPet, (req,res)=>  
     deletePETController.delete(req,res)
-
 );
 
 // ROTAS VET
