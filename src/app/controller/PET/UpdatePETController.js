@@ -14,8 +14,7 @@ export default class UpdatePETController {
           raca,
           idade
       } = request.body;
-  
-  
+      
       const updatedPet= await this.service.update(
           id,
           nome,
@@ -27,5 +26,4 @@ export default class UpdatePETController {
       
       return response.status(200).json(updatedPet)     
     }
-
     }
