@@ -5,7 +5,16 @@ import * as bcrypt from 'bcryptjs'
 export default class createTutorService {
   constructor() {}
 
-  async create (id, nome, email, username, senha, telefone, cep, bairro, cidade, uf) {
+  async create (id,
+     nome,
+      email, 
+      username, 
+      senha, 
+      telefone, 
+      cep, 
+      bairro, 
+      cidade, 
+      uf) {
 
    try {
     const passwordHash = await bcrypt.hash(senha, 8);
