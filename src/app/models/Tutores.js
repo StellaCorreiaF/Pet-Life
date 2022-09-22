@@ -32,6 +32,4 @@ Tutores.init(
     }
 );
 
-
-
 export default Tutores;
