@@ -14,6 +14,13 @@ export default class UpdateVeterinarioService {
     especialidade
   ) {
     try {
+      const veterinario = await Veterinarios.findByPk(id);
+
+        if (!veterinario) {
+            return {
+                sucess: false,
+                message: "Veterinário(a) não encontrado(a)"};
+            }
    
       const [numeroDeRegistrosAtualizados] = await Veterinarios.update(
         {

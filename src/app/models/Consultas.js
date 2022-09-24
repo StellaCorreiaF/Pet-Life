@@ -22,7 +22,7 @@ Consultas.init({
 Consultas.belongsTo(Pets, {as : 'consultas', foreignKey: 'petId'});
 Pets.hasMany(Consultas, {as: 'pets', foreignKey: 'petId'});
 
-Consultas.belongsTo(Veterinarios, {as: 'consultas', foreignKey: 'vetId'}); 
+Consultas.belongsTo(Veterinarios, {as: 'consulta', foreignKey: 'vetId'}); 
 Veterinarios.hasMany(Consultas, {as: 'vets', foreignKey: 'vetId'});
 
 export default Consultas; 

@@ -4,15 +4,14 @@ export default class CreatePETController {
     constructor() {
       this.service = new CreatePetService();
     }
-  
     async create(request, response) {
+      const tutor = request.user; 
       const {
           nome,
           peso,
           tipoSanguineo,
           raca,
-          idade,
-          tutorId
+          idade
       } = request.body;
   
       const pet = await this.service.create(
@@ -21,7 +20,7 @@ export default class CreatePETController {
           tipoSanguineo,
           raca,
           idade,
-          tutorId
+          tutor.id
       );
   
       return response.status(201).json(pet.message)

@@ -1,9 +1,14 @@
 import Sequelize, { Model } from "sequelize";
 import databaseConfig from "../../config/Database";
+import * as bcrypt from "bcryptjs"
 
 const sequelize = new Sequelize(databaseConfig); 
 
-class Veterinarios extends Model{}
+class Veterinarios extends Model{
+  async verifyPassword(password) {
+    return await bcrypt.compare(password, this.senha)
+  }
+}
 Veterinarios.init(
   {
   id: {
