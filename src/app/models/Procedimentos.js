@@ -7,7 +7,10 @@ const sequelize = new Sequelize(databaseConfig);
 
 class Procedimentos extends Model{}
 Procedimentos.init({
-    id: Sequelize.UUIDV4(),
+    id: {
+            type: Sequelize.UUIDV4(),
+            primaryKey: true,
+        },
     tipo: Sequelize.STRING,
     data: Sequelize.DATE,
     descricao: Sequelize.STRING
