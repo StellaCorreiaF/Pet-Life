@@ -13,19 +13,30 @@ import UpdateTutorController from "./app/controller/TUTOR/UpdateTutorController"
 import DeleteTutorController from "./app/controller/TUTOR/DeleteTutorController";
 import UpdateVeterinarioController from "./app/controller/VET/UpdateVetController";
 import DeleteVeterinarioController from "./app/controller/VET/DeleteVetController";
+
 import CreateRelationshipPetsVetsController from "./app/controller/PETS_VETS/CreateRelationShipPetsVetsController"; 
 import CreateProcedController from "./app/controller/PROCEDIMENTOS/CreateProcedController" 
 import ListProcedController from "./app/controller/PROCEDIMENTOS/ListProcedController" 
 import DeleteProcedController from "./app/controller/PROCEDIMENTOS/DeleteProcedController" 
 import UpdateProcedController from "./app/controller/PROCEDIMENTOS/UpdateProcedController"
 
+import CreateConsultaController from "./app/controller/CONSULTAS/CreateConsultaController";
+import ListAllConsultaController from "./app/controller/CONSULTAS/ListConsultaController";
+import UpdateConsultaController from "./app/controller/CONSULTAS/UpdateConsultaController";
+import DeleteConsultaController from "./app/controller/CONSULTAS/DeleteConsultaController";
+
+
 //MIDDLEWARES
 import tutorValidator from "./middlewares/tutorValidator";
 import vetValidator from "./middlewares/VetValidator";
 import petValidator from "./middlewares/PetValidator";
+import consultaValidator from "./middlewares/ConsultaValidator";
+
+
 import LoginController from "./app/controller/AUTH/LoginController";
 import loggedIn from "./middlewares/authValidator";
 import {VetIsAuthorized, tutorIsAuthorized, isTutorOfPet} from './middlewares/autorizationValidator';
+
 
 const routes = new Router();
 
@@ -50,12 +61,18 @@ const deleteProcedController = new DeleteProcedController();
 const updateProcedController = new UpdateProcedController();  
 
 
-//pets vets 
 
-const createRelationshipPetsVetsController = new CreateRelationshipPetsVetsController(); 
+// consultas
+
+const createConsultaController = new CreateConsultaController();
+const listConsultaController = new ListAllConsultaController();
+const updateConsultaController = new UpdateConsultaController();
+const deleteConsultaController = new DeleteConsultaController();
+
 
 //auth 
 const loginController = new LoginController()
+
 // ROTAS PETS
 
 routes.get('/pets', loggedIn, VetIsAuthorized, (req,res)=> 
@@ -104,6 +121,7 @@ routes.put("/tutor/:id", loggedIn, (req,res) =>  updateTutorController.update(re
 routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res));
 
 
+
 //pets vets
 routes.post("/petsVets", (req, res) => {
   createRelationshipPetsVetsController.create(req, res)}) 
@@ -125,6 +143,25 @@ routes.put('/procedimentos/:id', (req, res) =>{
 routes.delete('/procedimentos/:id', (req,res) =>{ 
   deleteProcedController.delete(req, res)
 }); 
+
+
+// rotas consultas
+routes.post("/consultas",consultaValidator, (req, res) => {
+  createConsultaController.create(req, res)
+});
+
+routes.get("/consultas", (req, res) => {
+  listConsultaController.listAll(req, res)
+});
+
+routes.put("/consultas/:id", (req, res) => {
+  updateConsultaController.update(req,res)
+});
+
+routes.delete("/consultas/:id", (req, res) => {
+  deleteConsultaController.delete(req,res)
+});
+
 
 
 //login
