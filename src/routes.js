@@ -13,12 +13,15 @@ import UpdateTutorController from "./app/controller/TUTOR/UpdateTutorController"
 import DeleteTutorController from "./app/controller/TUTOR/DeleteTutorController";
 import UpdateVeterinarioController from "./app/controller/VET/UpdateVetController";
 import DeleteVeterinarioController from "./app/controller/VET/DeleteVetController";
-import CreateRelationshipPetsVetsController from "./app/controller/PETS_VETS/CreateRelationShipPetsVetsController";
+import CreateRelationshipPetsVetsController from "./app/controller/PETS_VETS/CreateRelationShipPetsVetsController"; 
+import CreateProcedController from "./app/controller/PROCEDIMENTOS/CreateProcedController" 
+import ListProcedController from "./app/controller/PROCEDIMENTOS/ListProcedController" 
+import DeleteProcedController from "./app/controller/PROCEDIMENTOS/DeleteProcedController" 
+import UpdateProcedController from "./app/controller/PROCEDIMENTOS/UpdateProcedController"
 
 //MIDDLEWARES
 import tutorValidator from "./middlewares/tutorValidator";
 import vetValidator from "./middlewares/VetValidator";
-
 import petValidator from "./middlewares/PetValidator";
 import LoginController from "./app/controller/AUTH/LoginController";
 import loggedIn from "./middlewares/authValidator";
@@ -37,7 +40,15 @@ const deletePETController = new DeletePETController;
 const createTutorController = new CreateTutorController();
 const listAllTutorController = new ListAllTutorController();
 const updateTutorController = new UpdateTutorController();
-const deleteTutorController = new DeleteTutorController();
+const deleteTutorController = new DeleteTutorController(); 
+
+//Procedimentos 
+
+const createProcedController = new CreateProcedController(); 
+const listProcedController = new ListProcedController(); 
+const deleteProcedController = new DeleteProcedController(); 
+const updateProcedController = new UpdateProcedController();  
+
 
 //pets vets 
 
@@ -95,7 +106,25 @@ routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res))
 
 //pets vets
 routes.post("/petsVets", (req, res) => {
-  createRelationshipPetsVetsController.create(req, res)})
+  createRelationshipPetsVetsController.create(req, res)}) 
+
+//rotas procedimentos  
+
+routes.post("/procedimentos", (req, res)=>{ 
+  createProcedController.create(req, res)
+});    
+
+routes.get("/procedimentos", (req,res)=>{ 
+  listProcedController.listAll(req, res)
+}); 
+
+routes.put('/procedimentos/:id', (req, res) =>{ 
+  updateProcedController.update(req,res)
+});  
+
+routes.delete('/procedimentos/:id', (req,res) =>{ 
+  deleteProcedController.delete(req, res)
+}); 
 
 
 //login
