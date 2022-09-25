@@ -10,33 +10,10 @@ class Horarios extends Model { }
 
 Horarios.init(
     {
-        procedimentos: [
-            {
-                type: DataTypes.UUIDV4(),
-                references: {
-                    model: Procedimentos,
-                    key: "id",
-                },
-            },
-        ],
-        consultas: [
-            {
-                type: DataTypes.UUIDV4(),
-                references: {
-                    model: Consultas,
-                    key: "id",
-                },
-            },
-        ],
-        veterinarios: [
-            {
-                type: DataTypes.UUIDV4(),
-                references: {
-                    model: Veterinarios,
-                    key: "id",
-                },
-            },
-        ],
+        id: {
+            type: Sequelize.UUIDV4(),
+            primaryKey: true
+          },
         dias: {
             type:DataTypes.NUMBER,
             required: true
@@ -63,4 +40,14 @@ Horarios.init(
     }
 
 );
+
+Horarios.hasMany(Consultas, {as:'horarios', foreignKey: 'consultasId'})
+Consultas.hasMany(Horarios, {as:'consultas', foreignKey: 'consultasId'})
+
+Horarios.hasMany(Procedimentos, {as:'horarios', foreignKey: 'procedimentosId'})
+Procedimentos.hasMany(Horarios, {as:'procedimentos', foreignKey: 'procedimentosId'})
+
+Horarios.belongsTo(Veterinarios, {as:'horarios', foreignKey: 'vetId'})
+Veterinarios.hasMany(Horarios, {as:'vets', foreignKey: 'vetId'})
+
 export default Horarios;

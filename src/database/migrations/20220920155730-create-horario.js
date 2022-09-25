@@ -4,7 +4,13 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     return queryInterface.createTable('horarios', {
       
-      procedimentos: {
+      id: {
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4,
+        allowNull: false,
+        primaryKey: true,
+      },
+      procedimentosId: {
         type: Sequelize.UUID,
         references: {
           model:{
@@ -14,7 +20,7 @@ module.exports = {
         },
         allowNull: false
       },
-      consultas: {
+      consultasId: {
         type: Sequelize.UUID,
         references: {
           model:{
@@ -24,7 +30,7 @@ module.exports = {
         },
         allowNull: false
       },
-      veterinarios: {
+      veterinariosId: {
         type: Sequelize.UUID,
         references: {
           model:{
