@@ -18,6 +18,12 @@ import CreateTutorController from "./app/controller/TUTOR/CreateTutorController"
 import UpdateTutorController from "./app/controller/TUTOR/UpdateTutorController";
 import DeleteTutorController from "./app/controller/TUTOR/DeleteTutorController";
 
+// PROCEDURES CONTROLLERS
+import CreateProcedController from "./app/controller/PROCEDIMENTOS/CreateProcedController" 
+import ListProcedController from "./app/controller/PROCEDIMENTOS/ListProcedController" 
+import DeleteProcedController from "./app/controller/PROCEDIMENTOS/DeleteProcedController" 
+import UpdateProcedController from "./app/controller/PROCEDIMENTOS/UpdateProcedController"
+
 //CONSULTS CONTROLLERS
 import CreateConsultaController from "./app/controller/CONSULTAS/CreateConsultaController";
 import ListAllConsultaController from "./app/controller/CONSULTAS/ListConsultaController";
@@ -34,11 +40,10 @@ import vetValidator from "./middlewares/VetValidator";
 import petValidator from "./middlewares/PetValidator";
 import consultaValidator from "./middlewares/ConsultaValidator";
 
+
 import LoginController from "./app/controller/AUTH/LoginController";
 import loggedIn from "./middlewares/authValidator";
 import {VetIsAuthorized, tutorIsAuthorized, isTutorOfPet} from './middlewares/autorizationValidator';
-import HorarioController from "./app/controller/Agendamentos/HorarioController";
-
 
 const routes = new Router();
 
@@ -53,7 +58,14 @@ const deletePETController = new DeletePETController;
 const createTutorController = new CreateTutorController();
 const listAllTutorController = new ListAllTutorController();
 const updateTutorController = new UpdateTutorController();
-const deleteTutorController = new DeleteTutorController();
+const deleteTutorController = new DeleteTutorController(); 
+
+//Procedimentos 
+
+const createProcedController = new CreateProcedController(); 
+const listProcedController = new ListProcedController(); 
+const deleteProcedController = new DeleteProcedController(); 
+const updateProcedController = new UpdateProcedController();  
 
 //Consultas
 
@@ -127,6 +139,24 @@ routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res))
 
 
 
+// ROTAS PROCEDIMENTOS
+
+routes.post("/procedimentos", (req, res)=>{ 
+  createProcedController.create(req, res)
+});    
+
+routes.get("/procedimentos", (req,res)=>{ 
+  listProcedController.listAll(req, res)
+}); 
+
+routes.put('/procedimentos/:id', (req, res) =>{ 
+  updateProcedController.update(req,res)
+});  
+
+routes.delete('/procedimentos/:id', (req,res) =>{ 
+  deleteProcedController.delete(req, res)
+}); 
+
 // ROTAS CONSULTAS
 
 routes.post("/consultas",consultaValidator, (req, res) => {
@@ -144,7 +174,6 @@ routes.put("/consultas/:id", (req, res) => {
 routes.delete("/consultas/:id", (req, res) => {
   deleteConsultaController.delete(req,res)
 });
-
 
 //login
 routes.post('/login', async (req, res) => {
