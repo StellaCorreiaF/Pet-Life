@@ -30,11 +30,19 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false,
       },
+      porte: {
+        type: Sequelize.STRING,
+        allowNull: true,
+      },
+      especie: {
+        type: Sequelize.STRING,
+        allowNull: false, 
+      },
       tutorId: {
         type: Sequelize.UUID,
         references: {
           model: {
-            tableName: "tutors",
+            tableName: "tutores",
           },
           key: "id",
         },

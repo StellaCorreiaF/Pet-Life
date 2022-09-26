@@ -3,7 +3,7 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
   
-    return queryInterface.createTable('tutors', {
+    return queryInterface.createTable('tutores', {
       id: {
         type: Sequelize.UUID,
         primaryKey: true,
@@ -19,7 +19,7 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
-      username:{
+      login:{
         type: Sequelize.STRING,
         allowNull: false,
         unique:true,
@@ -59,6 +59,6 @@ module.exports = {
      * Example:
      * await queryInterface.dropTable('users');
      */
-    return queryInterface.dropTable('tutors')
+    return queryInterface.dropTable('tutores')
   }
 };
