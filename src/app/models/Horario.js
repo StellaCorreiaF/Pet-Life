@@ -14,25 +14,26 @@ Horarios.init(
             type: Sequelize.UUIDV4(),
             primaryKey: true
           },
-        procedimentosId:DataTypes.INTEGER,
-        consultasId:DataTypes.INTEGER,
-        vetId:DataTypes.INTEGER,
-
+        veterinariosId: DataTypes.INTEGER,
         dias: {
-            type:DataTypes.NUMBER,
-            required: true
+            type:DataTypes.STRING,
+            required: true,
+            allowNull:false,
+            get(){
+                return this.getDataValue('dias').split(';')
+            },set(val){
+                this.setDataValue('dias', val.join(';'));
+            }
         },
-        dataInicial: {
+        horarioInicial: {
             type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW,
             required: true
         },
-        dataFinal: {
+        horarioFinal: {
             type: DataTypes.DATE,
-            defaultValue: DataTypes.NOW,
             required: true
         },
-        datasFixas: {
+        dataCadastro: {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW,
         },
@@ -53,6 +54,6 @@ Horarios.associate = function(models){
 
 Consultas.hasMany(Horarios, {as:'consultas', foreignKey: 'consultasId'})
 Procedimentos.hasMany(Horarios, {as:'procedimentos', foreignKey: 'procedimentosId'})
-//Veterinarios.hasMany(Horarios, {as:'vets', foreignKey: 'vetId'})
+
 
 export default Horarios;

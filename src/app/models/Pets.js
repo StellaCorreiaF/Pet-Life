@@ -1,6 +1,7 @@
 import Sequelize, { DataTypes, Model } from "sequelize";
 import databaseConfig from "../../config/Database";
 import tutorModel from './Tutores';
+import Consultas from "./Consultas";
 
 const sequelize = new Sequelize(databaseConfig);
 
@@ -17,8 +18,7 @@ Pets.init(
         peso: Sequelize.INTEGER,
         tipoSanguineo: Sequelize.STRING,
         raca: Sequelize.STRING,
-        idade: Sequelize.INTEGER,
-        tutorId: DataTypes.INTEGER
+        idade: Sequelize.INTEGER
     },
     {
         sequelize,
@@ -26,11 +26,12 @@ Pets.init(
         timestamps: false,
       }
 )
-    
-Pets.belongsTo(tutorModel, {as : 'pets', foreignKey: 'tutorId'});
-tutorModel.hasMany(Pets, {as: 'tutor', foreignKey: 'tutorId'}
-);
 
+Pets.associate = function(model){
+  Pets.hasMany(Consultas, {as: 'pets', foreignKey: 'petId'});
+  Pets.belongsTo(tutorModel, {as : 'pets', foreignKey: 'tutorId'});
+}
 
+tutorModel.hasMany(Pets, {as: 'tutor', foreignKey: 'tutorId'});
 
 export default Pets;

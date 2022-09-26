@@ -1,39 +1,36 @@
 import { v4 } from "uuid";
-import Horarios from "../../models/Horario";
 import Procedimentos from "../../models/Procedimentos"
 import Consultas from "../../models/Consultas";
 import Veterinarios from "../../models/Veterinarios";
 import Tutores from "../../models/Tutores";
 import Agenda from "../../models/Agenda";
 
-const { startOfHour, parseISO, isBefore, format, subHours} = require('date-fns');
-
 export default class createAgendaService {
     constructor() { }
     async create(procedimentosId, consultasId, veterinariosId, tutorId, data) {
       try {
-        const procedimento = await Procedimentos.findByPk(procedimentosId).select('tipo');
-        if (!procedimento){
+        const procedimento = await Procedimentos.findByPk(procedimentosId);
+       /* if (!procedimento){
             return {
             sucess: false,
             message: "Procedimentos não encontrado"
             }
-        }
-        const consulta = await Consultas.findByPk(consultasId).select('tipo');
+        }*/
+        const consulta = await Consultas.findByPk(consultasId);
         if (!consulta){
             return {
             sucess: false,
-            message: "Consulta não encontrado"
+            message: "Consulta não encontrada"
             }
         }
-        const vets = await Veterinarios.findByPk(veterinariosId).select('nome especialidade')
+        const vets = await Veterinarios.findByPk(veterinariosId);
         if (!vets){
             return {
             sucess: false,
             message: "Profissional não encontrado"
             }
         }
-        const tutor = await Tutores.findByPk(tutorId).select('nome')
+        const tutor = await Tutores.findByPk(tutorId);
             if (!tutor){
              return {
                 sucess: false,
@@ -42,9 +39,8 @@ export default class createAgendaService {
 
         const newAgendamento = await Agenda.create({
           id: v4(),
-          procedimentosId: procedimento.id, 
-          consultasId: consulta.id, 
-          veterinariosId: vets.id, 
+          consultasId:consulta.id,
+          veterinarioId: vets.id, 
           tutorId:tutor.id,
           data: data,
         })
