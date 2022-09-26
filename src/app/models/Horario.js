@@ -14,6 +14,10 @@ Horarios.init(
             type: Sequelize.UUIDV4(),
             primaryKey: true
           },
+        procedimentosId:DataTypes.INTEGER,
+        consultasId:DataTypes.INTEGER,
+        vetId:DataTypes.INTEGER,
+
         dias: {
             type:DataTypes.NUMBER,
             required: true
@@ -41,13 +45,14 @@ Horarios.init(
 
 );
 
-Horarios.hasMany(Consultas, {as:'horarios', foreignKey: 'consultasId'})
+Horarios.associate = function(models){
+    Horarios.hasMany(Consultas, {as:'horarios', foreignKey: 'consultasId'})
+    Horarios.hasMany(Procedimentos, {as:'horarios', foreignKey: 'procedimentosId'})
+    Horarios.belongsTo(Veterinarios, {as:'horarios', foreignKey: 'vetId'})
+}
+
 Consultas.hasMany(Horarios, {as:'consultas', foreignKey: 'consultasId'})
-
-Horarios.hasMany(Procedimentos, {as:'horarios', foreignKey: 'procedimentosId'})
 Procedimentos.hasMany(Horarios, {as:'procedimentos', foreignKey: 'procedimentosId'})
-
-Horarios.belongsTo(Veterinarios, {as:'horarios', foreignKey: 'vetId'})
-Veterinarios.hasMany(Horarios, {as:'vets', foreignKey: 'vetId'})
+//Veterinarios.hasMany(Horarios, {as:'vets', foreignKey: 'vetId'})
 
 export default Horarios;

@@ -41,16 +41,16 @@ Agenda.init(
 
 );
 
-Agenda.hasMany(Consultas, {as:'agendamentos', foreignKey: 'consultasId'})
-Consultas.hasOne(Agenda, {as:'consultas', foreignKey: 'consultasId'})
+Agenda.associate=function(model){
+    Agenda.hasMany(Consultas, {as:'agendamentos', foreignKey: 'consultasId'})
+    Agenda.hasMany(Procedimentos, {as:'agendamentos', foreignKey: 'procedimentoId'})
+    Agenda.hasMany(Tutores, {as:'agendamentos', foreignKey: 'tutorId'})
+    Agenda.hasMany(Veterinarios, {as:'agendamentos', foreignKey: 'vetId'})
+}
 
-Agenda.hasMany(Procedimentos, {as:'agendamentos', foreignKey: 'procedimentoId'})
-Procedimentos.hasOne(Agenda, {as:'procedimentos', foreignKey: 'procedimentoId'})
-
-Agenda.hasMany(Tutores, {as:'agendamentos', foreignKey: 'tutorId'})
-Tutores.hasOne(Agenda, {as:'tutor', foreignKey: 'tutorId'})
-
-Agenda.hasMany(Veterinarios, {as:'agendamentos', foreignKey: 'vetId'})
-Veterinarios.hasOne(Agenda, {as:'vets', foreignKey: 'vetId'})
+//Consultas.hasOne(Agenda, {as:'consultas', foreignKey: 'consultasId'})
+//Procedimentos.hasOne(Agenda, {as:'procedimentos', foreignKey: 'procedimentoId'})
+//Tutores.hasOne(Agenda, {as:'tutor', foreignKey: 'tutorId'})
+//Veterinarios.hasOne(Agenda, {as:'vets', foreignKey: 'vetId'})
 
 export default Agenda;

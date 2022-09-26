@@ -20,10 +20,12 @@ Procedimentos.init({
     timestamps: false
 })
 
-Procedimentos.belongsTo(Pets, {as : 'procedimentos', foreignKey: 'petId'});
-Pets.hasMany(Procedimentos, {as: 'pets', foreignKey: 'petId'}
-);
+Procedimentos.associate = function(model){
+    Procedimentos.belongsTo(Pets, {as : 'procedimentos', foreignKey: 'petId'});
+    Procedimentos.belongsTo(Veterinarios, {as: 'procedimentos', foreignKey: 'vetId'}); 
+}
+/*
+Pets.hasMany(Procedimentos, {as: 'pets', foreignKey: 'petId'});
+Veterinarios.hasMany(Procedimentos, {as: 'vets', foreignKey: 'vetId'});*/
 
-Procedimentos.belongsTo(Veterinarios, {as: 'procedimentos', foreignKey: 'vetId'}); 
-Veterinarios.hasMany(Procedimentos, {as: 'vets', foreignKey: 'vetId'});
 export default Procedimentos; 

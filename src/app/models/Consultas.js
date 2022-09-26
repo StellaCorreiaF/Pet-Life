@@ -19,10 +19,12 @@ Consultas.init({
     modelName: 'consultas', 
     timestamps: false
 })
-Consultas.belongsTo(Pets, {as : 'consultas', foreignKey: 'petId'});
-Pets.hasMany(Consultas, {as: 'pets', foreignKey: 'petId'});
+Consultas.associate = function(model){
+    Consultas.belongsTo(Pets, {as : 'consultas', foreignKey: 'petId'});
+    Consultas.belongsTo(Veterinarios, {as: 'consulta', foreignKey: 'vetId'}); 
+}
 
-Consultas.belongsTo(Veterinarios, {as: 'consulta', foreignKey: 'vetId'}); 
+//Pets.hasMany(Consultas, {as: 'pets', foreignKey: 'petId'});
 Veterinarios.hasMany(Consultas, {as: 'vets', foreignKey: 'vetId'});
 
 export default Consultas; 
