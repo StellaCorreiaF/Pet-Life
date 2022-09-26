@@ -5,6 +5,7 @@ const sequelize = new Sequelize(databaseConfig);
 
 class Tutores extends Model {  
     async verifyPassword(password) {
+        console.log("CHEGOU")
     return await bcrypt.compare(password, this.senha)
 }}
 
@@ -16,7 +17,7 @@ Tutores.init(
         },
         nome: Sequelize.STRING,
         email: Sequelize.STRING,
-        username: Sequelize.STRING,
+        login: Sequelize.STRING,
         senha: Sequelize.STRING,
         telefone: Sequelize.STRING(11),
         cep: Sequelize.STRING(8),
@@ -26,7 +27,7 @@ Tutores.init(
     },
     {
         sequelize,
-        modelName: "tutors",
+        modelName: "tutores",
         timestamps: false,
         underscored: true,
     }
