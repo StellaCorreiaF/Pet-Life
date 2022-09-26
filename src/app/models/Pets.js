@@ -1,4 +1,4 @@
-import Sequelize, { Model } from "sequelize";
+import Sequelize, { DataTypes, Model } from "sequelize";
 import databaseConfig from "../../config/Database";
 import tutorModel from './Tutores';
 
@@ -18,6 +18,7 @@ Pets.init(
         tipoSanguineo: Sequelize.STRING,
         raca: Sequelize.STRING,
         idade: Sequelize.INTEGER,
+        tutorId: DataTypes.INTEGER
     },
     {
         sequelize,
