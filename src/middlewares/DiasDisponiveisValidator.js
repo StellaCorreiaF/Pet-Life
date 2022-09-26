@@ -2,7 +2,7 @@ import * as Yup from "yup";
 import Agenda from '../app/models/Agenda';
 import Veterinarios from "../app/models/Veterinarios";
 
-const {isBefore} = require('date-fns');
+const { startOfHour, parseISO, isBefore, format, subHours} = require('date-fns');
 
 export default async function DiasDisponiveisValidator(request, response, next) {
     const { veterinarioId, data } = request.body;
@@ -11,6 +11,7 @@ export default async function DiasDisponiveisValidator(request, response, next) 
       data: Yup.date().required(),
     });
     const vets = await Veterinarios.findByPk(veterinarioId);
+    const hourStart = startOfHour(parseISO(data));
 
     if (isBefore(hourStart, new Date())) {
         return response.status(400).json({ error: 'Datas passadas não são permitidas' });
