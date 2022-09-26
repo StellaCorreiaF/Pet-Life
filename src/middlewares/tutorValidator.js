@@ -15,7 +15,7 @@ export default async function tutorValidator(request, response, next) {
         .matches(/@[^.]*\./)
         .required("E-mail não informado")
         .typeError("Deve ser uma string"),
-      username: yup
+      login: yup
         .string()
         .strict()
         .required("Username é obrigatório")
