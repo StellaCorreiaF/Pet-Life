@@ -1,5 +1,6 @@
 import Tutores from "../../models/Tutores";
 import ListTutorService from "./ListTutorService";
+import * as bcrypt from 'bcryptjs'
 
 export default class UpdateTutorService {
     constructor() {
@@ -10,7 +11,7 @@ async update (
         id,
         nome,
         email,
-        username,
+        login,
         senha,
         telefone,
         cep,
@@ -19,6 +20,7 @@ async update (
         uf) {
    try {
     const tutor = await Tutores.findByPk(id);
+    const passwordHash = await bcrypt.hash(senha, 8);
 
         if (!tutor) {
             return {
@@ -30,8 +32,8 @@ async update (
             {
                 nome,
                 email,
-                username,
-                senha,
+                login ,
+                senha:passwordHash,
                 telefone,
                 cep,
                 bairro,
@@ -43,21 +45,22 @@ async update (
             }
           );
 
-        if (numeroDeRegistrosAtualizados === 0) {
-        return { sucess: false, message: "Dados iguais" };
-      } else {
-        return {
-          id,
-          nome,
-          email,
-          username,
-          senha,
-          telefone,
-          cep,
-          bairro,
-          cidade,
-          uf,
-        };
+          if (numeroDeRegistrosAtualizados === 0) {
+            return { sucess: false, message: "Dados iguais" };
+          } else {
+            return {
+              id,
+              nome,
+              email,
+              login,
+              senha,
+              telefone,
+              cep,
+              bairro,
+              cidade,
+              uf,
+            };
+        
     }
 } catch (error) {
     console.log(error);
