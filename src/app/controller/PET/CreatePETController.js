@@ -6,23 +6,30 @@ export default class CreatePETController {
     }
     async create(request, response) {
       const tutor = request.user; 
+            
       const {
           nome,
           peso,
           tipoSanguineo,
           raca,
-          idade
-      } = request.body;
-  
-      const pet = await this.service.create(
-          nome,
-          peso,
-          tipoSanguineo,
-          raca,
           idade,
-          tutor.id
-      );
-  
+          porte,
+          especie        
+      } = request.body;
+      
+      const pet = await this.service.create({
+        nome:  nome,
+        peso: peso,
+        tipoSanguineo: tipoSanguineo,
+        raca: raca,
+        idade: idade,
+        porte: porte,
+        especie: especie,
+        tutorId: tutor.id
+    });
+      if (!pet.sucess) {
+        return response.status(400).json(pet.message);
+      }
       return response.status(201).json(pet.message)
     }
 }
