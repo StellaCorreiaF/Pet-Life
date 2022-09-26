@@ -39,7 +39,7 @@ import tutorValidator from "./middlewares/tutorValidator";
 import vetValidator from "./middlewares/VetValidator";
 import petValidator from "./middlewares/PetValidator";
 import consultaValidator from "./middlewares/ConsultaValidator";
-
+import DiasDisponiveisValidator from "./middlewares/DiasDisponiveisValidator";
 
 import LoginController from "./app/controller/AUTH/LoginController";
 import loggedIn from "./middlewares/authValidator";
@@ -196,7 +196,7 @@ routes.delete("/horarios/:id", (req, res) => {
 
 // ROTAS AGENDAMENTOS
 
-routes.post("/agendamentos",(req, res) => {
+routes.post("/agendamentos",DiasDisponiveisValidator, (req, res) => {
   createAgendamentoController.create(req, res)
 });
 

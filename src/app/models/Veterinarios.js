@@ -1,6 +1,9 @@
 import Sequelize, { Model } from "sequelize";
 import databaseConfig from "../../config/Database";
 import * as bcrypt from "bcryptjs"
+import Horarios from "./Horario";
+import Consultas from "./Consultas";
+import Agenda from "./Agenda";
 
 const sequelize = new Sequelize(databaseConfig); 
 
@@ -29,5 +32,10 @@ Veterinarios.init(
   modelName: "veterinarios",
   timestamps: false
 })
+Veterinarios.associate=function(model){
+  Veterinarios.hasMany(Horarios, {as:'vets', foreignKey: 'vetId'})
+  Veterinarios.hasMany(Consultas, {as: 'vets', foreignKey: 'vetId'});
+  Veterinarios.hasOne(Agenda, {as:'vets', foreignKey: 'vetId'})
+}
 
 export default Veterinarios; 

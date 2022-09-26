@@ -17,11 +17,13 @@ Agenda.init(
             type: Sequelize.UUIDV4(),
             primaryKey: true
         },
+        consultasId:Sequelize.INTEGER,
+        veterinarioId:Sequelize.INTEGER,
         data: {
             type:DataTypes.DATE,
             required: true
         },
-        datasFixas: {
+        dataCadastro: {
             type: DataTypes.DATE,
             defaultValue: DataTypes.NOW,
         },
@@ -41,16 +43,16 @@ Agenda.init(
 
 );
 
-Agenda.associate=function(model){
-    Agenda.hasMany(Consultas, {as:'agendamentos', foreignKey: 'consultasId'})
-    Agenda.hasMany(Procedimentos, {as:'agendamentos', foreignKey: 'procedimentoId'})
+Agenda.associate = function(models){
+    Agenda.belongsToMany(Consultas, {as:'agendamentos', foreignKey: 'consultasId'})
+    Agenda.belongsToMany(Procedimentos, {as:'agendamentos', foreignKey: 'procedimentoId'})
     Agenda.hasMany(Tutores, {as:'agendamentos', foreignKey: 'tutorId'})
     Agenda.hasMany(Veterinarios, {as:'agendamentos', foreignKey: 'vetId'})
 }
 
-//Consultas.hasOne(Agenda, {as:'consultas', foreignKey: 'consultasId'})
+
 //Procedimentos.hasOne(Agenda, {as:'procedimentos', foreignKey: 'procedimentoId'})
 //Tutores.hasOne(Agenda, {as:'tutor', foreignKey: 'tutorId'})
-//Veterinarios.hasOne(Agenda, {as:'vets', foreignKey: 'vetId'})
+
 
 export default Agenda;
