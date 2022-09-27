@@ -43,7 +43,7 @@ import consultaValidator from "./middlewares/ConsultaValidator";
 
 import LoginController from "./app/controller/AUTH/LoginController";
 import loggedIn from "./middlewares/authValidator";
-import {VetIsAuthorized, tutorIsAuthorized, isTutorOfPet, isTutorLoggedIsSameTarget,isVetLoggedIsSameTarget} from './middlewares/autorizationValidator';
+import {VetIsAuthorized, tutorIsAuthorized, isTutorOfPet, isTutorLoggedIsSameTarget, isVetLoggedIsSameTarget} from './middlewares/autorizationValidator';
 
 const routes = new Router();
 
@@ -125,7 +125,7 @@ routes.put("/vets/:id", loggedIn, VetIsAuthorized, isVetLoggedIsSameTarget, asyn
   return await controller.update(req, res);
 });
 
-routes.delete("/vets/:id", async (req, res) => {
+routes.delete("/vets/:id", loggedIn, VetIsAuthorized, isVetLoggedIsSameTarget, async (req, res) => {
   const controller = new DeleteVeterinarioController();
   return await controller.delete(req, res);
 });
@@ -135,7 +135,7 @@ routes.delete("/vets/:id", async (req, res) => {
 routes.get("/tutor", (req,res) =>  listAllTutorController.listAll(req,res));
 routes.post("/tutor", tutorValidator, (req,res) =>  createTutorController.create(req,res));
 routes.put("/tutor/:id", loggedIn, tutorIsAuthorized, isTutorLoggedIsSameTarget, (req,res) =>  updateTutorController.update(req,res));
-routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res));
+routes.delete("/tutor/:id",loggedIn, tutorIsAuthorized, isTutorLoggedIsSameTarget, (req,res) =>  deleteTutorController.delete(req,res));
 
 
 
