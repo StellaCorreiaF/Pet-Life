@@ -32,7 +32,4 @@ Pets.init(
 Pets.belongsTo(Tutores, {as : 'pets', foreignKey: 'tutorId'});
 Tutores.hasMany(Pets, {as: 'tutor', foreignKey: 'tutorId'}
 );
-
-
-
 export default Pets;

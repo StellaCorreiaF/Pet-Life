@@ -12,6 +12,7 @@ Consultas.init({
         type: Sequelize.UUIDV4(),
         primaryKey: true
       },
+
       vetId: DataTypes.INTEGER, 
       petId:DataTypes.INTEGER,
       data: Sequelize.DATE,
@@ -28,3 +29,4 @@ Consultas.associate = function(model){
 }
 
 export default Consultas;
+

@@ -18,7 +18,7 @@ module.exports = {
           },
           key:'id',
         },
-        allowNull: false
+        allowNull: true
       },
       consultasId: {
         type: Sequelize.UUID,
@@ -28,7 +28,7 @@ module.exports = {
           },
           key:'id',
         },
-        allowNull: false
+        allowNull: true
       },
       veterinariosId: {
         type: Sequelize.UUID,
@@ -41,18 +41,18 @@ module.exports = {
         allowNull: false
       },
       dias: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
       },
-      dataInicial: {
+      horarioInicial: {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      dataFinal: {
+      horarioFinal: {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      datasFixas: {
+      dataCadastro: {
         type: Sequelize.DATE,
         allowNull: false,
       },

@@ -9,12 +9,12 @@ export default class createHorarioService {
     async create(procedimentosId, consultasId, veterinariosId, dias, inicio, fim) {
       try {
         const procedimento = await Procedimentos.findByPk(procedimentosId)
-        if (!procedimento){
+        /*if (!procedimento){
             return {
             sucess: false,
             message: "Procedimentos não encontrado"
             }
-        }
+        }*/
         const consulta = await Consultas.findByPk(consultasId)
         if (!consulta){
             return {
@@ -31,13 +31,12 @@ export default class createHorarioService {
         }
         
         const newHorario = await Horarios.create({
-          id: v4(),
-          procedimentosId: procedimento.id, 
+          id: v4(), 
           consultasId: consulta.id, 
           veterinariosId: vets.id, 
           dias: dias, 
-          DataInicial: inicio, 
-          dataFinal:fim
+          horarioInicial: inicio, 
+          horarioFinal:fim
         })
         return {
           sucess: true,
