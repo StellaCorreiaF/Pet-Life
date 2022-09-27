@@ -13,8 +13,8 @@ export default class UpdateConsultaService {
     vetId,
   ) {
     try { 
-        const pet = await Pets.findByPk(petId)
-        const vet = await Veterinarios.findByPk(vetId)
+        const pet = await Pets.findByPk(petId);
+        const vet = await Veterinarios.findByPk(vetId);
 
         if(!pet){
             return { message: "Pet não localizado"}

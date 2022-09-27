@@ -6,6 +6,7 @@ export default class ListAllTutorController {
   }
 
   async listAll(request, response) {
+    
     const tutors = await this.service.listAll();
 
     response.json(tutors);

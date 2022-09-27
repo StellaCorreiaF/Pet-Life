@@ -41,6 +41,6 @@ export default class LoginService {
             }
 
         }
-        return new LoginResult()
+        return new LoginResult();
     }
 }

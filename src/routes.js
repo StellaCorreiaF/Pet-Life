@@ -1,4 +1,4 @@
-import Router from "express"; 
+import Router from "express";
 
 //VET CONTROLLERS
 import CreateVetController from "./app/controller/VET/CreateVetController";
@@ -8,8 +8,8 @@ import DeleteVeterinarioController from "./app/controller/VET/DeleteVetControlle
 
 //PET CONTROLLERS
 import CreatePETController from "./app/controller/PET/CreatePETController";
-import UpdatePETController from "./app/controller/PET/UpdatePETController"; 
-import ListPETController from "./app/controller/PET/ListPETController"; 
+import UpdatePETController from "./app/controller/PET/UpdatePETController";
+import ListPETController from "./app/controller/PET/ListPETController";
 import DeletePETController from "./app/controller/PET/DeletePETController";
 
 //TUTORS CONTROLLERS
@@ -19,9 +19,9 @@ import UpdateTutorController from "./app/controller/TUTOR/UpdateTutorController"
 import DeleteTutorController from "./app/controller/TUTOR/DeleteTutorController";
 
 // PROCEDURES CONTROLLERS
-import CreateProcedController from "./app/controller/PROCEDIMENTOS/CreateProcedController" 
-import ListProcedController from "./app/controller/PROCEDIMENTOS/ListProcedController" 
-import DeleteProcedController from "./app/controller/PROCEDIMENTOS/DeleteProcedController" 
+import CreateProcedController from "./app/controller/PROCEDIMENTOS/CreateProcedController"
+import ListProcedController from "./app/controller/PROCEDIMENTOS/ListProcedController"
+import DeleteProcedController from "./app/controller/PROCEDIMENTOS/DeleteProcedController"
 import UpdateProcedController from "./app/controller/PROCEDIMENTOS/UpdateProcedController"
 
 //CONSULTS CONTROLLERS
@@ -43,29 +43,29 @@ import consultaValidator from "./middlewares/ConsultaValidator";
 
 import LoginController from "./app/controller/AUTH/LoginController";
 import loggedIn from "./middlewares/authValidator";
-import {VetIsAuthorized, tutorIsAuthorized, isTutorOfPet, isTutorLoggedIsSameTarget, isVetLoggedIsSameTarget} from './middlewares/autorizationValidator';
+import { VetIsAuthorized, tutorIsAuthorized, isTutorOfPet, isTutorLoggedIsSameTarget, isVetLoggedIsSameTarget } from './middlewares/autorizationValidator';
 
 const routes = new Router();
 
 //PETS
 const createPETController = new CreatePETController;
-const updatePETController = new UpdatePETController; 
-const listPETController = new ListPETController;  
-const deletePETController = new DeletePETController; 
+const updatePETController = new UpdatePETController;
+const listPETController = new ListPETController;
+const deletePETController = new DeletePETController;
 
 
 //Tutor
 const createTutorController = new CreateTutorController();
 const listAllTutorController = new ListAllTutorController();
 const updateTutorController = new UpdateTutorController();
-const deleteTutorController = new DeleteTutorController(); 
+const deleteTutorController = new DeleteTutorController();
 
 //Procedimentos 
 
-const createProcedController = new CreateProcedController(); 
-const listProcedController = new ListProcedController(); 
-const deleteProcedController = new DeleteProcedController(); 
-const updateProcedController = new UpdateProcedController();  
+const createProcedController = new CreateProcedController();
+const listProcedController = new ListProcedController();
+const deleteProcedController = new DeleteProcedController();
+const updateProcedController = new UpdateProcedController();
 
 //Consultas
 
@@ -91,20 +91,20 @@ const loginController = new LoginController()
 
 // ROTAS PETS
 
-routes.get('/pets', loggedIn, VetIsAuthorized, (req,res)=> 
-    listPETController.index(req,res)
+routes.get('/pets', loggedIn, VetIsAuthorized, (req, res) =>
+  listPETController.index(req, res)
 );
 
-routes.post("/pets", loggedIn, tutorIsAuthorized, petValidator,  (req,res) =>
-    createPETController.create(req,res)
+routes.post("/pets", loggedIn, tutorIsAuthorized, petValidator, (req, res) =>
+  createPETController.create(req, res)
 );
 
-routes.put("/pets/:id", loggedIn, isTutorOfPet, petValidator, (req,res) => 
-    updatePETController.update(req,res)
+routes.put("/pets/:id", loggedIn, isTutorOfPet, petValidator, (req, res) =>
+  updatePETController.update(req, res)
 );
 
-routes.delete('/pets/:id', loggedIn, isTutorOfPet, (req,res)=>  
-    deletePETController.delete(req,res)
+routes.delete('/pets/:id', loggedIn, isTutorOfPet, (req, res) =>
+  deletePETController.delete(req, res)
 );
 
 // ROTAS VET
@@ -116,7 +116,7 @@ routes.post("/vets", vetValidator, async (req, res) => {
 }
 );
 
-routes.get("/vets", loggedIn, async(req, res)=> {
+routes.get("/vets", loggedIn, async (req, res) => {
   const controller = new ListAllVetsController();
   return await controller.listAll(req, res)
 })
@@ -132,33 +132,33 @@ routes.delete("/vets/:id", loggedIn, VetIsAuthorized, isVetLoggedIsSameTarget, a
 
 // ROTAS TUTOR
 
-routes.get("/tutor", (req,res) =>  listAllTutorController.listAll(req,res));
-routes.post("/tutor", tutorValidator, (req,res) =>  createTutorController.create(req,res));
-routes.put("/tutor/:id", loggedIn, tutorIsAuthorized, isTutorLoggedIsSameTarget, (req,res) =>  updateTutorController.update(req,res));
-routes.delete("/tutor/:id",loggedIn, tutorIsAuthorized, isTutorLoggedIsSameTarget, (req,res) =>  deleteTutorController.delete(req,res));
+routes.get("/tutor", (req, res) => listAllTutorController.listAll(req, res));
+routes.post("/tutor", tutorValidator, (req, res) => createTutorController.create(req, res));
+routes.put("/tutor/:id", loggedIn, tutorIsAuthorized, isTutorLoggedIsSameTarget, (req, res) => updateTutorController.update(req, res));
+routes.delete("/tutor/:id", loggedIn, tutorIsAuthorized, isTutorLoggedIsSameTarget, (req, res) => deleteTutorController.delete(req, res));
 
 
 
 // ROTAS PROCEDIMENTOS
 
-routes.post("/procedimentos", loggedIn, (req, res)=>{ 
+routes.post("/procedimentos", loggedIn, (req, res) => {
   createProcedController.create(req, res)
-});    
+});
 
-routes.get("/procedimentos", loggedIn, VetIsAuthorized, (req,res)=>{ 
+routes.get("/procedimentos", loggedIn, VetIsAuthorized, (req, res) => {
   listProcedController.listAll(req, res)
-}); 
-routes.get("/procedimentos/:id", loggedIn,  (req,res)=>{ 
+});
+routes.get("/procedimentos/:id", loggedIn, (req, res) => {
   listProcedController.listAll(req, res)
-}); 
+});
 
-routes.put('/procedimentos/:id', loggedIn, VetIsAuthorized,(req, res) =>{ 
-  updateProcedController.update(req,res)
-});  
+routes.put('/procedimentos/:id', loggedIn, VetIsAuthorized, (req, res) => {
+  updateProcedController.update(req, res)
+});
 
-routes.delete('/procedimentos/:id', (req,res) =>{ 
+routes.delete('/procedimentos/:id', (req, res) => {
   deleteProcedController.delete(req, res)
-}); 
+});
 
 // ROTAS CONSULTAS
 
@@ -170,12 +170,12 @@ routes.get("/consultas", loggedIn, VetIsAuthorized, (req, res) => {
   listConsultaController.listAll(req, res)
 });
 
-routes.put("/consultas/:id",loggedIn, VetIsAuthorized, (req, res) => {
-  updateConsultaController.update(req,res)
+routes.put("/consultas/:id", loggedIn, VetIsAuthorized, (req, res) => {
+  updateConsultaController.update(req, res)
 });
 
-routes.delete("/consultas/:id", loggedIn, VetIsAuthorized,(req, res) => {
-  deleteConsultaController.delete(req,res)
+routes.delete("/consultas/:id", loggedIn, VetIsAuthorized, (req, res) => {
+  deleteConsultaController.delete(req, res)
 });
 
 //login
@@ -185,21 +185,21 @@ routes.post('/login', async (req, res) => {
 
 // ROTAS HORARIO
 
-routes.post("/horarios",(req, res) => {
-    createHorarioController.create(req, res)
+routes.post("/horarios", (req, res) => {
+  createHorarioController.create(req, res)
 });
 
 routes.get("/horarios", (req, res) => {
-    listHorariosController.listAll(req, res)
+  listHorariosController.listAll(req, res)
 });
 
 routes.delete("/horarios/:id", (req, res) => {
-    deleteHorarioController.delete(req,res)
+  deleteHorarioController.delete(req, res)
 });
 
 // ROTAS AGENDAMENTOS
 
-routes.post("/agendamentos",(req, res) => {
+routes.post("/agendamentos", (req, res) => {
   createAgendamentoController.create(req, res)
 });
 
@@ -208,7 +208,7 @@ routes.get("/agendamentos", (req, res) => {
 });
 
 routes.delete("/agendamentos/:id", (req, res) => {
-  deleteAgendamentoController.delete(req,res)
+  deleteAgendamentoController.delete(req, res)
 });
 
-export default  routes; 
+export default routes; 

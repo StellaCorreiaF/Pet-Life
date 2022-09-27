@@ -3,33 +3,33 @@ import Tutores from '../../models/Tutores';
 
 
 export default class createTutorService {
-  constructor() {}
+  constructor() { }
 
- async listAll() {
-  try {
-     const tutors = await Tutores.findAll()
-     return tutors;
-  } catch (error) {
-    console.log(error);
-    return {erro: error.message };
-  }
+  async listAll() {
+    try {
+      const tutors = await Tutores.findAll();
+      return tutors;
+    } catch (error) {
+      console.log(error);
+      return { erro: error.message };
+    }
   }
   async listOne(email, senha) {
-    try  {
+    try {
       const tutors = await Tutores.findOne({
-         where: {
-           email,
-       }
+        where: {
+          email,
+        }
       });
 
-       if (!tutors) {
-          return { message: "Tutor não encontrado"};
-       }
-       
-       
-      } catch (error) {
-        console.log(error);
-        return { erro: error.message };
-        }
+      if (!tutors) {
+        return { message: "Tutor não encontrado" };
       }
+
+
+    } catch (error) {
+      console.log(error);
+      return { erro: error.message };
     }
+  }
+}

@@ -12,8 +12,8 @@ export default class CreateProcedimentoService {
   async create(
     tipo, data, descricao, petId, vetId ) {
     try {
-      const pet = await Pets.findByPk(petId)
-      const vet = await Veterinarios.findByPk(vetId)
+      const pet = await Pets.findByPk(petId);
+      const vet = await Veterinarios.findByPk(vetId);
       console.log("PET : ", pet)
       console.log("VET: ", vet)
 

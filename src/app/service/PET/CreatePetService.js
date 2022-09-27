@@ -11,10 +11,10 @@ export default class CreatePetService {
         {nome, peso, tipoSanguineo, raca, idade, porte, especie, tutorId}) {
         try {
             console.log('tutorId :', tutorId);
-            const tutor = await Tutores.findByPk(tutorId)
-            console.log("PET SERVICE, TUTOR CHEGOU AQUI: ", tutor)
+            const tutor = await Tutores.findByPk(tutorId);
+        
             if (!tutor){
-                console.log("tutor: service n encontrado  ", tutor)
+                
              return {
                 sucess: false,
                 message: "Tutor não encontrado"

@@ -24,7 +24,7 @@ Consultas.init({
 Consultas.associate = function(model){
     Consultas.belongsTo(Pets, {as : 'consultas', foreignKey: 'petId'});
     Consultas.belongsTo(Veterinarios, {as: 'consulta', foreignKey: 'vetId'}); 
-    Consultas.hasOne(Agenda, {as:'consultas', foreignKey: 'consultasId'})
+    Consultas.hasOne(Agenda, {as:'consultas', foreignKey: 'consultasId'});
 }
 
 export default Consultas;

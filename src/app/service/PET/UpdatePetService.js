@@ -14,8 +14,7 @@ export default class UpdatePetService {
     ) {
         try {
             const pet = await Pets.findByPk(id);
-            console.log("chegou no pet: ", pet)
-
+          
             if (!pet) {
                 return {
                     message: "Pet não encontrado"

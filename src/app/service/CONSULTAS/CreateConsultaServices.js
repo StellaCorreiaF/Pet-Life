@@ -11,8 +11,8 @@ export default class CreateConsultaService {
     async create(
         data, descricao, petId, vetId) {
         try {
-            const pet = await Pets.findByPk(petId)
-            const vet = await Vets.findByPk(vetId)
+            const pet = await Pets.findByPk(petId); 
+            const vet = await Vets.findByPk(vetId);
 
             if (!pet){
              return {

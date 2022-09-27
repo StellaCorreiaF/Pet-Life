@@ -5,7 +5,7 @@ export default class ListProcedService {
     constructor(){} 
     async listAll() {
         try {
-           const procedimentos = await Procedimentos.findAll()
+           const procedimentos = await Procedimentos.findAll();
            return procedimentos;
         } catch (error) {
           console.log(error);

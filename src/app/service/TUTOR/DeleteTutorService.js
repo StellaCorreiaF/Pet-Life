@@ -1,23 +1,24 @@
 import Tutores from "../../models/Tutores";
 import ListTutorService from "./ListTutorService";
 export default class DeleteTutorService {
-    constructor(){
+    constructor() {
         this.service = new ListTutorService();
     }
 
-    async delete(id){
+    async delete(id) {
         try {
             const tutor = await Tutores.findByPk(id);
             if (!tutor) {
                 return {
                     sucess: false,
-                    message: "Tutor(a) não encontrado"};
-                }
+                    message: "Tutor(a) não encontrado"
+                };
+            }
             const tutorExcluido = await tutor.destroy();
             return tutorExcluido;
-        } catch(error){
+        } catch (error) {
             console.log(error);
-            return { erro: error.mensage};
+            return { erro: error.mensage };
         }
     }
 

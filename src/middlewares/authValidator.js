@@ -1,10 +1,10 @@
 import config from "../config/security";
-import {verify} from "jsonwebtoken";
+import { verify } from "jsonwebtoken";
 import Tutores from "../app/models/Tutores";
 import Veterinarios from "../app/models/Veterinarios";
 
 
-export default function loggedIn (req, res, next) {
+export default function loggedIn(req, res, next) {
 
     let token = req.header('Authorization');
     try {
@@ -12,11 +12,11 @@ export default function loggedIn (req, res, next) {
             // Remove Bearer from string
             token = token.slice(7, token.length).trimLeft();
         }
-        const verified = verify(token, config.private_key); 
-        if (!checkIFUserExists(verified.id)){
+        const verified = verify(token, config.private_key);
+        if (!checkIFUserExists(verified.id)) {
             res.status(401).send("Usuário não autorizado..");
         }
-        
+
         req.user = verified;
         next();
     }
@@ -25,7 +25,7 @@ export default function loggedIn (req, res, next) {
     }
 }
 
-function checkIFUserExists(id){
+function checkIFUserExists(id) {
     const tutor = Tutores.findByPk(id);
     const vet = Veterinarios.findByPk(id);
 

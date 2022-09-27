@@ -20,7 +20,7 @@ Horarios.init(
             required: true,
             allowNull:false,
             get(){
-                return this.getDataValue('dias').split(';')
+                return this.getDataValue('dias').split(';');
             },set(val){
                 this.setDataValue('dias', val.join(';'));
             }
