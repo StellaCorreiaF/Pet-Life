@@ -1,5 +1,5 @@
 import Sequelize, { Model } from "sequelize";
-import databaseConfig from "../../config/Database";
+import databaseConfig from "../../config/Database.js";
 import * as bcrypt from 'bcryptjs'
 const sequelize = new Sequelize(databaseConfig);
 

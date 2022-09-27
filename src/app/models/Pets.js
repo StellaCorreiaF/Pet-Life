@@ -1,5 +1,5 @@
 import Sequelize, { DataTypes, Model } from "sequelize";
-import databaseConfig from "../../config/Database";
+import databaseConfig from "../../config/Database.js";
 import Tutores from "./Tutores";
 
 const sequelize = new Sequelize(databaseConfig);
