@@ -1,4 +1,4 @@
-import UpdateConsultaService from "../../service/CONSULTAS/UpdateConsultaService";
+import UpdateConsultaService from "../../service/CONSULTAS/UpdateConsultaService.js";
 
 export default class UpdateConsultaController {
     constructor() {

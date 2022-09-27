@@ -1,4 +1,4 @@
-import DeleteProcedService from "../../service/PROCEDIMENTOS/DeleteProcedService" 
+import DeleteProcedService from "../../service/PROCEDIMENTOS/DeleteProcedService.js" 
 
 export default class DeleteProcedController { 
     constructor(){ 

@@ -1,4 +1,4 @@
-import Procedimentos from "../../models/Procedimentos"; 
+import Procedimentos from "../../models/Procedimentos.js"; 
 
 export default class UpdateProcedService { 
     constructor(){} 

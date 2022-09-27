@@ -1,6 +1,6 @@
-import Consultas from "../../models/Consultas";
-import Pets from "../../models/Pets";
-import Veterinarios from "../../models/Veterinarios";
+import Consultas from "../../models/Consultas.js";
+import Pets from "../../models/Pets.js";
+import Veterinarios from "../../models/Veterinarios.js";
 
 export default class UpdateConsultaService {
   constructor() {}

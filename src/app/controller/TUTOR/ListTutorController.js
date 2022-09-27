@@ -1,4 +1,4 @@
-import ListTutorService from "../../service/TUTOR/ListTutorService";
+import ListTutorService from "../../service/TUTOR/ListTutorService.js";
 
 export default class ListAllTutorController {
   constructor() {

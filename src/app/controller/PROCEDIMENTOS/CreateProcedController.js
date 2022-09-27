@@ -1,4 +1,4 @@
-import CreateProcedimentoService from "../../service/PROCEDIMENTOS/CreateProcedService"
+import CreateProcedimentoService from "../../service/PROCEDIMENTOS/CreateProcedService.js"
 
 export default class CreateProcedController {
     constructor() {

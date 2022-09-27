@@ -1,5 +1,5 @@
-import Pets from '../../models/Pets';
-import Tutores from '../../models/Tutores';
+import Pets from '../../models/Pets.js';
+import Tutores from '../../models/Tutores.js';
 
 const {v4} = require('uuid')
 

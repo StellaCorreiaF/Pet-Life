@@ -1,8 +1,8 @@
 import { v4 } from "uuid";
-import Horarios from "../../models/Horario";
-import Procedimentos from "../../models/Procedimentos"
-import Consultas from "../../models/Consultas";
-import Veterinarios from "../../models/Veterinarios";
+import Horarios from "../../models/Horario.js";
+import Procedimentos from "../../models/Procedimentos.js"
+import Consultas from "../../models/Consultas.js";
+import Veterinarios from "../../models/Veterinarios.js";
 
 export default class createHorarioService {
     constructor() { }

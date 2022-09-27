@@ -1,4 +1,4 @@
-import CreateConsultaService from '../../service/CONSULTAS/CreateConsultaServices'
+import CreateConsultaService from '../../service/CONSULTAS/CreateConsultaServices.js'
 
 export default class CreateConsultaController {
     constructor() {

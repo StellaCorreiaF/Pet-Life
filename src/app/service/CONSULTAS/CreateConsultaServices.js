@@ -1,6 +1,6 @@
-import Pets from '../../models/Pets';
-import Consultas from '../../models/Consultas';
-import Vets from '../../models/Veterinarios';
+import Pets from '../../models/Pets.js';
+import Consultas from '../../models/Consultas.js';
+import Vets from '../../models/Veterinarios.js';
 
 const {v4} = require('uuid')
 

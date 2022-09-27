@@ -1,4 +1,4 @@
-import CreatePetService from "../../service/PET/CreatePetService"
+import CreatePetService from "../../service/PET/CreatePetService.js"
 
 export default class CreatePETController {
   constructor() {

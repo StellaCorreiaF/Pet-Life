@@ -1,4 +1,4 @@
-import DeleteConsultaService from "../../service/CONSULTAS/DeleteConsultaService"; 
+import DeleteConsultaService from "../../service/CONSULTAS/DeleteConsultaService.js"; 
 
 export default class DeleteConsultaController { 
     constructor(){ 

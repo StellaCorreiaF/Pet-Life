@@ -1,5 +1,5 @@
 import { response } from "express";
-import DeleteTutorService from "../../service/TUTOR/DeleteTutorService";
+import DeleteTutorService from "../../service/TUTOR/DeleteTutorService.js";
 
 export default class DeleteTutorController {
     constructor(){
