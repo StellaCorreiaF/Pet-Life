@@ -1,46 +1,52 @@
-import Procedimentos from "../../models/Procedimentos";
-import Tutores from "../../models/Tutores"
-import Pets from "../../models/Pets"
 
-const { v4 } = require('uuid');
+import Pets from '../../models/Pets';
+import Procedimentos from '../../models/Procedimentos';
+import Veterinarios from '../../models/Veterinarios';
 
+const { v4 } = require('uuid')
 
-export default class CreateProcedService {
-  constructor() {}
-
-  async create(tipo, data, descricao, tutorId, petId) {
-
-    try {
-        const tutor = await Tutores.findByPk(tutorId)
-        const pet = await Pets.findByPk(petId)
-
-        if (!tutor) {
-          return {
-            sucess: false,
-            message: "Tutor não encontrado"
-            }}  
-        else if (!pet) {
-          return {
-            sucess: false,
-            message: "Pet não encontrado"
-            }}
-        const newProcedimento = await Procedimentos.create({
-            id: (v4),
-            tipo: tipo,
-            data: data,
-            descricao: descricao,
-            tutorId: tutor.id,
-            petId: pet.id
-            })
-
-          return {
-            sucess: true,
-            message: newProcedimento
-            }}  
-          catch (error) {
-            console.log(error);
-          return { message: error.message } 
-         }
+export default class CreateProcedimentoService {
+  constructor() {
   }
 
+  async create(
+    tipo, data, descricao, petId, vetId ) {
+    try {
+      const pet = await Pets.findByPk(petId)
+      const vet = await Veterinarios.findByPk(vetId)
+      console.log("PET : ", pet)
+      console.log("VET: ", vet)
+
+      if (!pet) {
+        return {
+          sucess: false,
+          message: "Pet não encontrado"
+        }
+      }
+
+      if (!vet) {
+        return {
+          sucess: false,
+          message: "Veterinário não encontrado"
+        }
+      }
+
+      const newProcedure = await Procedimentos.create({
+        id: v4(),
+        tipo,
+        data,
+        descricao,
+        petId: pet.id,
+        vetId: vet.id,
+
+      })
+      return {
+        sucess: true,
+        message: newProcedure, pet, vet
+      }
+    } catch (error) {
+      console.log(error);
+      return { erro: error.message };
+    }
+  }
 }

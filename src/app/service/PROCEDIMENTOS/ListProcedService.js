@@ -3,33 +3,31 @@ import Pets from  "../../models/Pets"
 
 export default class ListProcedService { 
     constructor(){} 
-    async listAll(procedId){ 
-        try { 
-            if (procedId){ 
-                return await this.listOne(procedId) 
-
-            } 
-            const procedFound = await Procedimentos.findAll(); 
-            return procedFound
-        } 
-        catch(error){ 
-            console.log(error); 
-            return {erro: error.message}
+    async listAll() {
+        try {
+           const procedimentos = await Procedimentos.findAll()
+           return procedimentos;
+        } catch (error) {
+          console.log(error);
+          return {erro: error.message };
         }
-    } 
-    async listOnde(procedId){ 
-        try{ 
-            const procedimento = await Procedimentos.findOne({ 
-                where: {id: procedId},
-            }); 
-
-            if(!procedimento){ 
-                return {mensagem: "Procedimento não encontrado"}
-            } 
-            return procedimento; 
-        } catch(error){ 
-            console.log(error); 
-            return {erro: error.message}; 
         }
-    }
+        async listOne(id) {
+            try  {
+              const procedimentos = await Procedimentos.findOne({
+                 where: {
+                   id,
+               }
+              });
+        
+               if (!procedimentos) {
+                  return { message: "Procedimento não encontrado"};
+               }
+               
+               
+              } catch (error) {
+                console.log(error);
+                return { erro: error.message };
+                }
+              }
 }

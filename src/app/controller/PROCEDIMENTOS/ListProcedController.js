@@ -1,16 +1,18 @@
-import ListProcedService from "../../service/PROCEDIMENTOS/ListProcedService" 
+import ListProcedService from "../../service/PROCEDIMENTOS/ListProcedService"
 
-export default class ListProcedController{ 
-    constructor(){ 
+export default class ListProcedController {
+    constructor() {
         this.service = new ListProcedService();
-    } 
+    }
+    async listAll(request, response) {
+        const procedimentos = await this.service.listAll();
 
-    async index(req, res){ 
-        
-        const {id} = req.params; 
+        response.json(procedimentos);
+    }
+    async getById(request, response) {
+        const { id } = request.params; 
+        const procedimento = await this.service.listOne(id);
+        response.json(procedimento); 
 
-        const procedimentos = await this.service.listAll(id); 
-
-        res.json(procedimentos)
     }
 } 

@@ -1,7 +1,8 @@
-import Sequelize, { Model } from "sequelize";
+import Sequelize, { DataTypes, Model } from "sequelize";
 import databaseConfig from "../../config/Database";
 import Pets from "./Pets";
 import Veterinarios from "./Veterinarios";
+import Agenda from "./Agenda";
 
 const sequelize = new Sequelize(databaseConfig);
 
@@ -11,7 +12,8 @@ Consultas.init({
         type: Sequelize.UUIDV4(),
         primaryKey: true
       },
-      
+      vetId: DataTypes.INTEGER, 
+      petId:DataTypes.INTEGER,
       data: Sequelize.DATE,
       descricao: Sequelize.STRING,
 }, {
@@ -22,9 +24,7 @@ Consultas.init({
 Consultas.associate = function(model){
     Consultas.belongsTo(Pets, {as : 'consultas', foreignKey: 'petId'});
     Consultas.belongsTo(Veterinarios, {as: 'consulta', foreignKey: 'vetId'}); 
+    Consultas.hasOne(Agenda, {as:'consultas', foreignKey: 'consultasId'})
 }
 
-//Pets.hasMany(Consultas, {as: 'pets', foreignKey: 'petId'});
-Veterinarios.hasMany(Consultas, {as: 'vets', foreignKey: 'vetId'});
-
-export default Consultas; 
+export default Consultas;
