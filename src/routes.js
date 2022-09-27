@@ -141,15 +141,18 @@ routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res))
 
 // ROTAS PROCEDIMENTOS
 
-routes.post("/procedimentos", (req, res)=>{ 
+routes.post("/procedimentos", loggedIn, (req, res)=>{ 
   createProcedController.create(req, res)
 });    
 
-routes.get("/procedimentos", (req,res)=>{ 
+routes.get("/procedimentos", loggedIn, VetIsAuthorized, (req,res)=>{ 
+  listProcedController.listAll(req, res)
+}); 
+routes.get("/procedimentos/:id", loggedIn,  (req,res)=>{ 
   listProcedController.listAll(req, res)
 }); 
 
-routes.put('/procedimentos/:id', (req, res) =>{ 
+routes.put('/procedimentos/:id', loggedIn, VetIsAuthorized,(req, res) =>{ 
   updateProcedController.update(req,res)
 });  
 
@@ -167,11 +170,11 @@ routes.get("/consultas", loggedIn, VetIsAuthorized, (req, res) => {
   listConsultaController.listAll(req, res)
 });
 
-routes.put("/consultas/:id",loggedIn, VetIsAuthorized, tutorIsAuthorized, (req, res) => {
+routes.put("/consultas/:id",loggedIn, VetIsAuthorized, (req, res) => {
   updateConsultaController.update(req,res)
 });
 
-routes.delete("/consultas/:id", loggedIn, tutorIsAuthorized,(req, res) => {
+routes.delete("/consultas/:id", loggedIn, VetIsAuthorized,(req, res) => {
   deleteConsultaController.delete(req,res)
 });
 
