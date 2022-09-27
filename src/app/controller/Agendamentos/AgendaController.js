@@ -8,7 +8,7 @@ export default class AgendaController {
       const {
         procedimentosId, 
         consultasId, 
-        veterinariosId, 
+        veterinarioId, 
         tutorId, 
         data
       } = request.body;
@@ -16,7 +16,7 @@ export default class AgendaController {
       const agendamentos = await this.service.create(
         procedimentosId, 
         consultasId, 
-        veterinariosId, 
+        veterinarioId, 
         tutorId, 
         data
       );

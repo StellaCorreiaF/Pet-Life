@@ -19,7 +19,7 @@ module.exports = {
           },
           key:'id',
         },
-        allowNull: false
+        allowNull: true
       },
       consultasId: {
         type: Sequelize.UUID,
@@ -29,7 +29,7 @@ module.exports = {
           },
           key:'id',
         },
-        allowNull: false
+        allowNull: true
       },
       veterinarioId: {
         type: Sequelize.UUID,
@@ -45,11 +45,11 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      datasFixas: {
+      dataCadastro: {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      
+      canceled_at: Sequelize.DATE,
     })
   },
 
