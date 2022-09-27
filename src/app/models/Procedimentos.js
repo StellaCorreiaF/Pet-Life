@@ -1,7 +1,7 @@
 import Sequelize, {DataTypes, Model } from "sequelize";
 import databaseConfig from "../../config/Database.js";
-import Pets from "./Pets";
-import Veterinarios from "./Veterinarios";
+import Pets from "./Pets.js";
+import Veterinarios from "./Veterinarios.js";
 
 const sequelize = new Sequelize(databaseConfig);
 

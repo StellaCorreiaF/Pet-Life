@@ -1,4 +1,4 @@
-import ListProcedService from "../../service/PROCEDIMENTOS/ListProcedService"
+import ListProcedService from "../../service/PROCEDIMENTOS/ListProcedService.js"
 
 export default class ListProcedController {
     constructor() {

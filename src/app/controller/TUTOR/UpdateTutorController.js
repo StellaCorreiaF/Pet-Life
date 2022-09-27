@@ -1,4 +1,4 @@
-import UpdateTutorService from "../../service/tutor/UpdateTutorService"
+import UpdateTutorService from "../../service/tutor/UpdateTutorService.js"
 
 export default class UpdateTutorController {
   constructor() {

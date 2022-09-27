@@ -1,49 +1,49 @@
 import Router from "express";
 
 //VET CONTROLLERS
-import CreateVetController from "./app/controller/VET/CreateVetController";
-import ListAllVetsController from "./app/controller/VET/ListAllVetsController";
-import UpdateVeterinarioController from "./app/controller/VET/UpdateVetController";
-import DeleteVeterinarioController from "./app/controller/VET/DeleteVetController";
+import CreateVetController from "./app/controller/VET/CreateVetController.js";
+import ListAllVetsController from "./app/controller/VET/ListAllVetsController.js";
+import UpdateVeterinarioController from "./app/controller/VET/UpdateVetController.js";
+import DeleteVeterinarioController from "./app/controller/VET/DeleteVetController.js";
 
 //PET CONTROLLERS
-import CreatePETController from "./app/controller/PET/CreatePETController";
-import UpdatePETController from "./app/controller/PET/UpdatePETController";
-import ListPETController from "./app/controller/PET/ListPETController";
-import DeletePETController from "./app/controller/PET/DeletePETController";
+import CreatePETController from "./app/controller/PET/CreatePETController.js";
+import UpdatePETController from "./app/controller/PET/UpdatePETController.js";
+import ListPETController from "./app/controller/PET/ListPETController.js";
+import DeletePETController from "./app/controller/PET/DeletePETController.js";
 
 //TUTORS CONTROLLERS
-import ListAllTutorController from "./app/controller/TUTOR/ListTutorController";
-import CreateTutorController from "./app/controller/TUTOR/CreateTutorController";
-import UpdateTutorController from "./app/controller/TUTOR/UpdateTutorController";
-import DeleteTutorController from "./app/controller/TUTOR/DeleteTutorController";
+import ListAllTutorController from "./app/controller/TUTOR/ListTutorController.js";
+import CreateTutorController from "./app/controller/TUTOR/CreateTutorController.js";
+import UpdateTutorController from "./app/controller/TUTOR/UpdateTutorController.js";
+import DeleteTutorController from "./app/controller/TUTOR/DeleteTutorController.js";
 
 // PROCEDURES CONTROLLERS
-import CreateProcedController from "./app/controller/PROCEDIMENTOS/CreateProcedController"
-import ListProcedController from "./app/controller/PROCEDIMENTOS/ListProcedController"
-import DeleteProcedController from "./app/controller/PROCEDIMENTOS/DeleteProcedController"
-import UpdateProcedController from "./app/controller/PROCEDIMENTOS/UpdateProcedController"
+import CreateProcedController from "./app/controller/PROCEDIMENTOS/CreateProcedController.js"
+import ListProcedController from "./app/controller/PROCEDIMENTOS/ListProcedController.js"
+import DeleteProcedController from "./app/controller/PROCEDIMENTOS/DeleteProcedController.js"
+import UpdateProcedController from "./app/controller/PROCEDIMENTOS/UpdateProcedController.js"
 
 //CONSULTS CONTROLLERS
-import CreateConsultaController from "./app/controller/CONSULTAS/CreateConsultaController";
-import ListAllConsultaController from "./app/controller/CONSULTAS/ListConsultaController";
-import UpdateConsultaController from "./app/controller/CONSULTAS/UpdateConsultaController";
-import DeleteConsultaController from "./app/controller/CONSULTAS/DeleteConsultaController";
+import CreateConsultaController from "./app/controller/CONSULTAS/CreateConsultaController.js";
+import ListAllConsultaController from "./app/controller/CONSULTAS/ListConsultaController.js";
+import UpdateConsultaController from "./app/controller/CONSULTAS/UpdateConsultaController.js";
+import DeleteConsultaController from "./app/controller/CONSULTAS/DeleteConsultaController.js";
 
 //APPOINTMENTS CONTROLLERS
-import AgendaController from "./app/controller/Agendamentos/AgendaController";
-import HorarioController from "./app/controller/Agendamentos/HorarioController";
+import AgendaController from "./app/controller/Agendamentos/AgendaController.js";
+import HorarioController from "./app/controller/Agendamentos/HorarioController.js";
 
 //MIDDLEWARES
-import tutorValidator from "./middlewares/tutorValidator";
-import vetValidator from "./middlewares/VetValidator";
-import petValidator from "./middlewares/PetValidator";
-import consultaValidator from "./middlewares/ConsultaValidator";
-import DiasDisponiveisValidator from "./middlewares/DiasDisponiveisValidator";
+import tutorValidator from "./middlewares/tutorValidator.js";
+import vetValidator from "./middlewares/VetValidator.js";
+import petValidator from "./middlewares/PetValidator.js";
+import consultaValidator from "./middlewares/ConsultaValidator.js";
+import DiasDisponiveisValidator from "./middlewares/DiasDisponiveisValidator.js";
 
 import LoginController from "./app/controller/AUTH/LoginController";
 import loggedIn from "./middlewares/authValidator";
-import { VetIsAuthorized, tutorIsAuthorized, isTutorOfPet, isTutorLoggedIsSameTarget, isVetLoggedIsSameTarget } from './middlewares/autorizationValidator';
+import { VetIsAuthorized, tutorIsAuthorized, isTutorOfPet, isTutorLoggedIsSameTarget, isVetLoggedIsSameTarget } from './middlewares/autorizationValidator.js';
 
 const routes = new Router();
 

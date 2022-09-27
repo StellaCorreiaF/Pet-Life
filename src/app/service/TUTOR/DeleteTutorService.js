@@ -1,5 +1,5 @@
-import Tutores from "../../models/Tutores";
-import ListTutorService from "./ListTutorService";
+import Tutores from "../../models/Tutores.js";
+import ListTutorService from "./ListTutorService.js";
 export default class DeleteTutorService {
     constructor() {
         this.service = new ListTutorService();

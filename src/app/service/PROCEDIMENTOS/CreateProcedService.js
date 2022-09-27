@@ -1,7 +1,7 @@
 
-import Pets from '../../models/Pets';
-import Procedimentos from '../../models/Procedimentos';
-import Veterinarios from '../../models/Veterinarios';
+import Pets from '../../models/Pets.js';
+import Procedimentos from '../../models/Procedimentos.js';
+import Veterinarios from '../../models/Veterinarios.js';
 
 const { v4 } = require('uuid')
 

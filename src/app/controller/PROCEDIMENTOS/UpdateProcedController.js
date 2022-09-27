@@ -1,4 +1,4 @@
-import UpdateProcedService from "../../service/PROCEDIMENTOS/UpdateProcedService" 
+import UpdateProcedService from "../../service/PROCEDIMENTOS/UpdateProcedService.js" 
 
 export default class UpdateProcedController{ 
     constructor(){ 

@@ -1,4 +1,4 @@
-import Pets from "../../models/Pets";
+import Pets from "../../models/Pets.js";
 
 export default class DeletePetService{ 
     constructor(){} 
@@ -8,7 +8,7 @@ export default class DeletePetService{
             const pet = await Pets.findByPk(id); 
 
             if(!pet){ 
-                return { message: "Pet não ecnocntrado"};
+                return { message: "Pet não encontrado"};
             } 
 
             const petRemovido = await pet.destroy(); 

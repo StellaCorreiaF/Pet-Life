@@ -1,4 +1,4 @@
-import Pets from "../../models/Pets";
+import Pets from "../../models/Pets.js";
 
 export default class ListPetService { 
 

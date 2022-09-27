@@ -1,4 +1,4 @@
-import ListConsultaService from "../../service/CONSULTAS/ListConsultaService";
+import ListConsultaService from "../../service/CONSULTAS/ListConsultaService.js";
 
 export default class ListAllConsultaController {
   constructor() {

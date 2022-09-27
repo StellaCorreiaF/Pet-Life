@@ -1,4 +1,4 @@
-import DeleteVeterinarioService from "../../service/VET/DeleteVeterinarioService";
+import DeleteVeterinarioService from "../../service/VET/DeleteVeterinarioService.js";
 
 export default class DeleteVeterinarioController {
   constructor() {

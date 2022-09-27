@@ -1,9 +1,9 @@
 import { v4 } from "uuid";
-import Procedimentos from "../../models/Procedimentos"
-import Consultas from "../../models/Consultas";
-import Veterinarios from "../../models/Veterinarios";
-import Tutores from "../../models/Tutores";
-import Agenda from "../../models/Agenda";
+import Procedimentos from "../../models/Procedimentos.js"
+import Consultas from "../../models/Consultas.js";
+import Veterinarios from "../../models/Veterinarios.js";
+import Tutores from "../../models/Tutores.js";
+import Agenda from "../../models/Agenda.js";
 
 export default class createAgendaService {
     constructor() { }

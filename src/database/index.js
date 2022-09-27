@@ -1,5 +1,5 @@
 import { Sequelize } from "sequelize";
-import databaseConfig from "../config/Database";
+import databaseConfig from "../config/Database.js";
 
 class Database {
   constructor() {

@@ -1,4 +1,4 @@
-import DeletePetService from "../../service/PET/DeletePetService";
+import DeletePetService from "../../service/PET/DeletePetService.js";
 
 export default class DeletePetController {
     constructor() {

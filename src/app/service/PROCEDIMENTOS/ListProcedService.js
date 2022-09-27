@@ -1,5 +1,5 @@
-import Procedimentos from "../../models/Procedimentos" 
-import Pets from  "../../models/Pets" 
+import Procedimentos from "../../models/Procedimentos.js" 
+
 
 export default class ListProcedService { 
     constructor(){} 

@@ -1,4 +1,4 @@
-import Veterinarios from "../../models/Veterinarios";
+import Veterinarios from "../../models/Veterinarios.js";
 
 
 export default class ListVeterinariosService  {

@@ -1,4 +1,4 @@
-import UpdatePetService from "../../service/PET/UpdatePetService";
+import UpdatePetService from "../../service/PET/UpdatePetService.js";
 
 export default class UpdatePETController {
   constructor() {

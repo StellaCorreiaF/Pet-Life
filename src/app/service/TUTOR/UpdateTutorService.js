@@ -1,5 +1,5 @@
-import Tutores from "../../models/Tutores";
-import ListTutorService from "./ListTutorService";
+import Tutores from "../../models/Tutores.js";
+import ListTutorService from "./ListTutorService.js";
 import * as bcrypt from 'bcryptjs'
 
 export default class UpdateTutorService {

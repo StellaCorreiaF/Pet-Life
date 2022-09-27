@@ -1,4 +1,4 @@
-import ListPetService from "../../service/PET/ListPetService";
+import ListPetService from "../../service/PET/ListPetService.js";
 
 export default class ListPetcontroller {
     constructor() {

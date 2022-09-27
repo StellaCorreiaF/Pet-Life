@@ -1,7 +1,7 @@
-import config from "../config/security";
+import config from "../config/security.js";
 import { verify } from "jsonwebtoken";
-import Tutores from "../app/models/Tutores";
-import Veterinarios from "../app/models/Veterinarios";
+import Tutores from "../app/models/Tutores.js";
+import Veterinarios from "../app/models/Veterinarios.js";
 
 
 export default function loggedIn(req, res, next) {
