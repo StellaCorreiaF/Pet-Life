@@ -1,9 +1,12 @@
+
 import Pets from '../app/models/Pets';
-import type from  '../app/service/AUTH/authModel';
+import Tutores from '../app/models/Tutores';
+import Veterinarios from '../app/models/Veterinarios';
+import type from '../app/service/AUTH/authModel';
 
 export function tutorIsAuthorized(req, res, next) {
     const user = req.user;
-
+    
     if (user.user_type_id !== type.TutorType)
         return res.status(403).send("Usuário sem permissão");
 
@@ -20,13 +23,37 @@ export function VetIsAuthorized(req, res, next) {
 }
 
 export const isTutorOfPet = async (req, res, next) => {
-    const user = req.user;    
+    console.log("CHEGOU NA MIDDLEWARE")
+    const user = req.user;
+    const petId = req.body.id;
+    const pet = await Pets.findByPk(petId);
     
-        const petId = req.params.id;
-        const pet = await Pets.findByPk(petId);
-        console.log("pet", pet.tutorId)
-        if (user.id !== pet.tutorId)
-            return res.status(403).send("Usuário não está autorizado a manipular este registro");
-    
+    console.log("pet", pet.tutorId)
+    if (user.id !== pet.tutorId)
+        return res.status(403).send("Usuário não está autorizado a manipular este registro");
+
     next()
+}
+
+export const isTutorLoggedIsSameTarget = async (req, res, next) => {
+    const user = req.user;
+    const targetTutorId = req.params.id;
+    const targetTutor = await Tutores.findByPk(targetTutorId)
+
+    if (user.id !== targetTutor.id) {
+        return res.status(403).send("Usuário não está autorizado a manipular este registro");
+    }
+    next()
+}
+
+export const isVetLoggedIsSameTarget = async (req, res, next) => {
+    const user = req.user;
+    const targetVetId = req.params.id;
+    const targetVet = await Veterinarios.findByPk(targetVetId);
+
+    if (user.id !== targetVet.id) {
+        return res.status(403).send("Usuário não está autorizado a manipular este registro");
+    }
+    next()
+
 }

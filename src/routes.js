@@ -43,7 +43,7 @@ import consultaValidator from "./middlewares/ConsultaValidator";
 
 import LoginController from "./app/controller/AUTH/LoginController";
 import loggedIn from "./middlewares/authValidator";
-import {VetIsAuthorized, tutorIsAuthorized, isTutorOfPet} from './middlewares/autorizationValidator';
+import {VetIsAuthorized, tutorIsAuthorized, isTutorOfPet, isTutorLoggedIsSameTarget,isVetLoggedIsSameTarget} from './middlewares/autorizationValidator';
 
 const routes = new Router();
 
@@ -120,7 +120,7 @@ routes.get("/vets", loggedIn, async(req, res)=> {
   const controller = new ListAllVetsController();
   return await controller.listAll(req, res)
 })
-routes.put("/vets/:id", loggedIn, VetIsAuthorized, async (req, res) => {
+routes.put("/vets/:id", loggedIn, VetIsAuthorized, isVetLoggedIsSameTarget, async (req, res) => {
   const controller = new UpdateVeterinarioController();
   return await controller.update(req, res);
 });
@@ -134,7 +134,7 @@ routes.delete("/vets/:id", async (req, res) => {
 
 routes.get("/tutor", (req,res) =>  listAllTutorController.listAll(req,res));
 routes.post("/tutor", tutorValidator, (req,res) =>  createTutorController.create(req,res));
-routes.put("/tutor/:id", loggedIn, (req,res) =>  updateTutorController.update(req,res));
+routes.put("/tutor/:id", loggedIn, tutorIsAuthorized, isTutorLoggedIsSameTarget, (req,res) =>  updateTutorController.update(req,res));
 routes.delete("/tutor/:id", (req,res) =>  deleteTutorController.delete(req,res));
 
 
@@ -159,19 +159,19 @@ routes.delete('/procedimentos/:id', (req,res) =>{
 
 // ROTAS CONSULTAS
 
-routes.post("/consultas",consultaValidator, (req, res) => {
+routes.post("/consultas", loggedIn, consultaValidator, tutorIsAuthorized, (req, res) => {
   createConsultaController.create(req, res)
 });
 
-routes.get("/consultas", (req, res) => {
+routes.get("/consultas", loggedIn, VetIsAuthorized, (req, res) => {
   listConsultaController.listAll(req, res)
 });
 
-routes.put("/consultas/:id", (req, res) => {
+routes.put("/consultas/:id",loggedIn, VetIsAuthorized, tutorIsAuthorized, (req, res) => {
   updateConsultaController.update(req,res)
 });
 
-routes.delete("/consultas/:id", (req, res) => {
+routes.delete("/consultas/:id", loggedIn, tutorIsAuthorized,(req, res) => {
   deleteConsultaController.delete(req,res)
 });
 
