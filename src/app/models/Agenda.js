@@ -8,6 +8,7 @@ import Tutores from "./Tutores.js";
 const {isBefore} = require('date-fns');
 
 const sequelize = new Sequelize(databaseConfig);
+console.log('chegou aqui 3')
 
 class Agenda extends Model {}
 Agenda.init(

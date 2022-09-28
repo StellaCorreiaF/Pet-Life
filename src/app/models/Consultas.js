@@ -5,7 +5,7 @@ import Veterinarios from "./Veterinarios.js";
 import Agenda from "./Agenda.js";
 
 const sequelize = new Sequelize(databaseConfig);
-
+console.log('chegou aqui 4')
 class Consultas extends Model {}
 Consultas.init({
     id: {

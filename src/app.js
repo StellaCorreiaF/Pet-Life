@@ -8,6 +8,8 @@ class App {
     this.initializeDatabase();
     this.middlewares();
     this.routes();
+
+    console.log('chegou aqui 1')
   }
 
   middlewares() {
