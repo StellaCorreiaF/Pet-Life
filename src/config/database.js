@@ -1,5 +1,5 @@
 require('dotenv').config()
-
+console.log('chegou aqui em DATABASE.JS')
 module.exports = { 
     username: process.env.DB_USERNAME,
     password:process.env.DB_PASSWORD,

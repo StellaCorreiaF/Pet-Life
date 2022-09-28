@@ -1,4 +1,4 @@
-import ListVeterinariosService from "../../service/VET/ListVeterinarioService";
+import ListVeterinariosService from "../../service/VET/ListVeterinarioService.js";
 
 export default class ListAllVetsController {
     constructor(){

@@ -1,4 +1,4 @@
-import UpdateVeterinarioService from "../../service/VET/UpdateVeterinarioService";
+import UpdateVeterinarioService from "../../service/VET/UpdateVeterinarioService.js";
 
 export default class UpdateVeterinarioController {
   constructor() {

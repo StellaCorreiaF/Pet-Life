@@ -1,5 +1,5 @@
 import Sequelize, { Model } from "sequelize";
-import databaseConfig from "../../config/Database";
+import databaseConfig from "../../config/database.js";
 import * as bcrypt from "bcryptjs"
 import Horarios from "./Horario";
 import Consultas from "./Consultas";

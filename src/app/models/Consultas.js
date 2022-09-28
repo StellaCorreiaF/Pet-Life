@@ -1,8 +1,8 @@
 import Sequelize, { DataTypes, Model } from "sequelize";
-import databaseConfig from "../../config/Database";
-import Pets from "./Pets";
-import Veterinarios from "./Veterinarios";
-import Agenda from "./Agenda";
+import databaseConfig from "../../config/database.js";
+import Pets from "./Pets.js";
+import Veterinarios from "./Veterinarios.js";
+import Agenda from "./Agenda.js";
 
 const sequelize = new Sequelize(databaseConfig);
 

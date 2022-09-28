@@ -1,4 +1,7 @@
-import app from './app';
-import 'dotenv/config';
+import app from './app.js';
+import "dotenv/config";
 
-app.listen(process.env.API_PORT);
+console.log('chegou aqui em servers')
+app.listen(process.env.API_PORT || process.env.PORT);
+
+

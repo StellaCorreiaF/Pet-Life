@@ -1,5 +1,5 @@
 import { v4 } from 'uuid';
-import Tutores from '../../models/Tutores';
+import Tutores from '../../models/Tutores.js';
 import * as bcrypt from 'bcryptjs'
 
 export default class createTutorService {

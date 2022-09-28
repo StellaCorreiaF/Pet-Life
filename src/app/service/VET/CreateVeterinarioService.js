@@ -1,5 +1,5 @@
 import { v4 } from "uuid";
-import Veterinarios from "../../models/Veterinarios";
+import Veterinarios from "../../models/Veterinarios.js";
 import * as bcrypt from "bcryptjs"
 
 export default class createVeterinarioService {

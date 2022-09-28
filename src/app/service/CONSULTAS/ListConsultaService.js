@@ -1,4 +1,4 @@
-import Consultas from '../../models/Consultas';
+import Consultas from '../../models/Consultas.js';
 
 
 export default class createConsultaService {

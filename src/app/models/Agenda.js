@@ -1,9 +1,9 @@
 import Sequelize, { DataTypes, Model } from "sequelize";
-import databaseConfig from "../../config/Database";
-import Veterinarios from "./Veterinarios";
-import Consultas from "./Consultas";
-import Procedimentos from "./Procedimentos";
-import Tutores from "./Tutores";
+import databaseConfig from "../../config/database.js";
+import Veterinarios from "./Veterinarios.js";
+import Consultas from "./Consultas.js";
+import Procedimentos from "./Procedimentos.js";
+import Tutores from "./Tutores.js";
 
 const {isBefore} = require('date-fns');
 

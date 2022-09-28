@@ -1,6 +1,6 @@
 import * as Yup from "yup";
-import Agenda from '../app/models/Agenda';
-import Veterinarios from "../app/models/Veterinarios";
+import Agenda from '../app/models/Agenda.js';
+import Veterinarios from "../app/models/Veterinarios.js";
 
 const { startOfHour, parseISO, isBefore, format, subHours} = require('date-fns');
 

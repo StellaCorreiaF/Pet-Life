@@ -1,9 +1,9 @@
-import Tutores from "../../models/Tutores";
-import Veterinarios from "../../models/Veterinarios";
+import Tutores from "../../models/Tutores.js";
+import Veterinarios from "../../models/Veterinarios.js";
 import * as jwt from "jsonwebtoken";
-import type from './authModel';
-import { LoginResult } from "./LoginResult";
-import securityConfig from "../../../config/security";
+import type from './authModel.js';
+import { LoginResult } from "./LoginResult.js";
+import securityConfig from "../../../config/security.js";
 
 const PRIVATE_KEY = securityConfig.private_key
 

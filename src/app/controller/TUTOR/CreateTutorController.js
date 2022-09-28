@@ -1,4 +1,4 @@
-import CreateTutorService from "../../service/TUTOR/CreateTutorService";
+import CreateTutorService from "../../service/TUTOR/CreateTutorService.js";
 
 export default class CreateTutorController {
   constructor() {

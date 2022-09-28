@@ -2,6 +2,7 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
+    console.log('chegou na migration proced')
    
     return queryInterface.createTable('procedimentos', {
       id: {
