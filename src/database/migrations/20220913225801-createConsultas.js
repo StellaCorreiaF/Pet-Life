@@ -2,8 +2,9 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-   
+    console.log('chegou na migration consulta')
     return queryInterface.createTable('consultas', {
+      
       id: {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,

@@ -2,6 +2,7 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
+    console.log('chegou na migration pet')
    
     return queryInterface.createTable('pets', {
       id: {

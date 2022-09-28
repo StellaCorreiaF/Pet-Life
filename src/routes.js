@@ -1,5 +1,7 @@
 import Router from "express";
 
+console.log('chegou nas rotas ')
+
 //VET CONTROLLERS
 import CreateVetController from "./app/controller/VET/CreateVetController.js";
 import ListAllVetsController from "./app/controller/VET/ListAllVetsController.js";

@@ -2,6 +2,7 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
+    console.log('chegou na migration vets')
     await queryInterface.createTable('veterinarios', {
       id: {
         type: Sequelize.UUID,

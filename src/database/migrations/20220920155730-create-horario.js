@@ -2,6 +2,7 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
+    console.log('chegou na migration horarios')
     return queryInterface.createTable('horarios', {
       
       id: {
