@@ -36,16 +36,13 @@ import ListAllConsultaController from "./app/controller/CONSULTAS/ListConsultaCo
 import UpdateConsultaController from "./app/controller/CONSULTAS/UpdateConsultaController.js";
 import DeleteConsultaController from "./app/controller/CONSULTAS/DeleteConsultaController.js";
 
-//APPOINTMENTS CONTROLLERS
-import AgendaController from "./app/controller/Agendamentos/AgendaController.js";
-import HorarioController from "./app/controller/Agendamentos/HorarioController.js";
 
 //MIDDLEWARES
 import tutorValidator from "./middlewares/tutorValidator.js";
 import vetValidator from "./middlewares/VetValidator.js";
 import petValidator from "./middlewares/PetValidator.js";
 import consultaValidator from "./middlewares/ConsultaValidator.js";
-import DiasDisponiveisValidator from "./middlewares/DiasDisponiveisValidator.js";
+
 
 import LoginController from "./app/controller/AUTH/LoginController";
 import loggedIn from "./middlewares/authValidator";
@@ -90,16 +87,6 @@ const updateConsultaController = new UpdateConsultaController();
 const deleteConsultaController = new DeleteConsultaController();
 
 //Horarios
-
-const createHorarioController = new HorarioController();
-const listHorariosController = new HorarioController();
-const deleteHorarioController = new HorarioController();
-
-//Agendamentos
-
-const createAgendamentoController = new AgendaController();
-const listAgendamentosController = new AgendaController();
-const deleteAgendamentoController = new AgendaController();
 
 //auth
 const loginController = new LoginController();
@@ -242,18 +229,5 @@ routes.delete("/horarios/:id", (req, res) => {
   deleteHorarioController.delete(req, res);
 });
 
-// ROTAS AGENDAMENTOS
-
-routes.post("/agendamentos", (req, res) => {
-  createAgendamentoController.create(req, res);
-});
-
-routes.get("/agendamentos", (req, res) => {
-  listAgendamentosController.listAll(req, res);
-});
-
-routes.delete("/agendamentos/:id", (req, res) => {
-  deleteAgendamentoController.delete(req, res);
-});
 
 export default routes;
