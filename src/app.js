@@ -8,14 +8,11 @@ class App {
     this.initializeDatabase();
     this.middlewares();
     this.routes();
-
-    console.log('chegou aqui em app app ')
   }
 
   middlewares() {
     this.server.use(express.json());
-    
-console.log('chegou em app middlewares()')
+
   }
 
   routes() {

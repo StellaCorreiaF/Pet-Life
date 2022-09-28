@@ -4,13 +4,10 @@ import databaseConfig from "../config/database.js";
 class Database {
   constructor() {
     this.init();
-
-    console.log('chegou em index database ')
   }
 
   init() {
     this.connection = new Sequelize(databaseConfig);
-    console.log('chegou em index init')
   }
 }
 

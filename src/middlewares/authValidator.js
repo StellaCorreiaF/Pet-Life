@@ -4,8 +4,6 @@ import Tutores from "../app/models/Tutores.js";
 import Veterinarios from "../app/models/Veterinarios.js";
 
 
-console.log('chegou nas middlewares de auth ')
-
 export default function loggedIn(req, res, next) {
 
     let token = req.header('Authorization');
