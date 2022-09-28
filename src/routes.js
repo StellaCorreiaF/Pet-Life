@@ -1,7 +1,5 @@
 import Router from "express";
 
-console.log('chegou nas rotas ')
-
 //VET CONTROLLERS
 import CreateVetController from "./app/controller/VET/CreateVetController.js";
 import ListAllVetsController from "./app/controller/VET/ListAllVetsController.js";
@@ -27,11 +25,10 @@ import ListProcedController from "./app/controller/PROCEDIMENTOS/ListProcedContr
 import DeleteProcedController from "./app/controller/PROCEDIMENTOS/DeleteProcedController";
 import UpdateProcedController from "./app/controller/PROCEDIMENTOS/UpdateProcedController";
 
-import CreateProcedController from "./app/controller/PROCEDIMENTOS/CreateProcedController.js"
-import ListProcedController from "./app/controller/PROCEDIMENTOS/ListProcedController.js"
-import DeleteProcedController from "./app/controller/PROCEDIMENTOS/DeleteProcedController.js"
-import UpdateProcedController from "./app/controller/PROCEDIMENTOS/UpdateProcedController.js"
-
+import CreateProcedController from "./app/controller/PROCEDIMENTOS/CreateProcedController.js";
+import ListProcedController from "./app/controller/PROCEDIMENTOS/ListProcedController.js";
+import DeleteProcedController from "./app/controller/PROCEDIMENTOS/DeleteProcedController.js";
+import UpdateProcedController from "./app/controller/PROCEDIMENTOS/UpdateProcedController.js";
 
 //CONSULTS CONTROLLERS
 import CreateConsultaController from "./app/controller/CONSULTAS/CreateConsultaController.js";
@@ -56,8 +53,13 @@ import loggedIn from "./middlewares/authValidator";
 import swagger from "swagger-ui-express";
 import swaggerJson from "./docs/swagger.json";
 
-import { VetIsAuthorized, tutorIsAuthorized, isTutorOfPet, isTutorLoggedIsSameTarget, isVetLoggedIsSameTarget } from './middlewares/autorizationValidator.js';
-
+import {
+  VetIsAuthorized,
+  tutorIsAuthorized,
+  isTutorOfPet,
+  isTutorLoggedIsSameTarget,
+  isVetLoggedIsSameTarget,
+} from "./middlewares/autorizationValidator.js";
 
 const routes = new Router();
 

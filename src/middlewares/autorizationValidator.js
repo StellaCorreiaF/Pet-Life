@@ -4,9 +4,6 @@ import Tutores from '../app/models/Tutores.js';
 import Veterinarios from '../app/models/Veterinarios.js';
 import type from '../app/service/AUTH/authModel.js';
 
-
-console.log('chegou nas middlewares de authoriz ')
-
 export function tutorIsAuthorized(req, res, next) {
     const user = req.user;
     
