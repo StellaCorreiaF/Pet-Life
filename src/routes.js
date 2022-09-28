@@ -53,16 +53,9 @@ import DiasDisponiveisValidator from "./middlewares/DiasDisponiveisValidator.js"
 import LoginController from "./app/controller/AUTH/LoginController";
 import loggedIn from "./middlewares/authValidator";
 
-import {
-  VetIsAuthorized,
-  tutorIsAuthorized,
-  isTutorOfPet,
-  isTutorLoggedIsSameTarget,
-  isVetLoggedIsSameTarget,
-} from "./middlewares/autorizationValidator";
 import swagger from "swagger-ui-express";
 import swaggerJson from "./docs/swagger.json";
-=======
+
 import { VetIsAuthorized, tutorIsAuthorized, isTutorOfPet, isTutorLoggedIsSameTarget, isVetLoggedIsSameTarget } from './middlewares/autorizationValidator.js';
 
 
