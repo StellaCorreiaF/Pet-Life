@@ -1,0 +1,466 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Pet-Life",
+    "description": "Um sistema para uma clínica veterinária onde serão cadastrados todos os veterinários que trabalham na clínica, todos os PET atendidos e seus respectivos donos. O registro do PET conterá todas as informações sobre ele (idade, peso, tipo sanguíneo, última consulta, etc). Então a ideia é que o dono do PET possa acessar as informações do seu PET com login e senha, e poder ver essas informações cadastradas nesse sistema.",
+    "contact": {},
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "description": "localhost",
+      "url": "http://localhost:3030",
+      "variables": {}
+    }
+  ],
+  "paths": {
+    "/vets": {
+      "get": {
+        "summary": "List Vet",
+        "tags": ["Veterinarios"],
+        "operationId": "ListVet",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Vet",
+        "tags": ["Veterinarios"],
+        "operationId": "CreateVet",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/vets/": {
+      "put": {
+        "summary": "Update Vet",
+        "tags": ["Veterinarios"],
+        "operationId": "UpdateVet",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Vet",
+        "tags": ["Veterinarios"],
+        "operationId": "DeleteVet",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/tutor": {
+      "get": {
+        "summary": "List Tutor",
+        "tags": ["Tutor"],
+        "operationId": "ListTutor",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Tutor",
+        "tags": ["Tutor"],
+        "operationId": "CreateTutor",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "put": {
+        "summary": "Update Tutor",
+        "tags": ["Tutor"],
+        "operationId": "UpdateTutor",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/tutor/": {
+      "delete": {
+        "summary": "Delete Tutor",
+        "tags": ["Tutor"],
+        "operationId": "DeleteTutor",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/pets": {
+      "get": {
+        "summary": "List Pet",
+        "tags": ["Pet"],
+        "operationId": "ListPet",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Pet",
+        "tags": ["Pet"],
+        "operationId": "CreatePet",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/pets/": {
+      "put": {
+        "summary": "Update Pet",
+        "tags": ["Pet"],
+        "operationId": "UpdatePet",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Pet",
+        "tags": ["Pet"],
+        "operationId": "DeletePet",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/procedimentos": {
+      "get": {
+        "summary": "List Procedimentos",
+        "tags": ["Procedimenos"],
+        "operationId": "ListProcedimentos",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Procedimentos",
+        "tags": ["Procedimenos"],
+        "operationId": "CreateProcedimentos",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/procedimentos/": {
+      "get": {
+        "summary": "List Procedimentos (ID)",
+        "tags": ["Procedimenos"],
+        "operationId": "ListProcedimentos(ID)",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "put": {
+        "summary": "Update Procedimentos",
+        "tags": ["Procedimenos"],
+        "operationId": "UpdateProcedimentos",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Procedimentos",
+        "tags": ["Procedimenos"],
+        "operationId": "DeleteProcedimentos",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/consultas": {
+      "get": {
+        "summary": "List Consulta",
+        "tags": ["Consultas"],
+        "operationId": "ListConsulta",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Consulta",
+        "tags": ["Consultas"],
+        "operationId": "CreateConsulta",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/consultas/": {
+      "put": {
+        "summary": "Update Consulta",
+        "tags": ["Consultas"],
+        "operationId": "UpdateConsulta",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete Consulta",
+        "tags": ["Consultas"],
+        "operationId": "DeleteConsulta",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "summary": "Login",
+        "tags": ["Login"],
+        "operationId": "Login",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/horarios": {
+      "get": {
+        "summary": "List Horario",
+        "tags": ["Horarios"],
+        "operationId": "ListHorario",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Horario",
+        "tags": ["Horarios"],
+        "operationId": "CreateHorario",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/horarios/": {
+      "delete": {
+        "summary": "Delete Horario",
+        "tags": ["Horarios"],
+        "operationId": "DeleteHorario",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/agendamentos": {
+      "get": {
+        "summary": "List Agendamento",
+        "tags": ["AGENDAMENTOS"],
+        "operationId": "ListAgendamento",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Agendamento",
+        "tags": ["AGENDAMENTOS"],
+        "operationId": "CreateAgendamento",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/agendamentos/": {
+      "delete": {
+        "summary": "Delete Agendamento",
+        "tags": ["AGENDAMENTOS"],
+        "operationId": "DeleteAgendamento",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Veterinarios"
+    },
+    {
+      "name": "Tutor"
+    },
+    {
+      "name": "Pet"
+    },
+    {
+      "name": "Procedimenos"
+    },
+    {
+      "name": "Consultas"
+    },
+    {
+      "name": "Login"
+    },
+    {
+      "name": "Horarios"
+    },
+    {
+      "name": "AGENDAMENTOS"
+    }
+  ]
+}
