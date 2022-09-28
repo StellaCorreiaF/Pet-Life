@@ -344,99 +344,7 @@
         }
       }
     },
-    "/horarios": {
-      "get": {
-        "summary": "List Horario",
-        "tags": ["Horarios"],
-        "operationId": "ListHorario",
-        "deprecated": false,
-        "produces": ["application/json"],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        }
-      },
-      "post": {
-        "summary": "Create Horario",
-        "tags": ["Horarios"],
-        "operationId": "CreateHorario",
-        "deprecated": false,
-        "produces": ["application/json"],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        }
-      }
-    },
-    "/horarios/": {
-      "delete": {
-        "summary": "Delete Horario",
-        "tags": ["Horarios"],
-        "operationId": "DeleteHorario",
-        "deprecated": false,
-        "produces": ["application/json"],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        }
-      }
-    },
-    "/agendamentos": {
-      "get": {
-        "summary": "List Agendamento",
-        "tags": ["AGENDAMENTOS"],
-        "operationId": "ListAgendamento",
-        "deprecated": false,
-        "produces": ["application/json"],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        }
-      },
-      "post": {
-        "summary": "Create Agendamento",
-        "tags": ["AGENDAMENTOS"],
-        "operationId": "CreateAgendamento",
-        "deprecated": false,
-        "produces": ["application/json"],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        }
-      }
-    },
-    "/agendamentos/": {
-      "delete": {
-        "summary": "Delete Agendamento",
-        "tags": ["AGENDAMENTOS"],
-        "operationId": "DeleteAgendamento",
-        "deprecated": false,
-        "produces": ["application/json"],
-        "parameters": [],
-        "responses": {
-          "200": {
-            "description": "",
-            "headers": {}
-          }
-        }
-      }
-    }
-  },
+
   "tags": [
     {
       "name": "Veterinarios"
@@ -455,12 +363,6 @@
     },
     {
       "name": "Login"
-    },
-    {
-      "name": "Horarios"
-    },
-    {
-      "name": "AGENDAMENTOS"
     }
   ]
-}
+}}

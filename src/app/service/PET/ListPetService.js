@@ -17,11 +17,9 @@ export default class ListPetService {
         }
     } 
 
-    async listOne(petName){ 
+    async listOne(petId){ 
         try{ 
-            const pet = await Pets.findOne({ 
-                where: {nome: petName},
-            }); 
+            const pet = await Pets.findByPk(petId)
 
             if(!pet){ 
                 return { mensagem: "Pet não encontrado"};

@@ -22,9 +22,7 @@ export default class UpdateTutorController {
       cidade,
       uf
     );
-    if (!updatedTutor.sucess) {
-      return response.status(400).json(updatedTutor.message);
-    }
-    return response.status(200).json(updatedTutor.message);
+    
+    return response.status(200).json(updatedTutor);
   }
 }

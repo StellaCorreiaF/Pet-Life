@@ -13,5 +13,14 @@ export default class ListPetcontroller {
 
         response.json(pets)
     }
+
+    async listById(request, response) {
+        const { id } = request.params; 
+        const pet = await this.service.listOne(id); 
+
+        response.json(pet); 
+
+
+    }
 }
 

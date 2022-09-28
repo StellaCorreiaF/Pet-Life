@@ -40,7 +40,7 @@ export default class UpdateVeterinarioService {
       if (numeroDeRegistrosAtualizados === 0) {
         return { message: "Dados iguais" };
       } else {
-        return {
+        return {message: 
           id,
           nome,
           telefone,

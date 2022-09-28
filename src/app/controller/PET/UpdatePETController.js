@@ -27,9 +27,7 @@ export default class UpdatePETController {
       porte,
       especie,
     )
-    if (!updatedPet.sucess) {
-      return response.status(400).json(updatedPet.message);
-    }
+    
     return response.status(200).json(updatedPet)
   }
 }

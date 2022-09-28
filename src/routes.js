@@ -98,12 +98,13 @@ routes.use("/docs", swagger.serve, swagger.setup(swaggerJson));
 routes.get("/pets", loggedIn, VetIsAuthorized, (req, res) =>
   listPETController.index(req, res)
 );
+routes.get("/pets/:id", loggedIn,  (req, res) => listPETController.listById(req, res));
 
 routes.post("/pets", loggedIn, tutorIsAuthorized, petValidator, (req, res) =>
   createPETController.create(req, res)
 );
 
-routes.put("/pets/:id", loggedIn, isTutorOfPet, petValidator, (req, res) =>
+routes.put("/pets/:id", loggedIn, isTutorOfPet, (req, res) =>
   updatePETController.update(req, res)
 );
 

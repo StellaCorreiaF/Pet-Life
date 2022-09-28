@@ -25,7 +25,7 @@ export function VetIsAuthorized(req, res, next) {
 export const isTutorOfPet = async (req, res, next) => {
     console.log("CHEGOU NA MIDDLEWARE")
     const user = req.user;
-    const petId = req.body.id;
+    const petId = req.params.id;
     const pet = await Pets.findByPk(petId);
     
     console.log("pet", pet.tutorId)
