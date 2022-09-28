@@ -2,19 +2,19 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Pet-Life",
-    "description": "Um sistema para uma clínica veterinária onde serão cadastrados todos os veterinários que trabalham na clínica, todos os PET atendidos e seus respectivos donos. O registro do PET conterá todas as informações sobre ele (idade, peso, tipo sanguíneo, última consulta, etc). Então a ideia é que o dono do PET possa acessar as informações do seu PET com login e senha, e poder ver essas informações cadastradas nesse sistema.",
+    "description": "",
     "contact": {},
     "version": "1.0"
   },
   "servers": [
     {
-      "description": "Localhost",
+      "description": "localhost",
       "url": "http://localhost:3000",
       "variables": {}
     }
   ],
   "paths": {
-    "/": {
+    "/vets": {
       "get": {
         "summary": "List Vet",
         "tags": ["Veterinarios"],
@@ -28,13 +28,11 @@
             "headers": {}
           }
         }
-      }
-    },
-    "/vets": {
+      },
       "post": {
-        "summary": "New Request",
+        "summary": "Create Vet",
         "tags": ["Veterinarios"],
-        "operationId": "NewRequest",
+        "operationId": "CreateVet",
         "deprecated": false,
         "produces": ["application/json"],
         "parameters": [],
@@ -48,9 +46,9 @@
     },
     "/vets/": {
       "put": {
-        "summary": "New Request1",
+        "summary": "Update Vet",
         "tags": ["Veterinarios"],
-        "operationId": "NewRequest1",
+        "operationId": "UpdateVet",
         "deprecated": false,
         "produces": ["application/json"],
         "parameters": [],
@@ -62,9 +60,9 @@
         }
       },
       "delete": {
-        "summary": "New Request2",
+        "summary": "Delete Vet",
         "tags": ["Veterinarios"],
-        "operationId": "NewRequest2",
+        "operationId": "DeleteVet",
         "deprecated": false,
         "produces": ["application/json"],
         "parameters": [],
@@ -77,6 +75,20 @@
       }
     },
     "/tutor": {
+      "get": {
+        "summary": "List Tutor",
+        "tags": ["Tutor"],
+        "operationId": "ListTutor",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
       "post": {
         "summary": "Create Tutor",
         "tags": ["Tutor"],
@@ -183,6 +195,20 @@
       }
     },
     "/procedimentos": {
+      "get": {
+        "summary": "List Procedimentos",
+        "tags": ["Procedimenos"],
+        "operationId": "ListProcedimentos",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
       "post": {
         "summary": "Create Procedimentos",
         "tags": ["Procedimenos"],
@@ -199,6 +225,20 @@
       }
     },
     "/procedimentos/": {
+      "get": {
+        "summary": "List Procedimentos (ID)",
+        "tags": ["Procedimenos"],
+        "operationId": "ListProcedimentos(ID)",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
       "put": {
         "summary": "Update Procedimentos",
         "tags": ["Procedimenos"],
@@ -290,9 +330,9 @@
     },
     "/login": {
       "post": {
-        "summary": "New Request",
+        "summary": "Login",
         "tags": ["Login"],
-        "operationId": "PostNewRequest",
+        "operationId": "Login",
         "deprecated": false,
         "produces": ["application/json"],
         "parameters": [],
@@ -351,6 +391,20 @@
       }
     },
     "/agendamentos": {
+      "get": {
+        "summary": "List Agendamento",
+        "tags": ["AGENDAMENTOS"],
+        "operationId": "ListAgendamento",
+        "deprecated": false,
+        "produces": ["application/json"],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      },
       "post": {
         "summary": "Create Agendamento",
         "tags": ["AGENDAMENTOS"],
