@@ -55,6 +55,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [MySQL](https://dev.mysql.com/doc/)
 - [Git](https://git-scm.com/doc)
 - [GitHub](https://github.com/)
+- [Swagger](https://swagger.io/)
 
 
 ## 	 💻 Desenvolvedores: 
